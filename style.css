@@ -1,0 +1,104 @@
+html{
+  background-color: black;
+}
+
+.header{
+  background-color: navy;
+}
+
+.cardSet{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.chooseCards, .hand{
+  height:300px;
+  width:200px;
+  cursor: pointer;
+  padding: 3px;
+  border: 4px solid black;
+}
+
+.level {
+  padding-right: 50px;
+}
+
+.hand {
+  padding:20px !important;
+}
+
+.add-border{
+  height:300px;
+  width:200px;
+  cursor: pointer;
+  border-color: white !important;
+
+}
+
+.active-selected{
+  height:300px;
+  width:200px;
+  cursor: pointer;
+  border-color: red !important;
+}
+
+.discard-selected,
+.lost-selected,
+.must-lose{
+  cursor: pointer;
+  border-color: red !important;
+}
+.card-counter{
+  background-color:cyan
+  height:50px;
+  width:50px;
+  font-size:25px;
+  color:white;
+  font-weight:bold;
+  text-align: center;
+}
+
+#play-game {
+  color: white;
+  font-size:25px;
+}
+
+#chosen-cards-title{
+  padding:20px;
+}
+#active-cards-title {
+  padding: 20px;
+}
+#discarded-cards-title {
+  padding: 20px;
+  }
+#lost-cards-title {
+  padding: 20px;
+}
+.card-in-play, .active-card{
+  height:250px;
+  width:167px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+
+.discarded, .lost{
+  height: 200px;
+  width: 133px;
+  cursor: pointer;
+  border: 4px solid black
+}
+
+.hiding{
+  display:none;
+}
+.visible{
+  display:block;
+}
+
+#choose-to-lose{
+  color:red;
+}

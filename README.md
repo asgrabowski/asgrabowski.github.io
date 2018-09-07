@@ -1,0 +1,1 @@
+# Gloomhaven-Card-Manager

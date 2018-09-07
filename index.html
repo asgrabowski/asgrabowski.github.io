@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Brute Card Manager</title>
+    <link href = "./style.css" type = "text/css" rel = "stylesheet">
+  </head>
+  <body>
+    <div id = "initial-table" class = "cardSet">
+      <h2 class = "header">Choose 10 Cards</h2>
+      <div align = "center">
+        <p id = "card-counter" class = "card-counter" align = "center">0/10</p>
+      </div>
+      <table class ="cardTable" align = "center">
+        <tr id = "level-1">
+          <td class = "level">Level 1:</td>
+          <td><img id = "BM" class = "chooseCards BM" src = "./Level 1 Balanced Measure.png" /></td>
+          <td><img id = "EfaE" class = "chooseCards EfaE" src = "./Level 1 Eye for an Eye.png" /></td>
+          <td><img id = "GaG" class = "chooseCards GaG" src = "./Level 1 Grab and Go.png" /></td>
+          <td><img id = "LC" class = "chooseCards LC" src = "./Level 1 Leaping Cleave.png" /></td>
+          <td><img id = "OA" class = "chooseCards OA" src = "./Level 1 Overwhelming Assault.png" /></td>
+        </tr>
+        <tr id = "level-1">
+          <td class = "level">Level 1:</td>
+          <td><img id = "PR" class = "chooseCards PR" src = "./Level 1 Provoking Roar.png" /></td>
+          <td><img id = "SBash" class = "chooseCards SBash" src = "./Level 1 Shield Bash.png" /></td>
+          <td><img id = "Skewer" class = "chooseCards Skewer" src = "./Level 1 Skewer.png" /></td>
+          <td><img id = "SD" class = "chooseCards SD" src = "./Level 1 Spare Dagger.png" /></td>
+          <td><img id = "SBlow" class = "chooseCards SBlow" src = "./Level 1 Sweeping Blow.png" /></td>
+        </tr>
+        <tr id = "level-1">
+          <td class = "level">Level 1:</td>
+          <td><img id = "Trample" class = "chooseCards Trample" src = "./Level 1 Trample.png" /></td>
+          <td><img id = "WoD" class = "chooseCards WoD" src = "./Level 1 Wall of Doom.png" /></td>
+          <td><img id = "WS" class = "chooseCards WS" src = "./Level 1 Warding Strength.png" /></td>
+        </tr>
+        <tr id = "level-2-3">
+          <td class = "level">Level 2:</td>
+          <td><img id = "FA" class = "chooseCards FA" src = "./Level 2 Fatal Advance.png" /></td>
+          <td><img id = "Juggernaut" class = "chooseCards Juggernaut" src = "./Level 2 Juggernaut.png" /></td>
+          <td>Level 3:</td>
+          <td><img id = "BF" class = "chooseCards BF" src = "./Level 3 Brute Force.png" /></td>
+          <td><img id = "HaC" class = "chooseCards HaC" src = "./Level 3 Hook and Chain.png" /></td>
+        </tr>
+        <tr id = "level-4-5">
+          <td class = "level">Level 4:</td>
+          <td><img id = "DH" class = "chooseCards DH" src = "./Level 4 Devastating Hack.png" /></td>
+          <td><img id = "UC" class = "chooseCards UC" src = "./Level 4 Unstoppable Charge.png" /></td>
+          <td>Level 5:</td>
+          <td><img id = "SM" class = "chooseCards SM" src = "./Level 5 Skirmishing Maneuver.png" /></td>
+          <td><img id = "Whirlwind" class = "chooseCards Whirlwind" src = "./Level 5 Whirlwind.png" /></td>
+        </tr>
+        <tr id = "level-6-7">
+          <td class = "level">Level 6:</td>
+          <td><img id = "IP" class = "chooseCards IP" src = "./Level 6 Immovable Phalanx.png" /></td>
+          <td><img id = "Quietus" class = "chooseCards Quietus" src = "./Level 6 Quietus.png" /></td>
+          <td>Level 7:</td>
+          <td><img id = "CO" class = "chooseCards CO" src = "./Level 7 Crippling Offensive.png" /></td>
+          <td><img id = "DT" class = "chooseCards DT" src = "./Level 7 Defensive Tactics.png" /></td>
+        </tr>
+        <tr id = "level-8-9">
+          <td class = "level">Level 8:</td>
+          <td><img id = "FO" class = "chooseCards FO" src = "./Level 8 Frenzied Onslaught.png" /></td>
+          <td><img id = "SR" class = "chooseCards SR" src = "./Level 8 Selfish Retribution.png" /></td>
+          <td>Level 9:</td>
+          <td><img id = "FYE" class = "chooseCards FYE" src ="./Level 9 Face Your End.png" /></td>
+          <td><img id = "KotH" class = "chooseCards KotH" src = "./Level 9 King of the Hill.png" /></td>
+        </tr>
+      </table>
+    </div>
+    <div id = "play-game" class = "hiding" align="center">
+      <table>
+        <tr>
+          <td id = "chosen-cards-title">Chosen Cards<br/>
+          <img id = "chosen-card-1" class = "card-in-play flipped" src = "./Card Back.png"/>
+          <img id = "chosen-card-2" class = "card-in-play flipped" src = "./Card Back.png"/><br/>
+          <button id = "discard-button" type="button">Discard Card</button>
+          <button id = "lose-button" type="button">Lose Card</button>
+          <button id = "activate-button" type"button">Move Card to Active</button></td>
+          <td id = "active-cards-title">Active Cards<br/>
+            <table id ="active-table" align = "center">
+              <tr>
+                <td> <img id = "active1" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "active2" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "active3" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+              <tr>
+                <td> <img id = "active4" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "active5" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "active6" class = "active-card flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+            </table>
+          <button id = "discard-active-card" type="button">Discard Active Card</button>
+          <button id = "lose-active-card" type = "button">Lose Active Card</button></td>
+        </tr>
+        <tr>
+          <td id = "discarded-cards-title">Discarded Cards<br/>
+            <table id ="discard-table">
+              <tr>
+                <td> <img id = "discard1" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard2" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard3" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard4" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard5" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+              <tr>
+                <td> <img id = "discard6" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard7" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard8" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard9" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "discard10" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+            </table>
+            <button id = "short-rest-button" type="button">Short Rest</button>
+            <button id = "long-rest-button" type="button">Long Rest</button>
+            <button id = "recover-discard-button" type="button">Recover Discarded Card</button><br/>
+            <button id = "lose-discard-button" type = "button">Lose Card From Rest</button>
+            <button id = "reroll-random-card-button" type = "button">Reroll Lost Card</button>
+          </td>
+          <td id = "lost-cards-title">Lost Cards<br/>
+            <table id ="lost-table">
+              <tr>
+                <td> <img id = "lost1" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost2" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost3" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost4" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost5" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+              <tr>
+                <td> <img id = "lost6" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost7" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost8" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost9" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost10" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+            </table>
+            <button id = "recover-lost" type="button">Recover Lost Card</button></td>
+          </tr>
+        </table>
+    </div>
+    <div id = "hand-cards">
+        <table align = "center">
+          <tr>
+            <td><img id = "card1" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card2" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card3" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card4" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card5" class = "hand flipped" src = "./Card Back.png" /></td>
+          </tr>
+          <tr>
+            <td><img id = "card6" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card7" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card8" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card9" class = "hand flipped" src = "./Card Back.png" /></td>
+            <td><img id = "card10" class = "hand flipped" src = "./Card Back.png" /></td>
+          </tr>
+        </table>
+      </div>
+      <div align = "center">
+        <button id = "confirm-hand" type="button">Confirm Hand</button>
+        <button id = "play-cards-button" class = "hiding" type="button" >Play Cards</button>
+      </div>
+
+  </body>
+  <script type = "text/javascript" src = "./script.js"></script>
+</html>
