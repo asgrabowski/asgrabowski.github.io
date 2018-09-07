@@ -960,6 +960,7 @@ longRestButton.onclick = () => {
 recoverDiscardButton.onclick = () => {
   if(!shortResting && !longResting && !mustLose && discardsSelected>0){
     discardsSelected = 0;
+    discardCount--;
     var selectedDiscards = document.querySelectorAll(".discard-selected");
     var selectedDiscard = selectedDiscards[0];
     selectedDiscard.classList.remove("discard-selected");
