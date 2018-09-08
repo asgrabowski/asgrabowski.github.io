@@ -4,6 +4,24 @@ html{
 
 .header{
   background-color: navy;
+  font-size: 50px;
+  font-family: "Palatino Linotype";
+}
+
+.character{
+  cursor:pointer;
+  height:300px;
+  width:200px;
+  border-radius:25%;
+  padding: 20px;
+  border: 3px solid black;
+}
+
+.character-title{
+  color:white;
+  font-size: 35px;
+  font-family: "Palatino Linotype";
+  font-weight: bold;
 }
 
 .cardSet{
@@ -27,6 +45,10 @@ html{
 
 .hand {
   padding:20px !important;
+}
+
+.character-selected{
+  border-color: white;
 }
 
 .add-border{
@@ -101,4 +123,9 @@ html{
 
 #choose-to-lose{
   color:red;
+}
+
+.button {
+  font-family: "Palatino Linotype";
+  font-size: 20px;
 }

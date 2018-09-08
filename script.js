@@ -2,6 +2,7 @@
 let flippedCard = "./Card Back.png";
 
 //cards in hand
+let handSize = 0;
 let cardHand1 = document.getElementById('card1');
 let cardHand2 = document.getElementById('card2');
 let cardHand3 = document.getElementById('card3');
@@ -12,6 +13,8 @@ let cardHand7 = document.getElementById('card7');
 let cardHand8 = document.getElementById('card8');
 let cardHand9 = document.getElementById('card9');
 let cardHand10 = document.getElementById('card10');
+let cardHand11 = document.getElementById('card11');
+let cardHand12 = document.getElementById('card12');
 
 //cards that are discarded, lost, or active
 let discard1 = document.getElementById('discard1');
@@ -54,6 +57,7 @@ let loseActiveCardButton = document.getElementById('lose-active-card');
 let recoverLostCardButton = document.getElementById('recover-lost');
 let loseCardFromRestButton = document.getElementById('lose-discard-button');
 let rerollShortRestButton = document.getElementById('reroll-random-card-button');
+let confirmCharacterButton = document.getElementById('confirm-character-button');
 //play cards variables
 
 let playCard1 = "";
@@ -64,60 +68,246 @@ let cardCount = 0;
 let discardCount = 0;
 let cardCounter = document.getElementById('card-counter');
 let cardsInPlayCounter = 0;
+let chooseCardsNumber = document.getElementById('choose-cards-number');
+
+//characters
+let brute = document.getElementById('brute');
+let cragheart = document.getElementById('cragheart');
+let mindthief = document.getElementById('mindthief');
+let spellweaver = document.getElementById('spellweaver');
+let scoundrel = document.getElementById('scoundrel');
+let tinkerer = document.getElementById('tinkerer');
+
+let characterSelected = false;
+var characterPortraits = document.querySelectorAll(".character");
+for (var i = 0; i<characterPortraits.length; i++){
+  (function (){
+    var characterPortrait = characterPortraits[i];
+    characterPortrait.onclick = () => {
+      if (!isSelected(characterPortrait) && !characterSelected){
+        characterSelected = true;
+        characterPortrait.classList.add("character-selected");
+      } else if(!isSelected(characterPortrait) && characterSelected){
+        var charactersSelected = document.querySelectorAll(".character-selected");
+        var selectedCharacter = charactersSelected[0];
+        selectedCharacter.classList.remove("character-selected");
+        characterPortrait.classList.add("character-selected");
+      } else if(isSelected(characterPortrait) && characterSelected){
+        characterSelected = false;
+        characterPortrait.classList.remove("character-selected");
+      }
+    }
+  }).call(this,i);
+}
+
+
+
+confirmCharacterButton.onclick = () => {
+  if(cragheart.classList.contains("character-selected")){
+    flippedCard = "./0002.jpg";
+    handSize = 11;
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if(!(i === 14)){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './0"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = "";
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  } else if(brute.classList.contains("character-selected")){
+    flippedCard = "./Card Back.png";
+    handSize = 10
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<13) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './bt"+i+".png' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  } else if(mindthief.classList.contains("character-selected")){
+    flippedCard = "./mtBack.jpg";
+    handSize = 10
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<13) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './mt"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  } else if(spellweaver.classList.contains("character-selected")){
+    flippedCard = "./swBack.jpg";
+    handSize = 8
+    cardHand9.classList.add("hiding");
+    cardHand10.classList.add("hiding");
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<11) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './sw"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  } else if(scoundrel.classList.contains("character-selected")){
+    flippedCard = "./scBack.jpg";
+    handSize = 9
+    cardHand10.classList.add("hiding");
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<12) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './sc"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  } else if(tinkerer.classList.contains("character-selected")){
+    flippedCard = "./tiBack.jpg";
+    handSize = 12
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './ti"+i+".jpg' />";
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+  }
+  document.getElementById("select-class-section").classList.add("hiding");
+  document.getElementById("initial-table").classList.remove("hiding");
+  document.getElementById("hand-cards").classList.remove("hiding");
+  document.getElementById("confirm-buttons").classList.remove("hiding");
+  chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
+  cardCounter.innerHTML = "0/"+handSize;
+
+}
 
 //card selecting functions
-var cards = document.querySelectorAll(".chooseCards");
+var cards = document.querySelectorAll(".chooseCardsTable");
 for (var i = 0; i < cards.length; i++) {
   (function () {
   var card = cards[i];
     card.onclick = (function () {
-      if (!isSelected(card) && cardCount<10){
-        card.classList.add("add-border");
+      if (!isSelected(card.firstChild) && cardCount<handSize){
+        card.firstChild.classList.add("add-border");
         cardCount++;
-        cardCounter.innerHTML = cardCount + "/10";
+        cardCounter.innerHTML = cardCount + "/"+ handSize;
         if(cardHand1.classList.contains("flipped")){
-            cardHand1.src = card.src;
+            cardHand1.src = card.firstChild.src;
             cardHand1.classList.remove("flipped");
             cardHand1.classList.add(`${this.id}`)
           } else if (cardHand2.classList.contains("flipped")){
-            cardHand2.src = card.src;
+            cardHand2.src = card.firstChild.src;
             cardHand2.classList.remove("flipped");
             cardHand2.classList.add(`${this.id}`);
           } else if (cardHand3.classList.contains("flipped")){
-            cardHand3.src = card.src;
+            cardHand3.src = card.firstChild.src;
             cardHand3.classList.remove("flipped");
             cardHand3.classList.add(`${this.id}`);
           } else if (cardHand4.classList.contains("flipped")){
-            cardHand4.src = card.src;
+            cardHand4.src = card.firstChild.src;
             cardHand4.classList.remove("flipped");
             cardHand4.classList.add(`${this.id}`);
           } else if (cardHand5.classList.contains("flipped")){
-            cardHand5.src = card.src;
+            cardHand5.src = card.firstChild.src;
             cardHand5.classList.remove("flipped");
             cardHand5.classList.add(`${this.id}`);
           } else if (cardHand6.classList.contains("flipped")){
-            cardHand6.src = card.src;
+            cardHand6.src = card.firstChild.src;
             cardHand6.classList.remove("flipped");
             cardHand6.classList.add(`${this.id}`);
           } else if (cardHand7.classList.contains("flipped")){
-            cardHand7.src = card.src;
+            cardHand7.src = card.firstChild.src;
             cardHand7.classList.remove("flipped");
             cardHand7.classList.add(`${this.id}`);
           } else if (cardHand8.classList.contains("flipped")){
-            cardHand8.src = card.src;
+            cardHand8.src = card.firstChild.src;
             cardHand8.classList.remove("flipped");
             cardHand8.classList.add(`${this.id}`);
           } else if (cardHand9.classList.contains("flipped")){
-            cardHand9.src = card.src;
+            cardHand9.src = card.firstChild.src;
             cardHand9.classList.remove("flipped");
             cardHand9.classList.add(`${this.id}`);
           } else if (cardHand10.classList.contains("flipped")){
-            cardHand10.src = card.src;
+            cardHand10.src = card.firstChild.src;
             cardHand10.classList.remove("flipped");
             cardHand10.classList.add(`${this.id}`);
+          } else if (cardHand11.classList.contains("flipped")){
+            cardHand11.src = card.firstChild.src;
+            cardHand11.classList.remove("flipped");
+            cardHand11.classList.add(`${this.id}`);
+          } else if (cardHand12.classList.contains("flipped")){
+            cardHand12.src = card.firstChild.src;
+            cardHand12.classList.remove("flipped");
+            cardHand12.classList.add(`${this.id}`);
           }
       } else {
-        card.classList.remove("add-border");
+        card.firstChild.classList.remove("add-border");
         if(cardHand1.classList.contains(`${this.id}`)){
           flipCard(cardHand1);
           cardHand1.classList.remove("hiding");
@@ -148,6 +338,12 @@ for (var i = 0; i < cards.length; i++) {
         } else if (cardHand10.classList.contains(`${this.id}`)){
           flipCard(cardHand10);
           cardHand10.classList.remove("hiding");
+        } else if (cardHand11.classList.contains(`${this.id}`)){
+          flipCard(cardHand11);
+          cardHand11.classList.remove("hiding");
+        } else if (cardHand12.classList.contains(`${this.id}`)){
+          flipCard(cardHand12);
+          cardHand12.classList.remove("hiding");
         }
       }
     });
@@ -155,7 +351,7 @@ for (var i = 0; i < cards.length; i++) {
 };
 
 const isSelected = card => {
-  if (card.classList.contains("add-border") || card.classList.contains("discard-selected") || card.classList.contains("lost-selected") || card.classList.contains("active-selected")){
+  if (card.classList.contains("add-border") || card.classList.contains("discard-selected") || card.classList.contains("lost-selected") || card.classList.contains("active-selected") || card.classList.contains("character-selected")){
     return true;
   } else{
     return false;
@@ -178,7 +374,7 @@ const flipCard = card => {
   card.classList.add("hiding");
   if(!handChosen){
   cardCount--;
-  cardCounter.innerHTML = cardCount + "/10";
+  cardCounter.innerHTML = cardCount + "/"+ handSize;
 }
 };
 
@@ -229,7 +425,7 @@ let initialTable = document.getElementById('initial-table');
 let handChosen = false;
 
 confirmHandButton.onclick = () => {
-  if(cardCount === 10){
+  if(cardCount === handSize){
   initialTable.parentNode.removeChild(initialTable);
   document.getElementById('play-game').className = 'visible';
   document.getElementById('chosen-cards-title').setAttribute("style", "border: 1px solid white; text-align:center");
@@ -282,6 +478,10 @@ playCardsButton.onclick = () => {
       getCard1(cardHand8);
     }else if(cardHand9.classList.contains("add-border")){
       getCard1(cardHand9);
+    }else if(cardHand10.classList.contains("add-border")){
+      getCard1(cardHand10);
+    }else if(cardHand11.classList.contains("add-border")){
+      getCard1(cardHand11);
     }
     if(cardHand2.classList.contains("add-border")){
       getCard2(cardHand2);
@@ -301,6 +501,10 @@ playCardsButton.onclick = () => {
       getCard2(cardHand9);
     }else if(cardHand10.classList.contains("add-border")){
       getCard2(cardHand10);
+    }else if(cardHand11.classList.contains("add-border")){
+      getCard2(cardHand11);
+    }else if(cardHand12.classList.contains("add-border")){
+      getCard2(cardHand12);
     }
     cardCount = 0;
     chosenCard1.src = playCard1;
