@@ -129,3 +129,24 @@ html{
   font-family: "Palatino Linotype";
   font-size: 20px;
 }
+
+.status {
+  width:40px;
+  height:40px;
+  border: 3px solid white;
+}
+
+#status-effects, #xp, #health {
+  border: 1px solid white;
+}
+
+#spacer{
+  visibility:hidden;
+  width:0px;
+}
+
+#level-counter{
+  font-size:40px;
+  color:white;
+  font-family: "Palatino Linotype";
+}

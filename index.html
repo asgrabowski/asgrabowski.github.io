@@ -18,6 +18,12 @@
           <td><img id = "spellweaver" class = "character" src = "./Spellweaver.png"/><br/><p class = "character-title" align = "center">Spellweaver</p></td>
           <td><img id = "tinkerer" class = "character" src = "./Tinkerer.png"/><br/><p class = "character-title" align = "center">Tinkerer</p></td>
       </table>
+      <div id = "level-selection" align = "center">
+        <h2 class = "header" align = "center" style= "color:white;">Select Your Level</h2>
+        <p id = "level-counter">Level: 1</p><br/>
+        <button id="level-down" type ="button" style="font-size:40px;">-</button>
+        <button id="level-up" type ="button" style="font-size:40px;">+</button><br/>
+      </div><br/>
       <button id = "confirm-character-button" class = "button" type="button" align = "center">Confirm Character</button>
     </div>
     <div id = "initial-table" class = "cardSet hiding">
@@ -54,7 +60,7 @@
           <td class = "level">Level 2:</td>
           <td id = "FA" class = "chooseCardsTable FA"><img src = "./Level 2 Fatal Advance.png" /></td>
           <td id = "Juggernaut" class = "chooseCardsTable Juggernaut"><img src = "./Level 2 Juggernaut.png" /></td>
-          <td>Level 3:</td>
+          <td class = "level">Level 3:</td>
           <td id = "BF" class = "chooseCardsTable BF"><img src = "./Level 3 Brute Force.png" /></td>
           <td id = "HaC" class = "chooseCardsTable HaC"><img src = "./Level 3 Hook and Chain.png" /></td>
         </tr>
@@ -62,7 +68,7 @@
           <td class = "level">Level 4:</td>
           <td id = "DH" class = "chooseCardsTable DH"><img src = "./Level 4 Devastating Hack.png" /></td>
           <td id = "UC" class = "chooseCardsTable UC"><img src = "./Level 4 Unstoppable Charge.png" /></td>
-          <td>Level 5:</td>
+          <td class = "level">Level 5:</td>
           <td id = "SM" class = "chooseCardsTable SM"><img src = "./Level 5 Skirmishing Maneuver.png" /></td>
           <td id = "Whirlwind" class = "chooseCardsTable Whirlwind"><img src = "./Level 5 Whirlwind.png" /></td>
         </tr>
@@ -70,7 +76,7 @@
           <td class = "level">Level 6:</td>
           <td id = "IP" class = "chooseCardsTable IP"><img src = "./Level 6 Immovable Phalanx.png" /></td>
           <td id = "Quietus" class = "chooseCardsTable Quietus"><img src = "./Level 6 Quietus.png" /></td>
-          <td>Level 7:</td>
+          <td class = "level">Level 7:</td>
           <td id = "CO" class = "chooseCardsTable CO"><img src = "./Level 7 Crippling Offensive.png" /></td>
           <td id = "DT" class = "chooseCardsTable DT"><img src = "./Level 7 Defensive Tactics.png" /></td>
         </tr>
@@ -78,7 +84,7 @@
           <td class = "level">Level 8:</td>
           <td id = "FO" class = "chooseCardsTable FO" ><imgsrc = "./Level 8 Frenzied Onslaught.png" /></td>
           <td id = "SR" class = "chooseCardsTable SR"><img src = "./Level 8 Selfish Retribution.png" /></td>
-          <td>Level 9:</td>
+          <td class = "level">Level 9:</td>
           <td id = "FYE" class = "chooseCardsTable FYE"><img src ="./Level 9 Face Your End.png" /></td>
           <td id = "KotH" class = "chooseCardsTable KotH"><img src = "./Level 9 King of the Hill.png" /></td>
         </tr>
@@ -152,6 +158,37 @@
             </table>
             <button id = "recover-lost" class = "button"type="button">Recover Lost Card</button></td>
           </tr>
+          <tr>
+            <td id ="status-effects" align ="center" colspan="2">Status Effects<br/>
+            <img id = "poisoned" class = "status hiding" src = "./poisoned.png"/>
+            <img id = "wounded" class = "status hiding" src = "./wounded.png"/>
+            <img id = "immobilized" class = "status hiding" src = "./immobilized.png"/>
+            <img id = "disarmed" class = "status hiding" src = "./disarmed.png"/>
+            <img id = "spacer" class = "status" src = "./disarmed.png"/>
+            <img id = "stunned" class = "status hiding" src = "./stunned.png"/>
+            <img id = "muddled" class = "status hiding" src = "./muddled.png"/>
+            <img id = "invisible" class = "status hiding" src = "./invisible.png"/>
+            <img id = "strengthened" class = "status hiding" src = "./Strengthen.png"/><br/>
+            <button id ="toggle-poison" type = "button">Toggle Poisoned</button>
+            <button id ="toggle-wounded" type = "button">Toggle Wounded</button>
+            <button id ="toggle-immobilized" type = "button">Toggle Immobilized</button>
+            <button id ="toggle-disarmed" type = "button">Toggle Disarmed</button>
+            <button id ="toggle-stunned" type = "button">Toggle Stunned</button>
+            <button id ="toggle-muddled" type = "button">Toggle Muddled</button>
+            <button id ="toggle-invisible" type = "button">Toggle Invisible</button>
+            <button id ="toggle-strengthened" type = "button">Toggle Strengthened</button></td>
+          </tr>
+          <tr>
+            <td id ="health" align = "center">Health<br/>
+              <p id="health-counter"style="font-size: 35px; color:red;"></p><br/>
+              <button id="damage" type ="button" style="font-size:15px;">-</button>
+              <button id="heal" type ="button" style="font-size:15px;">+</button>
+            </td>
+            <td id ="xp" align = "center">Experience<br/>
+              <p id="xp-counter" style="font-size: 35px; color:cyan;"></p><br/>
+              <button id="xp-down" type ="button" style="font-size:15px;">-</button>
+              <button id="xp-up" type ="button" style="font-size:15px;">+</button>
+            </td>
         </table>
     </div>
     <div id = "hand-cards" class = "hiding">
