@@ -3,9 +3,10 @@ html{
 }
 
 .header{
-  background-color: navy;
+  background: url("./background.png");
   font-size: 50px;
   font-family: "Palatino Linotype";
+  color:black !important;
 }
 
 .character{
@@ -18,10 +19,11 @@ html{
 }
 
 .character-title{
-  color:white;
+  color:black;
   font-size: 35px;
   font-family: "Palatino Linotype";
   font-weight: bold;
+  background: url("./background.png")
 }
 
 .cardSet{
@@ -149,4 +151,24 @@ html{
   font-size:40px;
   color:white;
   font-family: "Palatino Linotype";
+}
+
+.active-tracker1,
+.active-tracker2,
+.active-tracker3,
+.active-tracker4,
+.active-tracker5,
+.active-tracker6{
+  width:100px;
+  height:50px;
+  cursor:pointer;
+  border:1px solid black;
+}
+
+.bordered{
+  border-color: white;
+}
+
+.invisible{
+  visibility:hidden;
 }
