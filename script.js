@@ -2353,6 +2353,10 @@ levelUp.onclick = () => {
   if(levelCount<9){
     levelCount++
     levelCounter.innerHTML = "Level: "+levelCount;
+    levelDown.classList.remove("at-min");
+    if(levelCount === 9){
+      levelUp.classList.add("at-max");
+    }
   }
 }
 
@@ -2360,6 +2364,10 @@ levelDown.onclick = () =>{
   if(levelCount>1){
     levelCount--
     levelCounter.innerHTML = "Level: "+levelCount;
+    levelUp.classList.remove("at-max");
+    if(levelCount === 1){
+      levelDown.classList.add("at-min");
+    }
   }
 }
 
