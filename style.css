@@ -172,3 +172,31 @@ html{
 .invisible{
   visibility:hidden;
 }
+
+.button:hover{
+
+}
+
+.not-while-resting:hover,
+.not-while-in-play:hover,
+.not-without-more-cards:hover,
+.not-without-more-selected:hover,
+.not-unless-resting:hover,
+.must-click-previous-tracker:hover,
+.can-only-do-once:hover,
+.at-max:hover,
+.at-min:hover{
+  cursor:not-allowed;
+}
+
+.not-while-resting,
+.not-while-in-play,
+.not-without-more-cards,
+.not-without-more-selected,
+.not-unless-resting,
+.must-click-previous-tracker,
+.can-only-do-once,
+.at-max,
+.at-min{
+  opacity:0.25;
+}

@@ -24,7 +24,7 @@
         <button id="level-down" type ="button" style="font-size:40px;">-</button>
         <button id="level-up" type ="button" style="font-size:40px;">+</button><br/>
       </div><br/>
-      <button id = "confirm-character-button" class = "button" type="button" align = "center">Confirm Character</button>
+      <button id = "confirm-character-button" class = "button tooltip not-without-more-selected" type="button" align = "center" title = "Must Select A Character">Confirm Character</button>
     </div>
     <div id = "initial-table" class = "cardSet hiding">
       <h2 id ="choose-cards-number" class = "header"></h2>
@@ -96,9 +96,9 @@
           <td id = "chosen-cards-title">Chosen Cards<br/>
           <img id = "chosen-card-1" class = "card-in-play flipped" src = "./Card Back.png"/>
           <img id = "chosen-card-2" class = "card-in-play flipped" src = "./Card Back.png"/><br/>
-          <button id = "discard-button" class = "button" type="button">Discard Card</button>
-          <button id = "lose-button" class = "button"type="button">Lose Card</button>
-          <button id = "activate-button" class = "button"type"button">Move Card to Active</button></td>
+          <button id = "discard-button" class = "button tooltip" type="button" title = "Must Have a Card In Play Selected">Discard Card</button>
+          <button id = "lose-button" class = "button tooltip"type="button"title = "Must Have a Card In Play Selected">Lose Card</button>
+          <button id = "activate-button" class = "button tooltip"type"button" title = "Must Have a Card In Play Selected">Move Card to Active</button></td>
           <td id = "active-cards-title">Active Cards<br/>
             <table id ="active-table" align = "center">
               <tr>
@@ -118,9 +118,9 @@
                       <button id = "tracker6-1" class = "tracker-button tracker-button6 invisible" type = "button">1</button><button id = "tracker6-2" class = "tracker-button6 invisible" type = "button">2</button><button id = "tracker6-3" class = "tracker-button6 invisible" type = "button">3</button><button id = "tracker6-4" class = "tracker-button6 invisible" type = "button">4</button><button id = "tracker6-5" class = "tracker-button6 invisible" type = "button">5</button><button id = "tracker6-6" class = "tracker-button6 invisible" type = "button">6</button></td>
               </tr>
             </table>
-          <button id = "discard-active-card" class = "button"type="button">Discard Active Card</button>
-          <button id = "lose-active-card"class = "button" type = "button">Lose Active Card</button><br/>
-          <button id = "create-active-tracker" class = "button" type = "button">Create Card Tracker</button><br/>
+          <button id = "discard-active-card" class = "button tooltip"type="button"title = "Must Have an Active Card Selected">Discard Active Card</button>
+          <button id = "lose-active-card"class = "button tooltip" type = "button" title = "Must Have an Active Card Selected">Lose Active Card</button><br/>
+          <button id = "create-active-tracker" class = "button tooltip" type = "button" title = "Must Have an Active Card Without a Tracker Selected">Create Card Tracker</button><br/>
           <p id = "tracker-size" style ="font-size:18px; font-family: 'Palatino Linotype'; color:white;">Tracker Size: 1</p><br/>
           <button id = "decrease-tracker-size" class = "button" type = "button">-</button>
           <button id = "increase-tracker-size" class = "button" type = "button">+</button><br/></td>
@@ -143,11 +143,11 @@
                 <td> <img id = "discard10" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
               </tr>
             </table>
-            <button id = "short-rest-button" class = "button"type="button">Short Rest</button>
-            <button id = "long-rest-button" class = "button"type="button">Long Rest</button>
-            <button id = "recover-discard-button"class = "button" type="button">Recover Discarded Card</button><br/>
-            <button id = "lose-discard-button" class = "button"type = "button">Lose Card From Rest</button>
-            <button id = "reroll-random-card-button" class = "button"type = "button">Reroll Lost Card</button>
+            <button id = "short-rest-button" class = "button"type="button" title = "Must Have At Least 2 Discarded Cards And No Cards in Play">Short Rest</button>
+            <button id = "long-rest-button" class = "button"type="button"title = "Must Have At Least 2 Discarded Cards And No Cards in Play">Long Rest</button>
+            <button id = "recover-discard-button"class = "button" type="button"title="Must Have A Discarded Card Selected">Recover Discarded Card</button><br/>
+            <button id = "lose-discard-button" class = "button"type = "button" title="Must Be Resting">Lose Card From Rest</button>
+            <button id = "reroll-random-card-button" class = "button"type = "button" title = "Can Only Be Used Once Per Short Rest">Reroll Lost Card</button>
           </td>
           <td id = "lost-cards-title">Lost Cards<br/>
             <table id ="lost-table">
@@ -166,7 +166,7 @@
                 <td> <img id = "lost10" class = "lost flipped hiding" src = "./Card Back.png"/></td>
               </tr>
             </table>
-            <button id = "recover-lost" class = "button"type="button">Recover Lost Card</button></td>
+            <button id = "recover-lost" class = "button"type="button" title = "Must Have a Lost Card Selected">Recover Lost Card</button></td>
           </tr>
           <tr>
             <td id ="status-effects" align ="center" colspan="2">Status Effects<br/>
@@ -225,8 +225,9 @@
         </table>
       </div>
       <div id = "confirm-buttons" class = "hiding"align = "center">
-        <button id = "confirm-hand" class = "button"type="button">Confirm Hand</button>
-        <button id = "play-cards-button" class = "button hiding" type="button" >Play Cards</button>
+        <button id = "go-back" class = "button hiding" type ="button">Go Back</button>
+        <button id = "confirm-hand" class = "button not-without-more-selected"type="button" title="Must Have a Full Hand">Confirm Hand</button>
+        <button id = "play-cards-button" class = "button hiding" type="button" title="Must Select 2 Cards, Not Have Any Cards In Play, And Not Be Resting">Play Cards</button>
       </div>
 
   </body>

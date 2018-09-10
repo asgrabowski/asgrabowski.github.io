@@ -73,6 +73,7 @@ let damageButton = document.getElementById('damage');
 let levelUp = document.getElementById('level-up');
 let levelDown = document.getElementById('level-down');
 let confirmLevel = document.getElementById('confirm-level');
+let goBack = document.getElementById('go-back');
 //play cards variables
 
 let playCard1 = "";
@@ -134,6 +135,7 @@ for (var i = 0; i<characterPortraits.length; i++){
       if (!isSelected(characterPortrait) && !characterSelected){
         characterSelected = true;
         characterPortrait.classList.add("character-selected");
+        confirmCharacterButton.classList.remove("not-without-more-selected");
       } else if(!isSelected(characterPortrait) && characterSelected){
         var charactersSelected = document.querySelectorAll(".character-selected");
         var selectedCharacter = charactersSelected[0];
@@ -142,6 +144,7 @@ for (var i = 0; i<characterPortraits.length; i++){
       } else if(isSelected(characterPortrait) && characterSelected){
         characterSelected = false;
         characterPortrait.classList.remove("character-selected");
+        confirmCharacterButton.classList.add("not-without-more-selected");
       }
     }
   }).call(this,i);
@@ -185,7 +188,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -199,7 +202,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -213,7 +216,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -227,7 +230,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -241,7 +244,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -255,7 +258,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -269,7 +272,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -283,7 +286,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -326,7 +329,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -340,7 +343,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -354,7 +357,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -368,7 +371,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -382,7 +385,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -396,7 +399,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -410,7 +413,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -424,7 +427,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -467,7 +470,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -481,7 +484,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -495,7 +498,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -509,7 +512,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -523,7 +526,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -537,7 +540,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -551,7 +554,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -565,7 +568,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -610,7 +613,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -624,7 +627,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -638,7 +641,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -652,7 +655,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -666,7 +669,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -680,7 +683,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -694,7 +697,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -708,7 +711,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -752,7 +755,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -766,7 +769,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -780,7 +783,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -794,7 +797,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -808,7 +811,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -822,7 +825,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -836,7 +839,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -850,7 +853,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -887,7 +890,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 3; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 2:
@@ -901,7 +904,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 4; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 3:
@@ -915,7 +918,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 5; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 4:
@@ -929,7 +932,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 6; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 5:
@@ -943,7 +946,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 7; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 6:
@@ -957,7 +960,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 8; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 7:
@@ -971,7 +974,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 9; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 8:
@@ -985,7 +988,7 @@ confirmCharacterButton.onclick = () => {
       var levelTitles = document.querySelectorAll(".level");
       for(var j = 10; j<levelTitles.length; j++){
         var levelTitle = levelTitles[j];
-        levelTitle.innerHTML = "";
+        levelTitle.classList.add("hiding");
       }
       break;
       case 9:
@@ -999,6 +1002,7 @@ confirmCharacterButton.onclick = () => {
   document.getElementById("initial-table").classList.remove("hiding");
   document.getElementById("hand-cards").classList.remove("hiding");
   document.getElementById("confirm-buttons").classList.remove("hiding");
+  goBack.classList.remove("hiding");
   chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
   cardCounter.innerHTML = "0/"+handSize;
   healthCounter.innerHTML = health;
@@ -1019,6 +1023,9 @@ for (var i = 0; i < cards.length; i++) {
         card.firstChild.classList.add("add-border");
         cardCount++;
         cardCounter.innerHTML = cardCount + "/"+ handSize;
+        if(cardCount === handSize){
+          confirmHandButton.classList.remove("not-without-more-selected")
+        }
         if(cardHand1.classList.contains("flipped")){
             cardHand1.src = card.firstChild.src;
             cardHand1.classList.remove("flipped");
@@ -1073,39 +1080,51 @@ for (var i = 0; i < cards.length; i++) {
         if(cardHand1.classList.contains(`${this.id}`)){
           flipCard(cardHand1);
           cardHand1.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand2.classList.contains(`${this.id}`)){
           flipCard(cardHand2);
           cardHand2.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand3.classList.contains(`${this.id}`)){
           flipCard(cardHand3);
           cardHand3.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand4.classList.contains(`${this.id}`)){
           flipCard(cardHand4);
           cardHand4.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand5.classList.contains(`${this.id}`)){
           flipCard(cardHand5);
           cardHand5.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand6.classList.contains(`${this.id}`)){
           flipCard(cardHand6);
           cardHand6.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand7.classList.contains(`${this.id}`)){
           flipCard(cardHand7);
           cardHand7.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand8.classList.contains(`${this.id}`)){
           flipCard(cardHand8);
           cardHand8.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand9.classList.contains(`${this.id}`)){
           flipCard(cardHand9);
           cardHand9.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand10.classList.contains(`${this.id}`)){
           flipCard(cardHand10);
           cardHand10.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand11.classList.contains(`${this.id}`)){
           flipCard(cardHand11);
           cardHand11.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         } else if (cardHand12.classList.contains(`${this.id}`)){
           flipCard(cardHand12);
           cardHand12.classList.remove("hiding");
+          confirmHandButton.classList.add("not-without-more-selected");
         }
       }
     });
@@ -1195,10 +1214,27 @@ confirmHandButton.onclick = () => {
   document.getElementById('discarded-cards-title').setAttribute("style", "border: 1px solid white; text-align:center");
   document.getElementById('lost-cards-title').setAttribute("style", "border: 1px solid white; text-align:center");
   confirmHandButton.classList.add("hiding");
+  goBack.classList.add("hiding");
   playCardsButton.classList.remove("hiding");
   playCardsButton.classList.add("visible");
   cardCount = 0;
   handChosen = true;
+  longRestButton.classList.add("not-without-more-cards");
+  shortRestButton.classList.add("not-without-more-cards");
+  discardButton.classList.add("not-without-more-selected");
+  loseButton.classList.add("not-without-more-selected");
+  activateButton.classList.add("not-without-more-selected");
+  loseCardFromRestButton.classList.add("not-unless-resting");
+  rerollShortRestButton.classList.add("not-unless-resting");
+  recoverDiscardButton.classList.add("not-without-more-selected");
+  recoverLostCardButton.classList.add("not-without-more-selected");
+  playCardsButton.classList.add("not-without-more-cards");
+  discardActiveCardButton.classList.add("not-without-more-selected");
+  loseActiveCardButton.classList.add("not-without-more-selected");
+  createActiveTracker.classList.add("not-without-more-selected");
+  healButton.classList.add("at-max");
+  xpDown.classList.add("at-min");
+  decreaseTrackerSize.classList.add("at-min");
   }
 }
 
@@ -1211,9 +1247,13 @@ for (var i = 0; i < hand.length; i++) {
       if(!isSelected(handCard) && handChosen === true && cardCount<2 && !isFlipped(handCard) && isFlipped(chosenCard1) && isFlipped(chosenCard2) && mustLoseCount<1){
         handCard.classList.add("add-border");
         cardCount++;
+        if(cardCount === 2){
+          playCardsButton.classList.remove("not-without-more-cards");
+        }
       } else if (isSelected(handCard)){
         handCard.classList.remove("add-border");
         cardCount--;
+        playCardsButton.classList.add("not-without-more-cards");
       }
     });
   }).call(this, i);
@@ -1274,6 +1314,11 @@ playCardsButton.onclick = () => {
     chosenCard2.src = playCard2;
     chosenCard2.classList.remove("flipped");
     cardsInPlayCounter = 2;
+    shortRestButton.classList.add("not-while-in-play");
+    longRestButton.classList.add("not-while-in-play");
+    loseCardFromRestButton.classList.add("not-while-in-play");
+    rerollShortRestButton.classList.add("not-while-in-play");
+    playCardsButton.classList.add("not-without-more-cards");
   }
 };
 
@@ -1284,9 +1329,18 @@ chosenCard1.onclick = () => {
   if(cardCount < 1 && !isSelected(chosenCard1) && !isFlipped(chosenCard1) && mustLoseCount<1){
     chosenCard1.classList.add("add-border");
     cardCount++;
+    discardButton.classList.remove("not-without-more-selected");
+    loseButton.classList.remove("not-without-more-selected");
+    activateButton.classList.remove("not-without-more-selected");
   } else if (cardCount === 1 && isSelected(chosenCard1)){
     chosenCard1.classList.remove("add-border");
     cardCount--;
+    discardButton.classList.add("not-without-more-selected");
+    loseButton.classList.add("not-without-more-selected");
+    activateButton.classList.add("not-without-more-selected");
+  } else if (cardCount == 1 && !isSelected(chosenCard1)){
+    chosenCard2.classList.remove("add-border");
+    chosenCard1.classList.add("add-border");
   }
 };
 
@@ -1294,9 +1348,18 @@ chosenCard2.onclick = () => {
   if(cardCount < 1 && !isSelected(chosenCard2) && !isFlipped(chosenCard2) && mustLoseCount<1){
     chosenCard2.classList.add("add-border");
     cardCount++;
+    discardButton.classList.remove("not-without-more-selected");
+    loseButton.classList.remove("not-without-more-selected");
+    activateButton.classList.remove("not-without-more-selected");
   } else if (cardCount == 1 && isSelected(chosenCard2)){
     chosenCard2.classList.remove("add-border");
     cardCount--;
+    discardButton.classList.add("not-without-more-selected");
+    loseButton.classList.add("not-without-more-selected");
+    activateButton.classList.add("not-without-more-selected");
+  } else if (cardCount == 1 && !isSelected(chosenCard2)){
+    chosenCard1.classList.remove("add-border");
+    chosenCard2.classList.add("add-border");
   }
 };
 
@@ -1347,6 +1410,22 @@ discardButton.onclick = () => {
     cardCount--;
     discardCount++;
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+      discardButton.classList.add("not-without-more-selected");
+      loseButton.classList.add("not-without-more-selected");
+      activateButton.classList.add("not-without-more-selected");
+    }
+    if(discardCount>1){
+      shortRestButton.classList.remove("not-without-more-cards");
+      longRestButton.classList.remove("not-without-more-cards");
+    }
+    discardButton.classList.add("not-without-more-selected");
+    loseButton.classList.add("not-without-more-selected");
+    activateButton.classList.add("not-without-more-selected");
   }
   if(chosenCard2.classList.contains("add-border") && mustLoseCount<1){
     if(discard1.classList.contains("flipped")){
@@ -1394,6 +1473,20 @@ discardButton.onclick = () => {
     cardCount--;
     discardCount++
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+
+    }
+    if(discardCount>1){
+      shortRestButton.classList.remove("not-without-more-cards");
+      longRestButton.classList.remove("not-without-more-cards");
+    }
+    discardButton.classList.add("not-without-more-selected");
+    loseButton.classList.add("not-without-more-selected");
+    activateButton.classList.add("not-without-more-selected");
       }
     };
 
@@ -1443,6 +1536,15 @@ loseButton.onclick = () => {
     flipChosenCard(chosenCard1);
     cardCount--;
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+      discardButton.classList.add("not-without-more-selected");
+      loseButton.classList.add("not-without-more-selected");
+      activateButton.classList.add("not-without-more-selected");
+    }
   }
   if(chosenCard2.classList.contains("add-border") && mustLoseCount<1){
     if(lost1.classList.contains("flipped")){
@@ -1489,6 +1591,15 @@ loseButton.onclick = () => {
     flipChosenCard(chosenCard2);
     cardCount--;
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+      discardButton.classList.add("not-without-more-selected");
+      loseButton.classList.add("not-without-more-selected");
+      activateButton.classList.add("not-without-more-selected");
+    }
   }
 };
 
@@ -1528,6 +1639,15 @@ activateButton.onclick = () => {
     flipChosenCard(chosenCard1);
     cardCount--;
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+      discardButton.classList.add("not-without-more-selected");
+      loseButton.classList.add("not-without-more-selected");
+      activateButton.classList.add("not-without-more-selected");
+    }
   }
   if(chosenCard2.classList.contains("add-border") && mustLoseCount<1 && numberOfActiveCards<6){
     if(active1.classList.contains("flipped")){
@@ -1564,6 +1684,15 @@ activateButton.onclick = () => {
     flipChosenCard(chosenCard2);
     cardCount--;
     cardsInPlayCounter--;
+    if(cardsInPlayCounter === 0){
+      shortRestButton.classList.remove("not-while-in-play");
+      longRestButton.classList.remove("not-while-in-play");
+      loseCardFromRestButton.classList.remove("not-while-in-play");
+      rerollShortRestButton.classList.remove("not-while-in-play");
+      discardButton.classList.add("not-without-more-selected");
+      loseButton.classList.add("not-without-more-selected");
+      activateButton.classList.add("not-without-more-selected");
+    }
   }
 };
 
@@ -1576,6 +1705,11 @@ for (var i = 0; i < discards.length; i++) {
       if(!isSelected(discardedCard) && mustLoseCount<1 && discardsSelected === 0){
         discardedCard.classList.add("discard-selected");
         discardsSelected++;
+        if(longResting){
+          loseCardFromRestButton.classList.remove("not-unless-resting");
+        } else {
+          recoverDiscardButton.classList.remove("not-without-more-selected");
+        }
       } else if (!isSelected(discardedCard) && discardsSelected === 1){
         var selectedDiscardedCards = document.querySelectorAll(".discard-selected");
         var selectedDiscardedCard = selectedDiscardedCards[0];
@@ -1584,6 +1718,11 @@ for (var i = 0; i < discards.length; i++) {
       } else if (isSelected(discardedCard) && discardsSelected === 1){
         discardedCard.classList.remove("discard-selected");
         discardsSelected--;
+        if(longResting){
+          loseCardFromRestButton.classList.add("not-unless-resting");
+        } else {
+          recoverDiscardButton.classList.add("not-without-more-selected");
+        }
       }
     });
   }).call(this, i);
@@ -1598,6 +1737,7 @@ for (var i = 0; i < lostCards.length; i++) {
       if(!isSelected(lostCard) && lostSelectedCounter === 0){
         lostCard.classList.add("lost-selected");
         lostSelectedCounter++
+        recoverLostCardButton.classList.remove("not-without-more-selected");
       } else if(!isSelected(lostCard) && lostSelectedCounter === 1){
         var selectedLostCards = document.querySelectorAll(".lost-selected");
         var selectedLostCard = selectedLostCards[0];
@@ -1606,6 +1746,7 @@ for (var i = 0; i < lostCards.length; i++) {
       } else {
         lostCard.classList.remove("lost-selected");
         lostSelectedCounter--;
+        recoverLostCardButton.classList.add("not-without-more-selected");
       }
     });
   }).call(this, i);
@@ -1621,14 +1762,29 @@ for (var i = 0; i < actives.length; i++) {
       if(!isSelected(activeCard) && activesSelected === 0){
         activeCard.classList.add("active-selected");
         activesSelected++;
+        discardActiveCardButton.className = "button";
+        loseActiveCardButton.className = "button";
+        createActiveTracker.className = "button";
+        if(activeCard.classList.contains("has-tracker")){
+          createActiveTracker.classList.add("not-without-more-selected");
+        }
       } else if(!isSelected(activeCard) && activesSelected ===1){
         var activeCardsSelected = document.querySelectorAll(".active-selected");
         var activeCardSelected = activeCardsSelected[0];
         activeCard.classList.add("active-selected");
         activeCardSelected.classList.remove("active-selected");
+        discardActiveCardButton.classList.remove("not-without-more-selected");
+        loseActiveCardButton.classList.remove("not-without-more-selected");
+        createActiveTracker.classList.remove("not-without-more-selected");
+        if(activeCard.classList.contains("has-tracker")){
+          createActiveTracker.classList.add("not-without-more-selected");
+        }
       } else {
         activeCard.classList.remove("active-selected");
         activesSelected--;
+        discardActiveCardButton.classList.add("not-without-more-selected");
+        loseActiveCardButton.classList.add("not-without-more-selected");
+        createActiveTracker.classList.add("not-without-more-selected");
       }
     });
   }).call(this, i);
@@ -1648,6 +1804,12 @@ let shortResting = false;
 let mustLoseCount = 0;
 shortRestButton.onclick = () => {
   if(mustLoseCount === 0 && discardCount>1 && cardsInPlayCounter === 0 && !(longResting) && !(shortResting)){
+  playCardsButton.classList.add("not-while-resting");
+  shortRestButton.classList.add("not-while-resting");
+  longRestButton.classList.add("not-while-resting");
+  loseCardFromRestButton.classList.remove("not-unless-resting");
+  rerollShortRestButton.classList.remove("not-unless-resting");
+  recoverDiscardButton.classList.add("not-without-more-selected");
   mustLose = true;
   shortResting = true;
   var discardedCards = document.querySelectorAll(".discarded");
@@ -1735,6 +1897,14 @@ shortRestButton.onclick = () => {
 
 loseCardFromRestButton.onclick = () => {
   if(mustLoseCount>0 && mustLose && shortResting){
+    playCardsButton.classList.remove("not-while-resting");
+    shortRestButton.classList.remove("not-while-resting");
+    longRestButton.classList.remove("not-while-resting");
+    loseCardFromRestButton.classList.add("not-unless-resting");
+    rerollShortRestButton.classList.remove("can-only-do-once");
+    shortRestButton.classList.add("not-without-more-cards");
+    longRestButton.classList.add("not-without-more-cards");
+    rerollShortRestButton.classList.add("not-unless-resting");
     mustLose = false;
     shortResting = false;
       var mustLoseCards = document.querySelectorAll(".must-lose");
@@ -1779,6 +1949,12 @@ loseCardFromRestButton.onclick = () => {
         }).call(this,j);
       }
     } else if (longResting &&  discardsSelected === 1){
+      playCardsButton.classList.remove("not-while-resting");
+      shortRestButton.classList.remove("not-while-resting");
+      longRestButton.classList.remove("not-while-resting");
+      loseCardFromRestButton.classList.add("not-unless-resting");
+      shortRestButton.classList.add("not-without-more-cards");
+      longRestButton.classList.add("not-without-more-cards");
       longResting = false;
       mustLose = false;
       var selectedDiscards = document.querySelectorAll(".discard-selected");
@@ -1840,6 +2016,7 @@ loseCardFromRestButton.onclick = () => {
 
 rerollShortRestButton.onclick = () => {
   if(mustLoseCount === 1){
+    rerollShortRestButton.classList.add("can-only-do-once");
     health--;
     healthCounter.innerHTML = health;
     var discardedCards = document.querySelectorAll(".discarded");
@@ -1943,8 +2120,15 @@ let longResting = false;
 longRestButton.onclick = () => {
   if(discardCount>1 && mustLoseCount === 0 && cardsInPlayCounter === 0 && !(shortResting) && !(longResting)){
     document.getElementById('discard-table').insertAdjacentHTML("beforebegin", "<p id = 'choose-to-lose'>Choose One Card to Lose</p><br/>");
+    playCardsButton.classList.add("not-while-resting");
+    shortRestButton.classList.add("not-while-resting");
+    longRestButton.classList.add("not-while-resting");
+    recoverDiscardButton.classList.add("not-without-more-selected");
     mustLose = true;
     longResting = true;
+    if (discardsSelected === 1){
+      loseCardFromRestButton.classList.remove("not-unless-resting");
+    }
   }
 }
 
@@ -1952,6 +2136,7 @@ recoverDiscardButton.onclick = () => {
   if(!shortResting && !longResting && !mustLose && discardsSelected>0){
     discardsSelected = 0;
     discardCount--;
+    recoverDiscardButton.classList.add("not-without-more-selected");
     var selectedDiscards = document.querySelectorAll(".discard-selected");
     var selectedDiscard = selectedDiscards[0];
     selectedDiscard.classList.remove("discard-selected");
@@ -1967,6 +2152,10 @@ recoverDiscardButton.onclick = () => {
             i = cardsInHand.length;
           }
         }).call(this,i);
+      }
+      if(discardCount<2){
+        shortRestButton.classList.add("not-without-more-cards");
+        longRestButton.classList.add("not-without-more-cards");
       }
     }
 }
@@ -1988,6 +2177,13 @@ discardActiveCardButton.onclick = () => {
         discardCount++;
       }
     }
+    if(discardCount>1){
+      shortRestButton.classList.remove("not-without-more-cards");
+      longRestButton.classList.remove("not-without-more-cards");
+    }
+    discardActiveCardButton.classList.add("not-without-more-selected");
+    loseActiveCardButton.classList.add("not-without-more-selected");
+    createActiveTracker.classList.add("not-without-more-selected");
   }
 }
 
@@ -2007,6 +2203,9 @@ loseActiveCardButton.onclick = () => {
         numberOfActiveCards--;
       }
     }
+    discardActiveCardButton.classList.add("not-without-more-selected");
+    loseActiveCardButton.classList.add("not-without-more-selected");
+    createActiveTracker.classList.add("not-without-more-selected");
   }
 }
 
@@ -2015,6 +2214,7 @@ recoverLostCardButton.onclick = () => {
     lostSelectedCounter = 0;
     var selectedLostCards = document.querySelectorAll(".lost-selected");
     var selectedLostCard = selectedLostCards[0];
+    recoverLostCardButton.classList.add("not-without-more-selected");
     selectedLostCard.classList.remove("lost-selected");
     var cardsInHand = document.querySelectorAll(".hand");
       for (var i = 0; i<cardsInHand.length; i++){
@@ -2114,12 +2314,16 @@ let xpCounter = document.getElementById('xp-counter');
 xpUp.onclick = () => {
   xpCount++;
   xpCounter.innerHTML = xpCount;
+  xpDown.classList.remove("at-min");
 }
 
 xpDown.onclick = () => {
   if(xpCount>0){
     xpCount--;
     xpCounter.innerHTML = xpCount;
+    if(xpCount === 0){
+      xpDown.classList.add("at-min");
+    }
   }
 }
 
@@ -2127,12 +2331,20 @@ healButton.onclick = () => {
   if(!poisoned && health<maxHealth){
     health++;
     healthCounter.innerHTML = health;
+    damageButton.classList.remove("at-min");
+    if(health === maxHealth){
+      healButton.classList.add("at-max");
+    }
   }
 }
 damageButton.onclick = () =>{
   if(health>0){
     health--;
     healthCounter.innerHTML = health;
+    healButton.classList.remove("at-max");
+    if(health === 0){
+      damageButton.classList.add("at-min");
+    }
   }
 }
 
@@ -2196,6 +2408,10 @@ increaseTrackerSize.onclick = () => {
   if(trackerSize<6){
     trackerSize++;
     trackerSizeCounter.innerHTML = "Tracker Size: "+ trackerSize;
+    decreaseTrackerSize.classList.remove("at-min");
+    if(trackerSize === 6){
+      increaseTrackerSize.classList.add("at-max");
+    }
   }
 }
 
@@ -2203,10 +2419,17 @@ decreaseTrackerSize.onclick = () => {
   if(trackerSize>1){
     trackerSize--;
     trackerSizeCounter.innerHTML = "Tracker Size: "+ trackerSize;
+    increaseTrackerSize.classList.remove("at-max");
+    if(trackerSize === 1){
+      decreaseTrackerSize.classList.add("at-min");
+    }
   }
 }
 
 createActiveTracker.onclick = () => {
+  var activeCardsWithBorder = document.querySelectorAll(".active-selected");
+  activeCardWithBorder = activeCardsWithBorder[0];
+  if(!(activeCardWithBorder.classList.contains("has-tracker"))){
   switch(trackerSize){
     case 1:
       var activeCards = document.querySelectorAll(".active-card");
@@ -2689,6 +2912,11 @@ createActiveTracker.onclick = () => {
       }
       break;
     }
+    discardActiveCardButton.classList.add("not-without-more-selected");
+    loseActiveCardButton.classList.add("not-without-more-selected");
+    createActiveTracker.classList.add("not-without-more-selected");
+    activesSelected = 0;
+}
 }
 
 var trackerUseButtons1 = document.querySelectorAll(".tracker-button1");
@@ -2702,16 +2930,34 @@ for (var i = 0; i<trackerUseButtons1.length; i++){
         trackerUseButton1.classList.add("invisible");
       } if(card1TrackerCounter === 1 && trackerUseButton1 === trackerUseButtons1[0]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card1TrackerCounter === 2 && trackerUseButton1 === trackerUseButtons1[1]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card1TrackerCounter === 3 && trackerUseButton1 === trackerUseButtons1[2]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card1TrackerCounter === 4 && trackerUseButton1 === trackerUseButtons1[3]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card1TrackerCounter === 5 && trackerUseButton1 === trackerUseButtons1[4]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card1TrackerCounter === 6 && trackerUseButton1 === trackerUseButtons1[5]){
         active1.classList.remove("has-tracker");
+        if(active1.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
@@ -2728,16 +2974,34 @@ for (var i = 0; i<trackerUseButtons2.length; i++){
         trackerUseButton2.classList.add("invisible");
       } if(card2TrackerCounter === 1 && trackerUseButton2 === trackerUseButtons2[0]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card2TrackerCounter === 2 && trackerUseButton2 === trackerUseButtons2[1]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card2TrackerCounter === 3 && trackerUseButton2 === trackerUseButtons2[2]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card2TrackerCounter === 4 && trackerUseButton2 === trackerUseButtons2[3]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card2TrackerCounter === 5 && trackerUseButton2 === trackerUseButtons2[4]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card2TrackerCounter === 6 && trackerUseButton2 === trackerUseButtons2[5]){
         active2.classList.remove("has-tracker");
+        if(active2.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
@@ -2754,16 +3018,34 @@ for (var i = 0; i<trackerUseButtons3.length; i++){
         trackerUseButton3.classList.add("invisible");
       } if(card3TrackerCounter === 1 && trackerUseButton3 === trackerUseButtons3[0]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card3TrackerCounter === 2 && trackerUseButton3 === trackerUseButtons3[1]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card3TrackerCounter === 3 && trackerUseButton3 === trackerUseButtons3[2]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card3TrackerCounter === 4 && trackerUseButton3 === trackerUseButtons3[3]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card3TrackerCounter === 5 && trackerUseButton3 === trackerUseButtons3[4]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card3TrackerCounter === 6 && trackerUseButton3 === trackerUseButtons3[5]){
         active3.classList.remove("has-tracker");
+        if(active3.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
@@ -2780,16 +3062,34 @@ for (var i = 0; i<trackerUseButtons4.length; i++){
         trackerUseButton4.classList.add("invisible");
       } if(card4TrackerCounter === 1 && trackerUseButton4 === trackerUseButtons4[0]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card4TrackerCounter === 2 && trackerUseButton4 === trackerUseButtons4[1]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card4TrackerCounter === 3 && trackerUseButton4 === trackerUseButtons4[2]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card4TrackerCounter === 4 && trackerUseButton4 === trackerUseButtons4[3]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card4TrackerCounter === 5 && trackerUseButton4 === trackerUseButtons4[4]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card4TrackerCounter === 6 && trackerUseButton4 === trackerUseButtons4[5]){
         active4.classList.remove("has-tracker");
+        if(active4.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
@@ -2806,16 +3106,34 @@ for (var i = 0; i<trackerUseButtons5.length; i++){
         trackerUseButton5.classList.add("invisible");
       } if(card5TrackerCounter === 1 && trackerUseButton5 === trackerUseButtons5[0]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card5TrackerCounter === 2 && trackerUseButton5 === trackerUseButtons5[1]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card5TrackerCounter === 3 && trackerUseButton5 === trackerUseButtons5[2]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card5TrackerCounter === 4 && trackerUseButton5 === trackerUseButtons5[3]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card5TrackerCounter === 5 && trackerUseButton5 === trackerUseButtons5[4]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card5TrackerCounter === 6 && trackerUseButton5 === trackerUseButtons5[5]){
         active5.classList.remove("has-tracker");
+        if(active5.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
@@ -2832,17 +3150,84 @@ for (var i = 0; i<trackerUseButtons6.length; i++){
         trackerUseButton6.classList.add("invisible");
       } if(card6TrackerCounter === 1 && trackerUseButton6 === trackerUseButtons6[0]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card6TrackerCounter === 2 && trackerUseButton6 === trackerUseButtons6[1]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }  else if (card6TrackerCounter === 3 && trackerUseButton6 === trackerUseButtons6[2]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card6TrackerCounter === 4 && trackerUseButton6 === trackerUseButtons6[3]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card6TrackerCounter === 5 && trackerUseButton6 === trackerUseButtons6[4]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       } else if (card6TrackerCounter === 6 && trackerUseButton6 === trackerUseButtons6[5]){
         active6.classList.remove("has-tracker");
+        if(active6.classList.contains("active-selected")){
+          createActiveTracker.classList.remove("not-without-more-selected");
+        }
       }
     }
   }).call(this, i);
+}
+
+goBack.onclick = () => {
+  var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+  var handCards = document.querySelectorAll(".hand");
+  document.getElementById("select-class-section").classList.remove("hiding");
+  document.getElementById("level-selection").classList.remove("hiding");
+  document.getElementById("initial-table").classList.add("hiding");
+  document.getElementById("hand-cards").classList.add("hiding");
+  document.getElementById("confirm-buttons").classList.add("hiding");
+  confirmHandButton.classList.add("not-without-more-selected");
+  goBack.classList.add("hiding");
+  flipCard(cardHand1);
+  flipCard(cardHand2);
+  flipCard(cardHand3);
+  flipCard(cardHand4);
+  flipCard(cardHand5);
+  flipCard(cardHand6);
+  flipCard(cardHand7);
+  flipCard(cardHand8);
+  flipCard(cardHand9);
+  flipCard(cardHand10);
+  flipCard(cardHand11);
+  flipCard(cardHand12);
+  cardHand1.classList.remove("hiding");
+  cardHand2.classList.remove("hiding");
+  cardHand3.classList.remove("hiding");
+  cardHand4.classList.remove("hiding");
+  cardHand5.classList.remove("hiding");
+  cardHand6.classList.remove("hiding");
+  cardHand7.classList.remove("hiding");
+  cardHand8.classList.remove("hiding");
+  cardHand9.classList.remove("hiding");
+  cardHand10.classList.remove("hiding");
+  cardHand11.classList.remove("hiding");
+  cardHand12.classList.remove("hiding");
+  cardCount = 0;
+  cardCounter.innerHTML = cardCount + "/"+ handSize;
+  var levelTitles = document.querySelectorAll(".level");
+  for(var k = 3; k<levelTitles.length; k++){
+    var levelTitle = levelTitles[k];
+    levelTitle.classList.remove("hiding");
+  }
+  for (var i = 0; i<cardsToChooseFrom.length; i++){
+    (function (){
+      var card = cardsToChooseFrom[i];
+      card.firstChild.classList.remove("add-border");
+    }).call(this,i);
+  }
 }
