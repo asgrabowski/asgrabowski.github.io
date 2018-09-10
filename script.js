@@ -1005,7 +1005,7 @@ confirmCharacterButton.onclick = () => {
   goBack.classList.remove("hiding");
   chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
   cardCounter.innerHTML = "0/"+handSize;
-  healthCounter.innerHTML = health;
+  healthCounter.innerHTML = health + "/" + maxHealth;
   xpCounter.innerHTML = xpCount;
   chosenCard1.src = flippedCard;
   chosenCard2.src = flippedCard;
@@ -2005,10 +2005,10 @@ loseCardFromRestButton.onclick = () => {
       poisonedToken.classList.add("hiding");
     } else if (health<maxHealth){
       health = health+2;
-      healthCounter.innerHTML = health;
+      healthCounter.innerHTML = health + "/" + maxHealth;
       if(health>maxHealth){
         health = maxHealth;
-        healthCounter.innerHTML = health;
+        healthCounter.innerHTML = health + "/" + maxHealth;
       }
     }
   }
@@ -2018,7 +2018,7 @@ rerollShortRestButton.onclick = () => {
   if(mustLoseCount === 1){
     rerollShortRestButton.classList.add("can-only-do-once");
     health--;
-    healthCounter.innerHTML = health;
+    healthCounter.innerHTML =  health + "/" + maxHealth;
     var discardedCards = document.querySelectorAll(".discarded");
     for (var i = 0; i<discardedCards.length; i++){
       var discardedCard = discardedCards[i];
@@ -2330,7 +2330,7 @@ xpDown.onclick = () => {
 healButton.onclick = () => {
   if(!poisoned && health<maxHealth){
     health++;
-    healthCounter.innerHTML = health;
+    healthCounter.innerHTML =  health + "/" + maxHealth;
     damageButton.classList.remove("at-min");
     if(health === maxHealth){
       healButton.classList.add("at-max");
@@ -2340,7 +2340,7 @@ healButton.onclick = () => {
 damageButton.onclick = () =>{
   if(health>0){
     health--;
-    healthCounter.innerHTML = health;
+    healthCounter.innerHTML =  health + "/" + maxHealth;
     healButton.classList.remove("at-max");
     if(health === 0){
       damageButton.classList.add("at-min");
