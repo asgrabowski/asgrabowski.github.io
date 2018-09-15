@@ -2003,6 +2003,7 @@ loseCardFromRestButton.onclick = () => {
     if(poisoned){
       poisoned = false;
       poisonedToken.classList.add("hiding");
+      healButton.classList.remove("poisoned");
     } else if (health<maxHealth){
       health = health+2;
       healthCounter.innerHTML = health + "/" + maxHealth;
@@ -2018,6 +2019,7 @@ rerollShortRestButton.onclick = () => {
   if(mustLoseCount === 1){
     rerollShortRestButton.classList.add("can-only-do-once");
     health--;
+    healButton.classList.remove("at-max");
     healthCounter.innerHTML =  health + "/" + maxHealth;
     var discardedCards = document.querySelectorAll(".discarded");
     for (var i = 0; i<discardedCards.length; i++){
@@ -2236,9 +2238,11 @@ togglePoison.onclick = () =>{
   if(!poisoned){
     poisoned = true;
     poisonedToken.classList.remove('hiding');
+    healButton.classList.add("poisoned");
   }else{
     poisoned = false;
     poisonedToken.classList.add('hiding');
+    healButton.classList.remove("poisoned");
   }
 }
 

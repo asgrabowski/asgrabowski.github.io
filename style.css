@@ -185,7 +185,8 @@ html{
 .must-click-previous-tracker:hover,
 .can-only-do-once:hover,
 .at-max:hover,
-.at-min:hover{
+.at-min:hover,
+.poisoned:hover{
   cursor:not-allowed;
 }
 
@@ -197,6 +198,7 @@ html{
 .must-click-previous-tracker,
 .can-only-do-once,
 .at-max,
-.at-min{
+.at-min,
+.poisoned{
   opacity:0.25;
 }
