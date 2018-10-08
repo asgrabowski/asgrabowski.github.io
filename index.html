@@ -9,14 +9,19 @@
       <h2 class = "header" align = "center" style = "color:white;">Select Your Character</h2>
       <table>
         <tr>
-          <td><img id = "brute" class = "character" src = "./Brute.png"/><br/><p class = "character-title" align = "center">Brute</p></td>
-          <td><img id = "cragheart" class = "character" src = "./Cragheart.png"/><br/><p class = "character-title" align = "center">Cragheart</p></td>
-          <td><img id = "mindthief" class = "character" src = "./Mindthief.png"/><br/><p class = "character-title" align = "center">Mindthief</p></td>
+          <td><img id = "brute" class = "character" src = "./Brute.png"/><br/><p class = "character-title" align = "center">Brute</td>
+          <td><img id = "cragheart" class = "character" src = "./Cragheart.png"/><br/><p class = "character-title" align = "center">Cragheart</td>
+          <td><img id = "mindthief" class = "character" src = "./Mindthief.png"/><br/><p class = "character-title" align = "center">Mindthief</td>
         </tr>
         <tr>
-          <td><img id = "scoundrel" class = "character" src = "./Scoundrel.png"/><br/><p class = "character-title" align = "center">Scoundrel</p></td>
-          <td><img id = "spellweaver" class = "character" src = "./Spellweaver.png"/><br/><p class = "character-title" align = "center">Spellweaver</p></td>
-          <td><img id = "tinkerer" class = "character" src = "./Tinkerer.png"/><br/><p class = "character-title" align = "center">Tinkerer</p></td>
+          <td><img id = "scoundrel" class = "character" src = "./Scoundrel.png"/><br/><p class = "character-title" align = "center">Scoundrel</td>
+          <td><img id = "spellweaver" class = "character" src = "./Spellweaver.png"/><br/><p class = "character-title" align = "center">Spellweaver</td>
+          <td><img id = "tinkerer" class = "character" src = "./Tinkerer.png"/><br/><p class = "character-title" align = "center">Tinkerer</td>
+        </tr>
+        <tr>
+          <td><img id = "beastTyrant" class = "character" src = "./bmprofile.png"/><br/><p class = "character-title" align = "center"></td>
+          <td><img id = "doomStalker" class = "character" src = "./dsprofile.png"/><br/><p class = "character-title" align = "center"></td>
+        </tr>
       </table>
       <div id = "level-selection" align = "center">
         <h2 class = "header" align = "center" style= "color:white;">Select Your Level</h2>
@@ -189,17 +194,45 @@
             <button id ="toggle-invisible" type = "button">Toggle Invisible</button>
             <button id ="toggle-strengthened" type = "button">Toggle Strengthened</button></td>
           </tr>
+          <tr id ="bear-status-effects" class ="hiding">
+            <td id ="bear-effects" align ="center" colspan="2">Bear Status Effects<br/>
+            <img id = "bear-poisoned" class = "status hiding" src = "./poisoned.png"/>
+            <img id = "bear-wounded" class = "status hiding" src = "./wounded.png"/>
+            <img id = "bear-immobilized" class = "status hiding" src = "./immobilized.png"/>
+            <img id = "bear-disarmed" class = "status hiding" src = "./disarmed.png"/>
+            <img id = "bear-spacer" class = "status" src = "./disarmed.png"/>
+            <img id = "bear-stunned" class = "status hiding" src = "./stunned.png"/>
+            <img id = "bear-muddled" class = "status hiding" src = "./muddled.png"/>
+            <img id = "bear-invisible" class = "status hiding" src = "./invisible.png"/>
+            <img id = "bear-strengthened" class = "status hiding" src = "./Strengthen.png"/><br/>
+            <button id ="toggle-bear-poison" type = "button">Toggle Bear Poisoned</button>
+            <button id ="toggle-bear-wounded" type = "button">Toggle Bear Wounded</button>
+            <button id ="toggle-bear-immobilized" type = "button">Toggle Bear Immobilized</button>
+            <button id ="toggle-bear-disarmed" type = "button">Toggle Bear Disarmed</button>
+            <button id ="toggle-bear-stunned" type = "button">Toggle Bear Stunned</button>
+            <button id ="toggle-bear-muddled" type = "button">Toggle Bear Muddled</button>
+            <button id ="toggle-bear-invisible" type = "button">Toggle Bear Invisible</button>
+            <button id ="toggle-bear-strengthened" type = "button">Toggle Bear Strengthened</button>
+          </tr>
           <tr>
             <td id ="health" align = "center">Health<br/>
-              <p id="health-counter"style="font-size: 35px; color:red;"></p><br/>
-              <button id="damage" type ="button" style="font-size:15px;">-</button>
-              <button id="heal" type ="button" style="font-size:15px;" title="If Poisoned, Heal Skills Must Remove Poison Instead of Increasing Health">+</button>
+              <div>
+                <p id="health-counter"style="font-size: 35px; color:red;"></p><br/>
+                <button id="damage" type ="button" style="font-size:15px;">-</button>
+                <button id="heal" type ="button" style="font-size:15px;" title="If Poisoned, Heal Skills Must Remove Poison Instead of Increasing Health">+</button>
+              </div>
+              <div id ="bear-health" class = "hiding" style = "display: inline;">
+                <p id="bear-health-counter" class = "hiding" style="font-size: 35px; color:red;">Bear Health</p><br/>
+                <button id="damage-bear" class = "hiding" type ="button" style="font-size:15px;">-</button>
+                <button id="heal-bear" class = "hiding at-max" type ="button" style="font-size:15px;" title="If Poisoned, Heal Skills Must Remove Poison Instead of Increasing Health">+</button>
+              </div>
             </td>
             <td id ="xp" align = "center">Experience<br/>
               <p id="xp-counter" style="font-size: 35px; color:cyan;"></p><br/>
               <button id="xp-down" type ="button" style="font-size:15px;">-</button>
               <button id="xp-up" type ="button" style="font-size:15px;">+</button>
             </td>
+          </tr>
         </table>
     </div>
     <div id = "hand-cards" class = "hiding">

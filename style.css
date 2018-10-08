@@ -138,11 +138,16 @@ html{
   border: 3px solid white;
 }
 
-#status-effects, #xp, #health {
+#status-effects, #xp, #health, #bear-effects {
   border: 1px solid white;
 }
 
 #spacer{
+  visibility:hidden;
+  width:0px;
+}
+
+#bear-spacer{
   visibility:hidden;
   width:0px;
 }

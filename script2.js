@@ -66,6 +66,14 @@ let toggleStunned = document.getElementById('toggle-stunned');
 let toggleMuddled = document.getElementById('toggle-muddled');
 let toggleInvisible = document.getElementById('toggle-invisible');
 let toggleStrengthened = document.getElementById('toggle-strengthened');
+let toggleBearPoison = document.getElementById('toggle-bear-poison');
+let toggleBearWounded = document.getElementById('toggle-bear-wounded');
+let toggleBearImmobilized = document.getElementById('toggle-bear-immobilized');
+let toggleBearDisarmed = document.getElementById('toggle-bear-disarmed');
+let toggleBearStunned = document.getElementById('toggle-bear-stunned');
+let toggleBearMuddled = document.getElementById('toggle-bear-muddled');
+let toggleBearInvisible = document.getElementById('toggle-bear-invisible');
+let toggleBearStrengthened = document.getElementById('toggle-bear-strengthened');
 let xpUp = document.getElementById('xp-up');
 let xpDown = document.getElementById('xp-down');
 let healButton = document.getElementById('heal');
@@ -101,6 +109,8 @@ let card4TrackerCounter = 0;
 let card5TrackerCounter = 0;
 let card6TrackerCounter = 0;
 let numberOfActiveCards = 0;
+let bearHealth = 0;
+let bearMaxHealth = 0;
 
 //characters
 let brute = document.getElementById('brute');
@@ -109,6 +119,8 @@ let mindthief = document.getElementById('mindthief');
 let spellweaver = document.getElementById('spellweaver');
 let scoundrel = document.getElementById('scoundrel');
 let tinkerer = document.getElementById('tinkerer');
+let beastTyrant = document.getElementById('beastTyrant');
+let doomStalker = document.getElementById('doomStalker');
 
 //status effects
 let poisoned = false;
@@ -127,6 +139,22 @@ let strengthened = false;
 let strengthenedToken = document.getElementById('strengthened');
 let invisible = false;
 let invisibleToken = document.getElementById('invisible');
+let bearPoisoned = false;
+let bearPoisonedToken = document.getElementById('bear-poisoned');
+let bearWounded = false;
+let bearWoundedToken = document.getElementById('bear-wounded');
+let bearDisarmed = false;
+let bearDisarmedToken = document.getElementById('bear-disarmed');
+let bearImmobilized = false;
+let bearImmobilizedToken = document.getElementById('bear-immobilized');
+let bearStunned = false;
+let bearStunnedToken = document.getElementById('bear-stunned');
+let bearMuddled = false;
+let bearMuddledToken = document.getElementById('bear-muddled');
+let bearStrengthened = false;
+let bearStrengthenedToken = document.getElementById('bear-strengthened');
+let bearInvisible = false;
+let bearInvisibleToken = document.getElementById('bear-invisible');
 
 let characterSelected = false;
 var characterPortraits = document.querySelectorAll(".character");
@@ -998,6 +1026,305 @@ confirmCharacterButton.onclick = () => {
       health = maxHealth;
       break;
     }
+  } else if(doomStalker.classList.contains("character-selected")){
+    flippedCard = "./dsBack.jpg";
+    handSize = 12
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './ds"+i+".jpg' />";
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+    switch (levelCount) {
+      case 1:
+      maxHealth = 8;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 15; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 3; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 2:
+      maxHealth = 9;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 17; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 4; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 3:
+      maxHealth = 11;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 19; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 5; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 4:
+      maxHealth = 12;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 21; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 6; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 5:
+      maxHealth = 14;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 23; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 7; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 6:
+      maxHealth = 15;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 25; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 8; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 7:
+      maxHealth = 17;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 27; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 9; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 8:
+      maxHealth = 18;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 29; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 10; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 9:
+      maxHealth = 20;
+      health = maxHealth;
+      break;
+    }
+  } else if(beastTyrant.classList.contains("character-selected")){
+    flippedCard = "./bmBack.jpg";
+    handSize = 10
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    document.getElementById("bear-health").classList.remove("hiding");
+    document.getElementById("bear-health-counter").classList.remove("hiding");
+    document.getElementById("damage-bear").classList.remove("hiding");
+    document.getElementById("heal-bear").classList.remove("hiding");
+    document.getElementById("bear-status-effects").classList.remove("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<13) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './bm"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+    switch (levelCount) {
+      case 1:
+      maxHealth = 6;
+      health = maxHealth;
+      bearMaxHealth = 10;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 15; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 3; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 2:
+      maxHealth = 7;
+      health = maxHealth;
+      bearMaxHealth = 12;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 17; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 4; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 3:
+      maxHealth = 8;
+      health = maxHealth;
+      bearMaxHealth = 14;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 19; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 5; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 4:
+      maxHealth = 9;
+      health = maxHealth;
+      bearMaxHealth = 16;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 21; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 6; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 5:
+      maxHealth = 10;
+      health = maxHealth;
+      bearMaxHealth = 18;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 23; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 7; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 6:
+      maxHealth = 11;
+      health = maxHealth;
+      bearMaxHealth = 20;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 25; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 8; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 7:
+      maxHealth = 12;
+      health = maxHealth;
+      bearMaxHealth = 22;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 27; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 9; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 8:
+      maxHealth = 13;
+      health = maxHealth;
+      bearMaxHealth = 24;
+      bearHealth = bearMaxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 29; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 10; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 9:
+      maxHealth = 14;
+      health = maxHealth;
+      bearMaxHealth = 26;
+      bearHealth = bearMaxHealth;
+      break;
+    }
   }
   document.getElementById("select-class-section").classList.add("hiding");
   document.getElementById("level-selection").classList.add("hiding");
@@ -1008,6 +1335,7 @@ confirmCharacterButton.onclick = () => {
   chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
   cardCounter.innerHTML = "0/"+handSize;
   healthCounter.innerHTML = health + "/" + maxHealth;
+  bearHealthCounter.innerHTML = "Bear Health<br/>"+ bearHealth + "/" + bearMaxHealth;
   xpCounter.innerHTML = xpCount;
   chosenCard1.src = flippedCard;
   chosenCard2.src = flippedCard;
@@ -2282,6 +2610,18 @@ togglePoison.onclick = () =>{
   }
 }
 
+toggleBearPoison.onclick = () =>{
+  if(!bearPoisoned){
+    bearPoisoned = true;
+    bearPoisonedToken.classList.remove('hiding');
+    healBearButton.classList.add("poisoned");
+  }else{
+    bearPoisoned = false;
+    bearPoisonedToken.classList.add('hiding');
+    healBearButton.classList.remove("poisoned");
+  }
+}
+
 toggleWounded.onclick = () =>{
   if(!wounded){
     wounded = true;
@@ -2289,6 +2629,16 @@ toggleWounded.onclick = () =>{
   }else{
     wounded = false;
     woundedToken.classList.add('hiding');
+  }
+}
+
+toggleBearWounded.onclick = () =>{
+  if(!bearWounded){
+    bearWounded = true;
+    bearWoundedToken.classList.remove('hiding');
+  }else{
+    bearWounded = false;
+    bearWoundedToken.classList.add('hiding');
   }
 }
 
@@ -2302,6 +2652,16 @@ toggleImmobilized.onclick = () =>{
   }
 }
 
+toggleBearImmobilized.onclick = () =>{
+  if(!bearImmobilized){
+    bearImmobilized = true;
+    bearImmobilizedToken.classList.remove('hiding');
+  }else{
+    bearImmobilized = false;
+    bearImmobilizedToken.classList.add('hiding');
+  }
+}
+
 toggleDisarmed.onclick = () =>{
   if(!disarmed){
     disarmed = true;
@@ -2311,6 +2671,17 @@ toggleDisarmed.onclick = () =>{
     disarmedToken.classList.add('hiding');
   }
 }
+
+toggleBearDisarmed.onclick = () =>{
+  if(!bearDisarmed){
+    bearDisarmed = true;
+    bearDisarmedToken.classList.remove('hiding');
+  }else{
+    bearDisarmed = false;
+    bearDisarmedToken.classList.add('hiding');
+  }
+}
+
 toggleStunned.onclick = () =>{
   if(!stunned){
     stunned = true;
@@ -2320,6 +2691,17 @@ toggleStunned.onclick = () =>{
     stunnedToken.classList.add('hiding');
   }
 }
+
+toggleBearStunned.onclick = () =>{
+  if(!bearStunned){
+    bearStunned = true;
+    bearStunnedToken.classList.remove('hiding');
+  }else{
+    bearStunned = false;
+    bearStunnedToken.classList.add('hiding');
+  }
+}
+
 toggleMuddled.onclick = () =>{
   if(!muddled){
     muddled = true;
@@ -2329,6 +2711,17 @@ toggleMuddled.onclick = () =>{
     muddledToken.classList.add('hiding');
   }
 }
+
+toggleBearMuddled.onclick = () =>{
+  if(!bearMuddled){
+    bearMuddled = true;
+    bearMuddledToken.classList.remove('hiding');
+  }else{
+    bearMuddled = false;
+    bearMuddledToken.classList.add('hiding');
+  }
+}
+
 toggleInvisible.onclick = () =>{
   if(!invisible){
     invisible = true;
@@ -2338,6 +2731,17 @@ toggleInvisible.onclick = () =>{
     invisibleToken.classList.add('hiding');
   }
 }
+
+toggleBearInvisible.onclick = () =>{
+  if(!bearInvisible){
+    bearInvisible = true;
+    bearInvisibleToken.classList.remove('hiding');
+  }else{
+    bearInvisible = false;
+    bearInvisibleToken.classList.add('hiding');
+  }
+}
+
 toggleStrengthened.onclick = () =>{
   if(!strengthened){
     strengthened = true;
@@ -2348,8 +2752,19 @@ toggleStrengthened.onclick = () =>{
   }
 }
 
+toggleBearStrengthened.onclick = () =>{
+  if(!bearStrengthened){
+    bearStrengthened = true;
+    bearStrengthenedToken.classList.remove('hiding');
+  }else{
+    bearStrengthened = false;
+    bearStrengthenedToken.classList.add('hiding');
+  }
+}
+
 let healthCounter = document.getElementById('health-counter');
 let xpCounter = document.getElementById('xp-counter');
+let bearHealthCounter = document.getElementById('bear-health-counter');
 
 xpUp.onclick = () => {
   xpCount++;
@@ -2384,6 +2799,30 @@ damageButton.onclick = () =>{
     healButton.classList.remove("at-max");
     if(health === 0){
       damageButton.classList.add("at-min");
+    }
+  }
+}
+
+let healBearButton = document.getElementById("heal-bear");
+let damageBearButton = document.getElementById("damage-bear");
+
+healBearButton.onclick = () => {
+  if(!poisoned && bearHealth<bearMaxHealth){
+    bearHealth++;
+    bearHealthCounter.innerHTML =  "Bear Health<br/>"+bearHealth + "/" + bearMaxHealth;
+    damageBearButton.classList.remove("at-min");
+    if(bearHealth === bearMaxHealth){
+      healBearButton.classList.add("at-max");
+    }
+  }
+}
+damageBearButton.onclick = () =>{
+  if(bearHealth>0){
+    bearHealth--;
+    bearHealthCounter.innerHTML =  "Bear Health<br/>"+bearHealth + "/" + bearMaxHealth;
+    healBearButton.classList.remove("at-max");
+    if(bearHealth === 0){
+      damageBearButton.classList.add("at-min");
     }
   }
 }
