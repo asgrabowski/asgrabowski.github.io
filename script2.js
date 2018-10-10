@@ -78,6 +78,8 @@ let xpUp = document.getElementById('xp-up');
 let xpDown = document.getElementById('xp-down');
 let healButton = document.getElementById('heal');
 let damageButton = document.getElementById('damage');
+let lootUp = document.getElementById('loot-up');
+let lootDown = document.getElementById('loot-down');
 let levelUp = document.getElementById('level-up');
 let levelDown = document.getElementById('level-down');
 let confirmLevel = document.getElementById('confirm-level');
@@ -111,6 +113,7 @@ let card6TrackerCounter = 0;
 let numberOfActiveCards = 0;
 let bearHealth = 0;
 let bearMaxHealth = 0;
+let lootCount = 0;
 
 //characters
 let brute = document.getElementById('brute');
@@ -2765,6 +2768,8 @@ toggleBearStrengthened.onclick = () =>{
 let healthCounter = document.getElementById('health-counter');
 let xpCounter = document.getElementById('xp-counter');
 let bearHealthCounter = document.getElementById('bear-health-counter');
+let lootCounter = document.getElementById('loot-counter');
+
 
 xpUp.onclick = () => {
   xpCount++;
@@ -2778,6 +2783,22 @@ xpDown.onclick = () => {
     xpCounter.innerHTML = xpCount;
     if(xpCount === 0){
       xpDown.classList.add("at-min");
+    }
+  }
+}
+
+lootUp.onclick = () => {
+  lootCount++;
+  lootCounter.innerHTML = lootCount;
+  lootDown.classList.remove("at-min");
+}
+
+lootDown.onclick = () => {
+  if(lootCount>0){
+    lootCount--;
+    lootCounter.innerHTML = lootCount;
+    if(lootCount === 0){
+      lootDown.classList.add("at-min");
     }
   }
 }

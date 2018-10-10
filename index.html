@@ -98,13 +98,13 @@
     <div id = "play-game" class = "hiding" align="center">
       <table>
         <tr>
-          <td id = "chosen-cards-title">Chosen Cards<br/>
+          <td id = "chosen-cards-title" colspan = "2">Chosen Cards<br/>
           <img id = "chosen-card-1" class = "card-in-play flipped" src = "./Card Back.png"/>
           <img id = "chosen-card-2" class = "card-in-play flipped" src = "./Card Back.png"/><br/>
           <button id = "discard-button" class = "button tooltip" type="button" title = "Must Have a Card In Play Selected">Discard Card</button>
           <button id = "lose-button" class = "button tooltip"type="button"title = "Must Have a Card In Play Selected">Lose Card</button>
           <button id = "activate-button" class = "button tooltip"type"button" title = "Must Have a Card In Play Selected">Move Card to Active</button></td>
-          <td id = "active-cards-title">Active Cards<br/>
+          <td id = "active-cards-title" colspan = "2">Active Cards<br/>
             <table id ="active-table" align = "center">
               <tr>
                 <td> <img id = "active1" class = "active-card flipped hiding" src = "./Card Back.png"/><br/>
@@ -131,7 +131,7 @@
           <button id = "increase-tracker-size" class = "button" type = "button">+</button><br/></td>
         </tr>
         <tr>
-          <td id = "discarded-cards-title">Discarded Cards<br/>
+          <td id = "discarded-cards-title" colspan = "2">Discarded Cards<br/>
             <table id ="discard-table">
               <tr>
                 <td> <img id = "discard1" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
@@ -155,7 +155,7 @@
             <button id = "reroll-random-card-button" class = "button"type = "button" title = "Can Only Be Used Once Per Short Rest">Reroll Lost Card</button>
             <button id = "lose-discard-button2" class = "button not-without-more-selected"type = "button" title="Must Have A Discarded Card Selected - Must Lose 2 to Avoid Damage">Lose Card To Avoid Damage</button>
           </td>
-          <td id = "lost-cards-title">Lost Cards<br/>
+          <td id = "lost-cards-title" colspan = "2">Lost Cards<br/>
             <table id ="lost-table">
               <tr>
                 <td> <img id = "lost1" class = "lost flipped hiding" src = "./Card Back.png"/></td>
@@ -175,7 +175,7 @@
             <button id = "recover-lost" class = "button"type="button" title = "Must Have a Lost Card Selected">Recover Lost Card</button></td>
           </tr>
           <tr>
-            <td id ="status-effects" align ="center" colspan="2">Status Effects<br/>
+            <td id ="status-effects" align ="center" colspan="4">Status Effects<br/>
             <img id = "poisoned" class = "status hiding" src = "./poisoned.png"/>
             <img id = "wounded" class = "status hiding" src = "./wounded.png"/>
             <img id = "immobilized" class = "status hiding" src = "./immobilized.png"/>
@@ -195,7 +195,7 @@
             <button id ="toggle-strengthened" type = "button">Toggle Strengthened</button></td>
           </tr>
           <tr id ="bear-status-effects" class ="hiding">
-            <td id ="bear-effects" align ="center" colspan="2">Bear Status Effects<br/>
+            <td id ="bear-effects" align ="center" colspan="4">Bear Status Effects<br/>
             <img id = "bear-poisoned" class = "status hiding" src = "./poisoned.png"/>
             <img id = "bear-wounded" class = "status hiding" src = "./wounded.png"/>
             <img id = "bear-immobilized" class = "status hiding" src = "./immobilized.png"/>
@@ -214,8 +214,10 @@
             <button id ="toggle-bear-invisible" type = "button">Toggle Bear Invisible</button>
             <button id ="toggle-bear-strengthened" type = "button">Toggle Bear Strengthened</button>
           </tr>
+        </table>
+        <table id ="hp-xp-loot">
           <tr>
-            <td id ="health" align = "center">Health<br/>
+            <td id ="health" align = "center" colspan = "1">Health<br/>
               <div>
                 <p id="health-counter"style="font-size: 35px; color:red;"></p><br/>
                 <button id="damage" type ="button" style="font-size:15px;">-</button>
@@ -227,10 +229,15 @@
                 <button id="heal-bear" class = "hiding at-max" type ="button" style="font-size:15px;" title="If Poisoned, Heal Skills Must Remove Poison Instead of Increasing Health">+</button>
               </div>
             </td>
-            <td id ="xp" align = "center">Experience<br/>
+            <td id ="xp" align = "center" colspan = "1">Experience<br/>
               <p id="xp-counter" style="font-size: 35px; color:cyan;"></p><br/>
               <button id="xp-down" type ="button" style="font-size:15px;">-</button>
               <button id="xp-up" type ="button" style="font-size:15px;">+</button>
+            </td>
+            <td id ="loot" align = "center" colspan = "1">Loot<br/>
+              <p id="loot-counter" style="font-size: 35px; color:gold;">0</p><br/>
+              <button id="loot-down" class ="at-min" type ="button" style="font-size:15px;">-</button>
+              <button id="loot-up" type ="button" style="font-size:15px;">+</button>
             </td>
           </tr>
         </table>
