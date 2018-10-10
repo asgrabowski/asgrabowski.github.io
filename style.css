@@ -101,6 +101,10 @@ html{
 #lost-cards-title {
   padding: 20px;
 }
+#hp-xp-loot{
+  width:1200px;
+}
+
 .card-in-play, .active-card{
   height:250px;
   width:167px;
@@ -138,7 +142,7 @@ html{
   border: 3px solid white;
 }
 
-#status-effects, #xp, #health, #bear-effects {
+#status-effects, #xp, #health, #bear-effects, #loot {
   border: 1px solid white;
 }
 
