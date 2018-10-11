@@ -188,6 +188,7 @@ for (var i = 0; i<characterPortraits.length; i++){
 confirmCharacterButton.onclick = () => {
   if(characterSelected){
   if(cragheart.classList.contains("character-selected")){
+    document.getElementById("cragheart-perks").classList.remove("hiding");
     flippedCard = "./0002.jpg";
     handSize = 11;
     cardHand12.classList.add("hiding");
@@ -328,6 +329,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(brute.classList.contains("character-selected")){
+    document.getElementById("brute-perks").classList.remove("hiding");
     flippedCard = "./Card Back.png";
     handSize = 10
     cardHand11.classList.add("hiding");
@@ -469,6 +471,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(mindthief.classList.contains("character-selected")){
+    document.getElementById("mindthief-perks").classList.remove("hiding");
     flippedCard = "./mtBack.jpg";
     handSize = 10
     cardHand11.classList.add("hiding");
@@ -610,6 +613,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(spellweaver.classList.contains("character-selected")){
+    document.getElementById("spellweaver-perks").classList.remove("hiding");
     flippedCard = "./swBack.jpg";
     handSize = 8
     cardHand9.classList.add("hiding");
@@ -753,6 +757,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(scoundrel.classList.contains("character-selected")){
+    document.getElementById("scoundrel-perks").classList.remove("hiding");
     flippedCard = "./scBack.jpg";
     handSize = 9
     cardHand10.classList.add("hiding");
@@ -895,6 +900,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(tinkerer.classList.contains("character-selected")){
+    document.getElementById("tinkerer-perks").classList.remove("hiding");
     flippedCard = "./tiBack.jpg";
     handSize = 12
     var hand = document.querySelectorAll(".hand");
@@ -1030,6 +1036,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(doomStalker.classList.contains("character-selected")){
+    document.getElementById("doomstalker-perks").classList.remove("hiding");
     flippedCard = "./dsBack.jpg";
     handSize = 12
     var hand = document.querySelectorAll(".hand");
@@ -1165,6 +1172,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(beastTyrant.classList.contains("character-selected")){
+    document.getElementById("beast-tyrant-perks").classList.remove("hiding");
     flippedCard = "./bmBack.jpg";
     handSize = 10
     cardHand11.classList.add("hiding");
@@ -1329,20 +1337,10 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   }
+  goBack.classList.remove("hiding");
   document.getElementById("select-class-section").classList.add("hiding");
   document.getElementById("level-selection").classList.add("hiding");
-  document.getElementById("initial-table").classList.remove("hiding");
-  document.getElementById("hand-cards").classList.remove("hiding");
-  document.getElementById("confirm-buttons").classList.remove("hiding");
-  goBack.classList.remove("hiding");
-  chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
-  cardCounter.innerHTML = "0/"+handSize;
-  healthCounter.innerHTML = health + "/" + maxHealth;
-  bearHealthCounter.innerHTML = "Bear Health<br/>"+ bearHealth + "/" + bearMaxHealth;
-  xpCounter.innerHTML = xpCount;
-  chosenCard1.src = flippedCard;
-  chosenCard2.src = flippedCard;
-  trackerSizeCounter.innerHTML = "Tracker Size: "+ trackerSize;
+  document.getElementById("perk-section").classList.remove("hiding");
 }
 }
 
@@ -1552,6 +1550,7 @@ confirmHandButton.onclick = () => {
   playCardsButton.classList.add("visible");
   cardCount = 0;
   handChosen = true;
+  cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
   longRestButton.classList.add("not-without-more-cards");
   shortRestButton.classList.add("not-without-more-cards");
   discardButton.classList.add("not-without-more-selected");
@@ -3700,6 +3699,7 @@ goBack.onclick = () => {
   document.getElementById("hand-cards").classList.add("hiding");
   document.getElementById("confirm-buttons").classList.add("hiding");
   confirmHandButton.classList.add("not-without-more-selected");
+  modDeckArray = [mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8, mod9, mod10, mod11, mod12, mod13, mod14, mod15, mod16, mod17, mod18, mod19, mod20];
   goBack.classList.add("hiding");
   flipCard(cardHand1);
   flipCard(cardHand2);
@@ -3798,4 +3798,434 @@ loseHandCard.onclick = () => {
       }
     }
   }
+}
+
+//attack modifiers
+let modifierDeck = document.getElementById('amDeck');
+let playedModifiers = document.getElementById('playedModifiers');
+let mod1 = "./plus0.png";
+let mod2 = "./plus0.png";
+let mod3 = "./plus0.png";
+let mod4 = "./plus0.png";
+let mod5 = "./plus0.png";
+let mod6 = "./plus0.png";
+let mod7 = "./plus1.png";
+let mod8 = "./plus1.png";
+let mod9 = "./plus1.png";
+let mod10 = "./plus1.png";
+let mod11 = "./plus1.png";
+let mod12 = "./minus1.png";
+let mod13 = "./minus1.png";
+let mod14 = "./minus1.png";
+let mod15 = "./minus1.png";
+let mod16 = "./minus1.png";
+let mod17 = "./minus2.png";
+let mod18 = "./plus2.png";
+let mod19 = "./curseShuffle.png";
+let mod20 = "./blessShuffle.png";
+let blessCard = "./bless.png";
+let curseCard = "./curse.png";
+let minus1 = "./newMinus1.png";
+let modDeckArray = [mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8, mod9, mod10, mod11, mod12, mod13, mod14, mod15, mod16, mod17, mod18, mod19, mod20];
+let defaultDeckArray = [];
+let playedModifierArray = [];
+let mustShuffle = document.getElementById("mustShuffle");
+let blessButton = document.getElementById('bless');
+let curseButton = document.getElementById('curse');
+let shuffleModsButton = document.getElementById('shuffleMods');
+let numOfCurses = 0;
+let numOfBlesses = 0;
+let addMinusOne = document.getElementById('add-minus-1');
+let cardsInDeckText = document.getElementById("cardsInDeck");
+let resetDeckButton = document.getElementById("reset-deck");
+
+modifierDeck.onclick = () => {
+  if(modDeckArray.length>0){
+    let randomModifierIndex = Math.floor(Math.random()*modDeckArray.length);
+    playedModifierArray.push(modDeckArray[randomModifierIndex]);
+    playedModifiers.classList.remove('hiding');
+    playedModifiers.src = playedModifierArray[playedModifierArray.length - 1];
+    playedModifiers.classList.add(`${modDeckArray[randomModifierIndex]}`);
+    modDeckArray.splice(randomModifierIndex, 1);
+    if (modDeckArray.length === 0){
+      modifierDeck.classList.add("hiding");
+    }
+    if (playedModifiers.classList.contains("./curseShuffle.png") || playedModifiers.classList.contains("./blessShuffle.png")){
+      mustShuffle.classList.remove("invisible");
+    }
+    if (playedModifiers.classList.contains("./curse.png")){
+      numOfCurses--;
+    }
+    if (playedModifiers.classList.contains("./bless.png")){
+      numOfBlesses--;
+    }
+    if (playedModifiers.classList.contains("./bless.png") || playedModifiers.classList.contains("./curse.png")){
+      playedModifierArray.splice((playedModifierArray.length-1), 1);
+      playedModifiers.classList.remove("./bless.png");
+      playedModifiers.classList.remove("./curse.png");
+    }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+}
+
+function shuffleModifierDeck (){
+  while (playedModifierArray.length > 0){
+    modDeckArray.push(playedModifierArray[playedModifierArray.length - 1]);
+    playedModifierArray.pop();
+    playedModifiers.src = '';
+    modifierDeck.src = "./amBack.png"
+    mustShuffle.classList.add('invisible');
+    playedModifiers.className = "attack-modifier";
+    playedModifiers.classList.add('hiding');
+    modifierDeck.classList.remove("hiding");
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+}
+
+shuffleModsButton.onclick = () => {
+  shuffleModifierDeck();
+}
+
+function blessDeck (){
+  if(numOfBlesses<10){
+    modDeckArray.push(blessCard);
+    modifierDeck.classList.remove("hiding");
+    numOfBlesses++
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    shuffleModifierDeck();
+  }
+}
+
+blessButton.onclick = () => {
+  blessDeck();
+}
+
+function curseDeck (){
+  if (numOfCurses<10){
+    modDeckArray.push(curseCard);
+    modifierDeck.classList.remove("hiding");
+    numOfCurses++
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    shuffleModifierDeck();
+  }
+}
+
+curseButton.onclick = () => {
+  curseDeck();
+}
+
+function addMinus1 (){
+  modDeckArray.push(minus1);
+  cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+}
+
+addMinusOne.onclick = () => {
+  addMinus1();
+}
+
+function resetDeck () {
+  shuffleModifierDeck();
+  modDeckArray = defaultDeckArray.slice();
+  cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+}
+
+resetDeckButton.onclick = () => {
+  resetDeck();
+}
+
+var checkboxes = document.querySelectorAll(".checkbox");
+for (var i = 0; i<checkboxes.length; i++){
+  (function(){
+    var checkbox = checkboxes[i];
+    checkbox.onclick = () =>{
+      if(!checkbox.classList.contains("checked")){
+        checkbox.classList.add("checked");
+      } else {
+        checkbox.classList.remove("checked");
+      }
+
+    }
+  }).call(this,i);
+}
+//Doomstalker Perks
+let dsRemove2Minus11 = document.getElementById("dsRemove2minus1-1");
+let dsRemove2Minus12 = document.getElementById("dsRemove2minus1-2");
+let dsReplacePlus0withPlus11 = document.getElementById("dsReplacePlus0withPlus1-1");
+let dsReplacePlus0withPlus12 = document.getElementById("dsReplacePlus0withPlus1-2");
+let dsReplacePlus0withPlus13 = document.getElementById("dsReplacePlus0withPlus1-3");
+let dsAddRollingPlus11 = document.getElementById("dsAddRollingPlus1-1");
+let dsAddRollingPlus12 = document.getElementById("dsAddRollingPlus1-2");
+let dsAddPlus2Muddle = document.getElementById("dsAddPlus2Muddle");
+let dsAddPlus1Poison = document.getElementById("dsAddPlus1Poison");
+let dsAddPlus1Wound = document.getElementById("dsAddPlus1Wound");
+let dsAddPLus1Immobilize = document.getElementById("dsAddPlus1Immobilize");
+let dsAddPlus0Stun = document.getElementById("dsAddPlus0Stun");
+let dsAddRollingAddTarget1 = document.getElementById("dsAddRollingAddTarget-1");
+let dsAddRollingAddTarget2 = document.getElementById("dsAddRollingAddTarget-2");
+let dsConfirmPerksButton = document.getElementById("dsConfirmPerksButton");
+
+dsConfirmPerksButton.onclick = () =>{
+  if(dsRemove2Minus11.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(dsRemove2Minus12.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (dsReplacePlus0withPlus11.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 2);
+        let newCard = "./dsPerks/dsPlus1.png";
+        modDeckArray.push(newCard);
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (dsReplacePlus0withPlus12.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod3){
+        modDeckArray.splice(i, 2);
+        let newCard = "./dsPerks/dsPlus1.png";
+        modDeckArray.push(newCard);
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (dsReplacePlus0withPlus13.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod5){
+        modDeckArray.splice(i, 2);
+        let newCard = "./dsPerks/dsPlus1.png";
+        modDeckArray.push(newCard);
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (dsAddRollingPlus11.classList.contains('checked')){
+    let newCard = "./dsPerks/dsRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (dsAddRollingPlus12.classList.contains('checked')){
+    let newCard = "./dsPerks/dsRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (dsAddPlus2Muddle.classList.contains('checked')){
+    let newCard = "./dsPerks/dsPlus2Muddle.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddPlus1Poison.classList.contains('checked')){
+    let newCard = "./dsPerks/dsPlus1Poison.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddPlus1Wound.classList.contains('checked')){
+    let newCard = "./dsPerks/dsPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddPLus1Immobilize.classList.contains('checked')){
+    let newCard = "./dsPerks/dsPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddPlus0Stun.classList.contains('checked')){
+    let newCard = "./dsPerks/dsPlus0Stun.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddRollingAddTarget1.classList.contains('checked')){
+    let newCard = "./dsPerks/dsRollingAddTarget.png";
+    modDeckArray.push(newCard);
+  }
+  if (dsAddRollingAddTarget2.classList.contains('checked')){
+    let newCard = "./dsPerks/dsRollingAddTarget.png";
+    modDeckArray.push(newCard);
+  }
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+//Mindthief perks
+let mtRemove2minus11 = document.getElementById("mtRemove2minus1-1");
+let mtRemove2minus12 = document.getElementById("mtRemove2minus1-2");
+let mtRemove4Plus0 = document.getElementById("mtRemove4Plus0");
+let mtReplaceTwoPlus1WithTwoPlus2 = document.getElementById("mtReplaceTwoPlus1WithTwoPlus2");
+let mtReplaceMinus2WithPlus0 = document.getElementById("mtReplaceMinus2WithPlus0");
+let mtPlus2Frost1 = document.getElementById("mtPlus2Frost1");
+let mtPlus2Frost2 = document.getElementById("mtPlus2Frost2");
+let mtAddTwoRollingPlus11 = document.getElementById("mtAddTwoRollingPlus11");
+let mtAddTwoRollingPlus12 = document.getElementById("mtAddTwoRollingPlus12");
+let mtAddRollingPull1 = document.getElementById("mtAddRollingPull1");
+let mtAddRollingMuddle = document.getElementById("mtAddRollingMuddle");
+let mtAddRollingImmobilize = document.getElementById("mtAddRollingImmobilize");
+let mtAddRollingStun = document.getElementById("mtAddRollingStun");
+let mtAddRollingDisarmAndMuddle = document.getElementById("mtAddRollingDisarmAndMuddle");
+let mtIgnoreNegEffects = document.getElementById("mtIgnoreNegEffects");
+let mtConfirmPerksButton = document.getElementById("mtConfirmPerksButton");
+
+mtConfirmPerksButton.onclick = () => {
+  if(mtRemove2minus11.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(mtRemove2minus12.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+ if (mtRemove4Plus0.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 4);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (mtReplaceTwoPlus1WithTwoPlus2.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod7){
+        modDeckArray.splice(i, 2);
+        let newCard = "./mtPerks/mtPlus2.png";
+        modDeckArray.push(newCard);
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (mtReplaceMinus2WithPlus0.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod17){
+        modDeckArray.splice(i, 1);
+        let newCard = "./mtPerks/mtPlus0.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (mtPlus2Frost1.classList.contains('checked')){
+    let newCard = "./mtPerks/mtFrostPlus2.png";
+    modDeckArray.push(newCard);
+  }
+  if (mtPlus2Frost2.classList.contains('checked')){
+    let newCard = "./mtPerks/mtFrostPlus2.png";
+    modDeckArray.push(newCard);
+  }
+  if (mtAddTwoRollingPlus11.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (mtAddTwoRollingPlus12.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (mtAddRollingPull1.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingPull1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (mtAddRollingMuddle.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingMuddle.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (mtAddRollingImmobilize.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingImmobilize.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (mtAddRollingStun.classList.contains('checked')){
+    let newCard = "./mtPerks/mtRollingStun.png";
+    modDeckArray.push(newCard);
+  }
+  if (mtAddRollingDisarmAndMuddle.classList.contains('checked')){
+    let newCard1 = "./mtPerks/mtRollingDisarm.png";
+    let newCard2 = "./mtPerks/mtRollingMuddle.png";
+    modDeckArray.push(newCard1);
+    modDeckArray.push(newCard2);
+  }
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+function confirmPerks(){
+  document.getElementById("initial-table").classList.remove("hiding");
+  document.getElementById("hand-cards").classList.remove("hiding");
+  document.getElementById("confirm-buttons").classList.remove("hiding");
+  chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
+  cardCounter.innerHTML = "0/"+handSize;
+  healthCounter.innerHTML = health + "/" + maxHealth;
+  bearHealthCounter.innerHTML = "Bear Health<br/>"+ bearHealth + "/" + bearMaxHealth;
+  xpCounter.innerHTML = xpCount;
+  chosenCard1.src = flippedCard;
+  chosenCard2.src = flippedCard;
+  trackerSizeCounter.innerHTML = "Tracker Size: "+ trackerSize;
+  document.getElementById("perk-section").classList.add("hiding");
+}
+
+let brConfirmPerksButton = document.getElementById('brConfirmPerksButton');
+let btConfirmPerksButton = document.getElementById('btConfirmPerksButton');
+let chConfirmPerksButton = document.getElementById('chConfirmPerksButton');
+let swConfirmPerksButton = document.getElementById('swConfirmPerksButton');
+let scConfirmPerksButton = document.getElementById('scConfirmPerksButton');
+let tiConfirmPerksButton = document.getElementById('tiConfirmPerksButton');
+
+brConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+btConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+chConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+swConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+scConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+}
+
+tiConfirmPerksButton.onclick = () => {
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
 }
