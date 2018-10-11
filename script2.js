@@ -3926,6 +3926,8 @@ addMinusOne.onclick = () => {
 function resetDeck () {
   shuffleModifierDeck();
   modDeckArray = defaultDeckArray.slice();
+  numOfCurses = 0;
+  numOfBlesses = 0;
   cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
 }
 
