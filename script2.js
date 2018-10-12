@@ -3700,6 +3700,11 @@ goBack.onclick = () => {
   document.getElementById("confirm-buttons").classList.add("hiding");
   confirmHandButton.classList.add("not-without-more-selected");
   modDeckArray = [mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8, mod9, mod10, mod11, mod12, mod13, mod14, mod15, mod16, mod17, mod18, mod19, mod20];
+  var perkLists = document.querySelectorAll(".perks");
+  for (var j = 0; j<perkLists.length; j++){
+    var perkList = perkLists[j];
+    perkList.classList.add("hiding");
+  }
   goBack.classList.add("hiding");
   flipCard(cardHand1);
   flipCard(cardHand2);
