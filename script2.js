@@ -3782,18 +3782,10 @@ goBack2.onclick = () => {
   flipCard(cardHand10);
   flipCard(cardHand11);
   flipCard(cardHand12);
-  cardHand1.classList.remove("hiding");
-  cardHand2.classList.remove("hiding");
-  cardHand3.classList.remove("hiding");
-  cardHand4.classList.remove("hiding");
-  cardHand5.classList.remove("hiding");
-  cardHand6.classList.remove("hiding");
-  cardHand7.classList.remove("hiding");
-  cardHand8.classList.remove("hiding");
-  cardHand9.classList.remove("hiding");
-  cardHand10.classList.remove("hiding");
-  cardHand11.classList.remove("hiding");
-  cardHand12.classList.remove("hiding");
+  for (var j = 0; j<12; j++){
+    var eachCardInHand = handCards[j];
+    eachCardInHand.classList.add("hiding");
+  }
   cardCount = 0;
   cardCounter.innerHTML = cardCount + "/"+ handSize;
   var levelTitles = document.querySelectorAll(".level");
@@ -4253,7 +4245,12 @@ mtConfirmPerksButton.onclick = () => {
 
 function confirmPerks(){
   document.getElementById("initial-table").classList.remove("hiding");
-  document.getElementById("hand-cards").classList.remove("hiding");
+  document.getElementById('hand-cards').classList.remove("hiding");
+  let revealedCards = document.querySelectorAll(".hand");
+  for (let i = 0; i<handSize; i++){
+    let revealedCard = revealedCards[i];
+    revealedCard.classList.remove("hiding");
+  };
   document.getElementById("confirm-buttons").classList.remove("hiding");
   chooseCardsNumber.innerHTML = "Choose "+ handSize+ " Cards";
   cardCounter.innerHTML = "0/"+handSize;
