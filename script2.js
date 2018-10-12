@@ -83,7 +83,8 @@ let lootDown = document.getElementById('loot-down');
 let levelUp = document.getElementById('level-up');
 let levelDown = document.getElementById('level-down');
 let confirmLevel = document.getElementById('confirm-level');
-let goBack = document.getElementById('go-back');
+let goBack = document.getElementById('go-back1');
+let goBack2 = document.getElementById('go-back2');
 let loseHandCard = document.getElementById('lose-hand-card');
 let loseDiscardButton = document.getElementById('lose-discard-button2');
 //play cards variables
@@ -188,6 +189,7 @@ for (var i = 0; i<characterPortraits.length; i++){
 confirmCharacterButton.onclick = () => {
   if(characterSelected){
   if(cragheart.classList.contains("character-selected")){
+    let characterChoice = "Cragheart";
     document.getElementById("cragheart-perks").classList.remove("hiding");
     flippedCard = "./0002.jpg";
     handSize = 11;
@@ -329,6 +331,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(brute.classList.contains("character-selected")){
+    let characterChoice = "Brute";
     document.getElementById("brute-perks").classList.remove("hiding");
     flippedCard = "./Card Back.png";
     handSize = 10
@@ -471,6 +474,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(mindthief.classList.contains("character-selected")){
+    let characterChoice = "Mindthief";
     document.getElementById("mindthief-perks").classList.remove("hiding");
     flippedCard = "./mtBack.jpg";
     handSize = 10
@@ -613,6 +617,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(spellweaver.classList.contains("character-selected")){
+    let characterChoice = "Spellweaver";
     document.getElementById("spellweaver-perks").classList.remove("hiding");
     flippedCard = "./swBack.jpg";
     handSize = 8
@@ -757,6 +762,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(scoundrel.classList.contains("character-selected")){
+    let characterChoice = "Scoundrel";
     document.getElementById("scoundrel-perks").classList.remove("hiding");
     flippedCard = "./scBack.jpg";
     handSize = 9
@@ -900,6 +906,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(tinkerer.classList.contains("character-selected")){
+    let characterChoice = "Tinkerer";
     document.getElementById("tinkerer-perks").classList.remove("hiding");
     flippedCard = "./tiBack.jpg";
     handSize = 12
@@ -1036,6 +1043,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(doomStalker.classList.contains("character-selected")){
+    let characterChoice = "Doomstalker";
     document.getElementById("doomstalker-perks").classList.remove("hiding");
     flippedCard = "./dsBack.jpg";
     handSize = 12
@@ -1172,6 +1180,7 @@ confirmCharacterButton.onclick = () => {
       break;
     }
   } else if(beastTyrant.classList.contains("character-selected")){
+    let characterChoice = "Beast Tyrant";
     document.getElementById("beast-tyrant-perks").classList.remove("hiding");
     flippedCard = "./bmBack.jpg";
     handSize = 10
@@ -1546,6 +1555,7 @@ confirmHandButton.onclick = () => {
   document.getElementById('lost-cards-title').setAttribute("style", "border: 1px solid white; text-align:center");
   confirmHandButton.classList.add("hiding");
   goBack.classList.add("hiding");
+  goBack2.classList.add("hiding");
   playCardsButton.classList.remove("hiding");
   playCardsButton.classList.add("visible");
   cardCount = 0;
@@ -3695,9 +3705,6 @@ goBack.onclick = () => {
   var handCards = document.querySelectorAll(".hand");
   document.getElementById("select-class-section").classList.remove("hiding");
   document.getElementById("level-selection").classList.remove("hiding");
-  document.getElementById("initial-table").classList.add("hiding");
-  document.getElementById("hand-cards").classList.add("hiding");
-  document.getElementById("confirm-buttons").classList.add("hiding");
   confirmHandButton.classList.add("not-without-more-selected");
   modDeckArray = [mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8, mod9, mod10, mod11, mod12, mod13, mod14, mod15, mod16, mod17, mod18, mod19, mod20];
   var perkLists = document.querySelectorAll(".perks");
@@ -3706,6 +3713,13 @@ goBack.onclick = () => {
     perkList.classList.add("hiding");
   }
   goBack.classList.add("hiding");
+  goBack2.classList.add("hiding");
+  document.getElementById("perk-section").classList.add("hiding");
+  document.getElementById("bear-health").classList.add("hiding");
+  document.getElementById("bear-health-counter").classList.add("hiding");
+  document.getElementById("damage-bear").classList.add("hiding");
+  document.getElementById("heal-bear").classList.add("hiding");
+  document.getElementById("bear-status-effects").classList.add("hiding");
   flipCard(cardHand1);
   flipCard(cardHand2);
   flipCard(cardHand3);
@@ -3744,6 +3758,58 @@ goBack.onclick = () => {
     }).call(this,i);
   }
 }
+
+goBack2.onclick = () => {
+  var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+  var handCards = document.querySelectorAll(".hand");
+  document.getElementById("initial-table").classList.add("hiding");
+  document.getElementById("hand-cards").classList.add("hiding");
+  document.getElementById("confirm-buttons").classList.add("hiding");
+  confirmHandButton.classList.add("not-without-more-selected");
+  modDeckArray = [mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8, mod9, mod10, mod11, mod12, mod13, mod14, mod15, mod16, mod17, mod18, mod19, mod20];
+  goBack.classList.remove("hiding");
+  goBack2.classList.add("hiding");
+  document.getElementById("perk-section").classList.remove("hiding");
+  flipCard(cardHand1);
+  flipCard(cardHand2);
+  flipCard(cardHand3);
+  flipCard(cardHand4);
+  flipCard(cardHand5);
+  flipCard(cardHand6);
+  flipCard(cardHand7);
+  flipCard(cardHand8);
+  flipCard(cardHand9);
+  flipCard(cardHand10);
+  flipCard(cardHand11);
+  flipCard(cardHand12);
+  cardHand1.classList.remove("hiding");
+  cardHand2.classList.remove("hiding");
+  cardHand3.classList.remove("hiding");
+  cardHand4.classList.remove("hiding");
+  cardHand5.classList.remove("hiding");
+  cardHand6.classList.remove("hiding");
+  cardHand7.classList.remove("hiding");
+  cardHand8.classList.remove("hiding");
+  cardHand9.classList.remove("hiding");
+  cardHand10.classList.remove("hiding");
+  cardHand11.classList.remove("hiding");
+  cardHand12.classList.remove("hiding");
+  cardCount = 0;
+  cardCounter.innerHTML = cardCount + "/"+ handSize;
+  var levelTitles = document.querySelectorAll(".level");
+  for(var k = levelCount+3; k<levelTitles.length; k++){
+    var levelTitle = levelTitles[k];
+    levelTitle.classList.add("hiding");
+  }
+  for (var i = 0; i<cardsToChooseFrom.length; i++){
+    (function (){
+      var card = cardsToChooseFrom[i];
+      card.firstChild.classList.remove("add-border");
+    }).call(this,i);
+  }
+}
+
+
 
 loseDiscardButton.onclick = () => {
   var selectedDiscards = document.querySelectorAll(".discard-selected");
@@ -3955,23 +4021,22 @@ for (var i = 0; i<checkboxes.length; i++){
   }).call(this,i);
 }
 //Doomstalker Perks
-let dsRemove2Minus11 = document.getElementById("dsRemove2minus1-1");
-let dsRemove2Minus12 = document.getElementById("dsRemove2minus1-2");
-let dsReplacePlus0withPlus11 = document.getElementById("dsReplacePlus0withPlus1-1");
-let dsReplacePlus0withPlus12 = document.getElementById("dsReplacePlus0withPlus1-2");
-let dsReplacePlus0withPlus13 = document.getElementById("dsReplacePlus0withPlus1-3");
-let dsAddRollingPlus11 = document.getElementById("dsAddRollingPlus1-1");
-let dsAddRollingPlus12 = document.getElementById("dsAddRollingPlus1-2");
-let dsAddPlus2Muddle = document.getElementById("dsAddPlus2Muddle");
-let dsAddPlus1Poison = document.getElementById("dsAddPlus1Poison");
-let dsAddPlus1Wound = document.getElementById("dsAddPlus1Wound");
-let dsAddPLus1Immobilize = document.getElementById("dsAddPlus1Immobilize");
-let dsAddPlus0Stun = document.getElementById("dsAddPlus0Stun");
-let dsAddRollingAddTarget1 = document.getElementById("dsAddRollingAddTarget-1");
-let dsAddRollingAddTarget2 = document.getElementById("dsAddRollingAddTarget-2");
-let dsConfirmPerksButton = document.getElementById("dsConfirmPerksButton");
-
 dsConfirmPerksButton.onclick = () =>{
+  let dsRemove2Minus11 = document.getElementById("dsRemove2minus1-1");
+  let dsRemove2Minus12 = document.getElementById("dsRemove2minus1-2");
+  let dsReplacePlus0withPlus11 = document.getElementById("dsReplacePlus0withPlus1-1");
+  let dsReplacePlus0withPlus12 = document.getElementById("dsReplacePlus0withPlus1-2");
+  let dsReplacePlus0withPlus13 = document.getElementById("dsReplacePlus0withPlus1-3");
+  let dsAddRollingPlus11 = document.getElementById("dsAddRollingPlus1-1");
+  let dsAddRollingPlus12 = document.getElementById("dsAddRollingPlus1-2");
+  let dsAddPlus2Muddle = document.getElementById("dsAddPlus2Muddle");
+  let dsAddPlus1Poison = document.getElementById("dsAddPlus1Poison");
+  let dsAddPlus1Wound = document.getElementById("dsAddPlus1Wound");
+  let dsAddPLus1Immobilize = document.getElementById("dsAddPlus1Immobilize");
+  let dsAddPlus0Stun = document.getElementById("dsAddPlus0Stun");
+  let dsAddRollingAddTarget1 = document.getElementById("dsAddRollingAddTarget-1");
+  let dsAddRollingAddTarget2 = document.getElementById("dsAddRollingAddTarget-2");
+  let dsConfirmPerksButton = document.getElementById("dsConfirmPerksButton");
   if(dsRemove2Minus11.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
       if(modDeckArray[i] === mod12){
@@ -4068,24 +4133,25 @@ dsConfirmPerksButton.onclick = () =>{
   confirmPerks();
 }
 //Mindthief perks
-let mtRemove2minus11 = document.getElementById("mtRemove2minus1-1");
-let mtRemove2minus12 = document.getElementById("mtRemove2minus1-2");
-let mtRemove4Plus0 = document.getElementById("mtRemove4Plus0");
-let mtReplaceTwoPlus1WithTwoPlus2 = document.getElementById("mtReplaceTwoPlus1WithTwoPlus2");
-let mtReplaceMinus2WithPlus0 = document.getElementById("mtReplaceMinus2WithPlus0");
-let mtPlus2Frost1 = document.getElementById("mtPlus2Frost1");
-let mtPlus2Frost2 = document.getElementById("mtPlus2Frost2");
-let mtAddTwoRollingPlus11 = document.getElementById("mtAddTwoRollingPlus11");
-let mtAddTwoRollingPlus12 = document.getElementById("mtAddTwoRollingPlus12");
-let mtAddRollingPull1 = document.getElementById("mtAddRollingPull1");
-let mtAddRollingMuddle = document.getElementById("mtAddRollingMuddle");
-let mtAddRollingImmobilize = document.getElementById("mtAddRollingImmobilize");
-let mtAddRollingStun = document.getElementById("mtAddRollingStun");
-let mtAddRollingDisarmAndMuddle = document.getElementById("mtAddRollingDisarmAndMuddle");
-let mtIgnoreNegEffects = document.getElementById("mtIgnoreNegEffects");
-let mtConfirmPerksButton = document.getElementById("mtConfirmPerksButton");
+
 
 mtConfirmPerksButton.onclick = () => {
+  let mtRemove2minus11 = document.getElementById("mtRemove2minus1-1");
+  let mtRemove2minus12 = document.getElementById("mtRemove2minus1-2");
+  let mtRemove4Plus0 = document.getElementById("mtRemove4Plus0");
+  let mtReplaceTwoPlus1WithTwoPlus2 = document.getElementById("mtReplaceTwoPlus1WithTwoPlus2");
+  let mtReplaceMinus2WithPlus0 = document.getElementById("mtReplaceMinus2WithPlus0");
+  let mtPlus2Frost1 = document.getElementById("mtPlus2Frost1");
+  let mtPlus2Frost2 = document.getElementById("mtPlus2Frost2");
+  let mtAddTwoRollingPlus11 = document.getElementById("mtAddTwoRollingPlus11");
+  let mtAddTwoRollingPlus12 = document.getElementById("mtAddTwoRollingPlus12");
+  let mtAddRollingPull1 = document.getElementById("mtAddRollingPull1");
+  let mtAddRollingMuddle = document.getElementById("mtAddRollingMuddle");
+  let mtAddRollingImmobilize = document.getElementById("mtAddRollingImmobilize");
+  let mtAddRollingStun = document.getElementById("mtAddRollingStun");
+  let mtAddRollingDisarmAndMuddle = document.getElementById("mtAddRollingDisarmAndMuddle");
+  let mtIgnoreNegEffects = document.getElementById("mtIgnoreNegEffects");
+  let mtConfirmPerksButton = document.getElementById("mtConfirmPerksButton");
   if(mtRemove2minus11.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
       if(modDeckArray[i] === mod12){
@@ -4198,6 +4264,7 @@ function confirmPerks(){
   chosenCard2.src = flippedCard;
   trackerSizeCounter.innerHTML = "Tracker Size: "+ trackerSize;
   document.getElementById("perk-section").classList.add("hiding");
+  goBack2.classList.remove("hiding");
 }
 
 let brConfirmPerksButton = document.getElementById('brConfirmPerksButton');
@@ -4207,32 +4274,674 @@ let swConfirmPerksButton = document.getElementById('swConfirmPerksButton');
 let scConfirmPerksButton = document.getElementById('scConfirmPerksButton');
 let tiConfirmPerksButton = document.getElementById('tiConfirmPerksButton');
 
-brConfirmPerksButton.onclick = () => {
-  defaultDeckArray = modDeckArray.slice();
-  confirmPerks();
-}
 
-btConfirmPerksButton.onclick = () => {
-  defaultDeckArray = modDeckArray.slice();
-  confirmPerks();
-}
+//Cragheart
 
 chConfirmPerksButton.onclick = () => {
+  let chPerk1 = document.getElementById("chPerk1");
+  let chPerk21 = document.getElementById("chPerk2-1");
+  let chPerk22 = document.getElementById("chPerk2-2");
+  let chPerk23 = document.getElementById("chPerk2-3");
+  let chPerk3 = document.getElementById("chPerk3");
+  let chPerk41 = document.getElementById("chPerk4-1");
+  let chPerk42 = document.getElementById("chPerk4-2");
+  let chPerk51 = document.getElementById("chPerk5-1");
+  let chPerk52 = document.getElementById("chPerk5-2");
+  let chPerk6 = document.getElementById("chPerk6");
+  let chPerk71 = document.getElementById("chPerk7-1");
+  let chPerk72 = document.getElementById("chPerk7-2");
+  let chPerk8 = document.getElementById("chPerk8");
+  let chPerk9 = document.getElementById("chPerk9");
+  let chPerk10 = document.getElementById("chPerk10");
+  if(chPerk1.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 4);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(chPerk21.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 1);
+        let newCard = "./chPerks/chPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(chPerk22.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod13){
+        modDeckArray.splice(i, 1);
+        let newCard = "./chPerks/chPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(chPerk23.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 1);
+        let newCard = "./chPerks/chPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (chPerk3.classList.contains('checked')){
+      let newCard1 = "./chPerks/chMinus2.png";
+      let newCard2 = "./chPerks/chPlus2.png";
+      modDeckArray.push(newCard1);
+      modDeckArray.push(newCard2);
+      modDeckArray.push(newCard2);
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if (chPerk41.classList.contains('checked')){
+    let newCard = "./chPerks/chPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (chPerk42.classList.contains('checked')){
+    let newCard = "./chPerks/chPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (chPerk51.classList.contains('checked')){
+    let newCard = "./chPerks/chPlus2Muddle.png";
+    modDeckArray.push(newCard);
+  }
+  if (chPerk52.classList.contains('checked')){
+    let newCard = "./chPerks/chPlus2Muddle.png";
+    modDeckArray.push(newCard);
+  }
+  if (chPerk6.classList.contains('checked')){
+    let newCard = "./chPerks/chRollingPush2.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (chPerk71.classList.contains('checked')){
+    let newCard = "./chPerks/chRollingEarth.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (chPerk72.classList.contains('checked')){
+    let newCard = "./chPerks/chRollingEarth.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (chPerk8.classList.contains('checked')){
+    let newCard = "./chPerks/chRollingWind.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
 }
+
+//Brute
+
+brConfirmPerksButton.onclick = () => {
+  let brPerk1 = document.getElementById("brPerk1");
+  let brPerk2 = document.getElementById("brPerk2");
+  let brPerk31 = document.getElementById("brPerk3-1");
+  let brPerk32 = document.getElementById("brPerk3-2");
+  let brPerk4 = document.getElementById("brPerk4");
+  let brPerk51 = document.getElementById("brPerk5-1");
+  let brPerk52 = document.getElementById("brPerk5-2");
+  let brPerk6 = document.getElementById("brPerk6");
+  let brPerk71 = document.getElementById("brPerk7-1");
+  let brPerk72 = document.getElementById("brPerk7-2");
+  let brPerk8 = document.getElementById("brPerk8");
+  let brPerk91 = document.getElementById("brPerk9-1");
+  let brPerk92 = document.getElementById("brPerk9-2");
+  let brPerk10 = document.getElementById("brPerk10");
+  let brPerk11 = document.getElementById("brPerk11");
+  if(brPerk1.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(brPerk2.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 1);
+        let newCard = "./brPerks/brPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(brPerk31.classList.contains('checked')){
+    let newCard = "./brPerks/brPlus1.png"
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if(brPerk32.classList.contains('checked')){
+    let newCard = "./brPerks/brPlus1.png"
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if (brPerk4.classList.contains('checked')){
+      let newCard = "./brPerks/brPlus3.png";
+      modDeckArray.push(newCard);
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if (brPerk51.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingPush1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (brPerk52.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingPush1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (brPerk6.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingPierce3.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (brPerk71.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingStun.png";
+    modDeckArray.push(newCard);
+  }
+  if (brPerk72.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingStun.png";
+    modDeckArray.push(newCard);
+  }
+  if (brPerk8.classList.contains('checked')){
+    let newCard1 = "./brPerks/brRollingDisarm.png";
+    let newCard2 = "./brPerks/brRollingMuddle.png";
+    modDeckArray.push(newCard1);
+    modDeckArray.push(newCard2);
+  }
+  if (brPerk91.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingAddTarget.png";
+    modDeckArray.push(newCard);
+  }
+  if (brPerk92.classList.contains('checked')){
+    let newCard = "./brPerks/brRollingAddTarget.png";
+    modDeckArray.push(newCard);
+  }
+  if (brPerk10.classList.contains('checked')){
+    let newCard = "./brPerks/brPlus1Shield.png";
+    modDeckArray.push(newCard);
+  }
+  if (brPerk11.classList.contains('checked')){
+    let newCard = "./brPerks/brPlus1.png";
+    modDeckArray.push(newCard);
+  }
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+  }
+
+//spellweaver
 
 swConfirmPerksButton.onclick = () => {
+  let swPerk1 = document.getElementById("swPerk1");
+  let swPerk21 = document.getElementById("swPerk2-1");
+  let swPerk22 = document.getElementById("swPerk2-2");
+  let swPerk31 = document.getElementById("swPerk3-1");
+  let swPerk32 = document.getElementById("swPerk3-2");
+  let swPerk4 = document.getElementById("swPerk4");
+  let swPerk5 = document.getElementById("swPerk5");
+  let swPerk6 = document.getElementById("swPerk6");
+  let swPerk7 = document.getElementById("swPerk7");
+  let swPerk81 = document.getElementById("swPerk8-1");
+  let swPerk82 = document.getElementById("swPerk8-2");
+  let swPerk91 = document.getElementById("swPerk9-1");
+  let swPerk92 = document.getElementById("swPerk9-2");
+  let swPerk10 = document.getElementById("swPerk10");
+  let swPerk11 = document.getElementById("swPerk11");
+  if(swPerk1.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 4);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(swPerk21.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 1);
+        let newCard = "./swPerks/swPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(swPerk22.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod13){
+        modDeckArray.splice(i, 1);
+        let newCard = "./swPerks/swPlus1.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(swPerk31.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus1.png"
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if (swPerk32.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus1.png"
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  }
+  if (swPerk4.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus0Stun.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk5.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk6.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk7.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus1Curse.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk81.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus2Fire.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk82.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus2Fire.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk91.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus2Frost.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk92.classList.contains('checked')){
+    let newCard = "./swPerks/swPlus2Frost.png";
+    modDeckArray.push(newCard);
+  }
+  if (swPerk10.classList.contains('checked')){
+    let newCard1 = "./swPerks/swRollingEarth.png";
+    let newCard2 = "./swPerks/swRollingWind.png"
+    modDeckArray.push(newCard1);
+    modDeckArray.push(newCard2);
+  }
+  if (swPerk11.classList.contains('checked')){
+    let newCard1 = "./swPerks/swRollingLight.png";
+    let newCard2 = "./swPerks/swRollingDark.png"
+    modDeckArray.push(newCard1);
+    modDeckArray.push(newCard2);
+  }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
-}
+  }
+
+//Scoundrel
+
 
 scConfirmPerksButton.onclick = () => {
+  let scPerk11 = document.getElementById("scPerk1-1");
+  let scPerk12 = document.getElementById("scPerk1-2");
+  let scPerk2 = document.getElementById("scPerk2");
+  let scPerk3 = document.getElementById("scPerk3");
+  let scPerk4 = document.getElementById("scPerk4");
+  let scPerk51 = document.getElementById("scPerk5-1");
+  let scPerk52 = document.getElementById("scPerk5-2");
+  let scPerk61 = document.getElementById("scPerk6-1");
+  let scPerk62 = document.getElementById("scPerk6-2");
+  let scPerk7 = document.getElementById("scPerk7");
+  let scPerk81 = document.getElementById("scPerk8-1");
+  let scPerk82 = document.getElementById("scPerk8-2");
+  let scPerk9 = document.getElementById("scPerk9");
+  let scPerk10 = document.getElementById("scPerk10");
+  let scPerk111 = document.getElementById("scPerk11");
+  if(scPerk11.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(scPerk12.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(scPerk2.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 4);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(scPerk3.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod17){
+        modDeckArray.splice(i, 1);
+        let newCard = "./scPerks/scPlus0.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (scPerk4.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod16){
+        modDeckArray.splice(i, 1);
+        let newCard = "./scPerks/scPlus1.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (scPerk51.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod5){
+        modDeckArray.splice(i, 1);
+        let newCard = "./scPerks/scPlus2.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (scPerk52.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod6){
+        modDeckArray.splice(i, 1);
+        let newCard = "./scPerks/scPlus2.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (scPerk61.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk62.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk7.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingPierce3.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk81.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingPoison.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk82.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingPoison.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk9.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingMuddle.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (scPerk10.classList.contains('checked')){
+    let newCard = "./scPerks/scRollingInvisible.png";
+    modDeckArray.push(newCard);
+  }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
-}
+  }
+
+//Tinkerer
 
 tiConfirmPerksButton.onclick = () => {
+  let tiPerk11 = document.getElementById("tiPerk1-1");
+  let tiPerk12 = document.getElementById("tiPerk1-2");
+  let tiPerk2 = document.getElementById("tiPerk2");
+  let tiPerk3 = document.getElementById("tiPerk3");
+  let tiPerk4 = document.getElementById("tiPerk4");
+  let tiPerk5 = document.getElementById("tiPerk5");
+  let tiPerk6 = document.getElementById("tiPerk6");
+  let tiPerk71 = document.getElementById("tiPerk7-1");
+  let tiPerk72 = document.getElementById("tiPerk7-2");
+  let tiPerk81 = document.getElementById("tiPerk8-1");
+  let tiPerk82 = document.getElementById("tiPerk8-2");
+  let tiPerk91 = document.getElementById("tiPerk9-1");
+  let tiPerk92 = document.getElementById("tiPerk9-2");
+  let tiPerk10 = document.getElementById("tiPerk10");
+  let tiPerk111 = document.getElementById("tiPerk11");
+  if(tiPerk11.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(tiPerk12.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(tiPerk2.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod17){
+        modDeckArray.splice(i, 1);
+        let newCard = "./tiPerks/tiPlus0.png"
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(tiPerk3.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk4.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus3.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk5.classList.contains('checked')){
+    let newCard = "./tiPerks/tiRollingFire.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk6.classList.contains('checked')){
+    let newCard = "./tiPerks/tiRollingMuddle.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk71.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk72.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk81.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk82.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk91.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Heal2.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk92.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus1Heal2.png";
+    modDeckArray.push(newCard);
+  }
+  if (tiPerk10.classList.contains('checked')){
+    let newCard = "./tiPerks/tiPlus0AddTarget.png";
+    modDeckArray.push(newCard);
+  }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
-}
+  }
+
+//Beast tyrant
+btConfirmPerksButton.onclick = () => {
+  let btPerk1 = document.getElementById("btPerk1");
+  let btPerk21 = document.getElementById("btPerk2-1");
+  let btPerk22 = document.getElementById("btPerk2-2");
+  let btPerk23 = document.getElementById("btPerk2-3");
+  let btPerk31 = document.getElementById("btPerk3-1");
+  let btPerk32 = document.getElementById("btPerk3-2");
+  let btPerk41 = document.getElementById("btPerk4-1");
+  let btPerk42 = document.getElementById("btPerk4-2");
+  let btPerk51 = document.getElementById("btPerk5-1");
+  let btPerk52 = document.getElementById("btPerk5-2");
+  let btPerk61 = document.getElementById("btPerk6-1");
+  let btPerk62 = document.getElementById("btPerk6-2");
+  let btPerk63 = document.getElementById("btPerk6-3");
+  let btPerk7 = document.getElementById("btPerk7");
+  let btPerk8 = document.getElementById("btPerk8");
+  if(btPerk1.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod12){
+        modDeckArray.splice(i, 2);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(btPerk21.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod14){
+        modDeckArray.splice(i, 1);
+        let newCard = "./btPerks/btPlus1.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(btPerk22.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod15){
+        modDeckArray.splice(i, 1);
+        let newCard = "./btPerks/btPlus1.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if(btPerk23.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod16){
+        modDeckArray.splice(i, 1);
+        let newCard = "./btPerks/btPlus1.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (btPerk31.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod1){
+        modDeckArray.splice(i, 1);
+        let newCard = "./btPerks/btPlus2.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (btPerk32.classList.contains('checked')){
+    for (var i = 0; i<modDeckArray.length; i++){
+      if(modDeckArray[i] === mod2){
+        modDeckArray.splice(i, 1);
+        let newCard = "./btPerks/btPlus2.png";
+        modDeckArray.push(newCard);
+        i = modDeckArray.length;
+        cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      }
+    }
+  }
+  if (btPerk41.classList.contains('checked')){
+    let newCard = "./btPerks/btPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (btPerk42.classList.contains('checked')){
+    let newCard = "./btPerks/btPlus1Wound.png";
+    modDeckArray.push(newCard);
+  }
+  if (btPerk51.classList.contains('checked')){
+    let newCard = "./btPerks/btPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (btPerk52.classList.contains('checked')){
+    let newCard = "./btPerks/btPlus1Immobilize.png";
+    modDeckArray.push(newCard);
+  }
+  if (btPerk61.classList.contains('checked')){
+    let newCard = "./btPerks/btRollingHeal1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (btPerk62.classList.contains('checked')){
+    let newCard = "./btPerks/btRollingHeal1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (btPerk63.classList.contains('checked')){
+    let newCard = "./btPerks/btRollingHeal1.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  if (btPerk7.classList.contains('checked')){
+    let newCard = "./btPerks/btRollingEarth.png";
+    modDeckArray.push(newCard);
+    modDeckArray.push(newCard);
+  }
+  defaultDeckArray = modDeckArray.slice();
+  confirmPerks();
+  }

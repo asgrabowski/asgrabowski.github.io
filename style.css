@@ -1,6 +1,7 @@
 html{
   background-color: black;
   color: white;
+  font-family: "Palatino Linotype", sans-serif;
 }
 
 .header{
@@ -225,9 +226,14 @@ html{
 .checkbox{
   border:1px solid white;
   display: inline;
-  padding: 3px 10px;
+  width:20px;
+  height:20px;
+  padding: 15px 15px;
   margin: 5px;
   cursor:pointer;
+  background-color:black;
+  box-sizing: border-box;
+  font-size: 0px;
 }
 
 .perks p{
@@ -237,8 +243,20 @@ html{
 
 .perks div{
   line-height: 50px;
+  text-align: left;
 }
 
 .checked {
-  background-color:white;
+  background: url("./perkCheck.png");
+  background-size: contain;
+  z-index: 1;
+}
+
+.perks {
+  background: url("./background.png");
+  font-size: 20px;
+  font-weight: bold;
+  width: 750px;
+  padding:25px 0;
+  color:black;
 }

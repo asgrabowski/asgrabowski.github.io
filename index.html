@@ -37,34 +37,394 @@
 
     <!--Perks Section -->
       <div id ="perk-section" class ="hiding" align ="center">
-          <h2 class = "header">Select Your Perks</h2>
+          <h2 id ="perks-header" class = "header">Select Your Perks</h2>
           <div id ="cragheart-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="chPerk1" class = "checkbox">
+              </div>
+              <p>Remove Four +0 Cards</p>
+            </div>
+            <div>
+              <div id ="chPerk2-1" class = "checkbox">
+              </div>
+              <div id ="chPerk2-2" class = "checkbox">
+              </div>
+              <div id ="chPerk2-3" class = "checkbox">
+              </div>
+              <p>Replace One -1 Card With One +1 Card</p>
+            </div>
+            <div>
+              <div id ="chPerk3" class = "checkbox">
+              </div>
+              <p>Add One -2 Card and Two +2 Cards</p>
+            </div>
+            <div>
+              <div id ="chPerk4-1" class = "checkbox">
+              </div>
+              <div id ="chPerk4-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Immobilize Card</p>
+            </div>
+            <div>
+              <div id ="chPerk5-1" class = "checkbox">
+              </div>
+              <div id ="chPerk5-2" class = "checkbox">
+              </div>
+              <p>Add One +2 Muddle Card</p>
+            </div>
+            <div>
+              <div id ="chPerk6" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Push 2 Cards</p>
+            </div>
+            <div>
+              <div id ="chPerk7-1" class = "checkbox">
+              </div>
+              <div id ="chPerk7-2" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Infuse Earth Cards</p>
+            </div>
+            <div>
+              <div id ="chPerk8" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Infuse Wind Cards</p>
+            </div>
+            <div>
+              <div id ="chPerk9" class = "checkbox">
+              </div>
+              <p>Ignore Negative Item Effects</p>
+            </div>
+            <div>
+              <div id ="chPerk10" class = "checkbox">
+              </div>
+              <p>Ignore Negative Scenario Effects</p>
+            </div>
             <button id ="chConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
           <div id ="brute-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="brPerk1" class = "checkbox">
+              </div>
+              <p>Remove Two -1 Cards</p>
+            </div>
+            <div>
+              <div id ="brPerk2" class = "checkbox">
+              </div>
+              <p>Replace One -1 Card With One +1 Card</p>
+            </div>
+            <div>
+              <div id ="brPerk3-1" class = "checkbox">
+              </div>
+              <div id ="brPerk3-2" class = "checkbox">
+              </div>
+              <p>Add Two +1 Cards</p>
+            </div>
+            <div>
+              <div id ="brPerk4" class = "checkbox">
+              </div>
+              <p>Add One +3 Card</p>
+            </div>
+            <div>
+              <div id ="brPerk5-1" class = "checkbox">
+              </div>
+              <div id ="brPerk5-2" class = "checkbox">
+              </div>
+              <p>Add Three Rolling Push 1 Cards</p>
+            </div>
+            <div>
+              <div id ="brPerk6" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Pierce 3 Cards</p>
+            </div>
+            <div>
+              <div id ="brPerk7-1" class = "checkbox">
+              </div>
+              <div id ="brPerk7-2" class = "checkbox">
+              </div>
+              <p>Add One Rolling Stun Card</p>
+            </div>
+            <div>
+              <div id ="brPerk8" class = "checkbox">
+              </div>
+              <p>Add One Rolling Disarm Card and One Rolling Muddle Card</p>
+            </div>
+            <div>
+              <div id ="brPerk9-1" class = "checkbox">
+              </div>
+              <div id ="brPerk9-2" class = "checkbox">
+              </div>
+              <p>Add One Rolling Add Target Card</p>
+            </div>
+            <div>
+              <div id ="brPerk10" class = "checkbox">
+              </div>
+              <p>Add One +1 Shield 1, Self Card</p>
+            </div>
+            <div>
+              <div id ="brPerk11" class = "checkbox">
+              </div>
+              <p>Ignore Negative Item Effects and Add One +1 Card</p>
+            </div>
             <button id ="brConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
           <div id ="spellweaver-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="swPerk1" class = "checkbox">
+              </div>
+              <p>Remove Four +0 Cards</p>
+            </div>
+            <div>
+              <div id ="swPerk2-1" class = "checkbox">
+              </div>
+              <div id ="swPerk2-2" class = "checkbox">
+              </div>
+              <p>Replace One -1 Card With One +1 Card</p>
+            </div>
+            <div>
+              <div id ="swPerk3-1" class = "checkbox">
+              </div>
+              <div id ="swPerk3-2" class = "checkbox">
+              </div>
+              <p>Add Two +1 Cards</p>
+            </div>
+            <div>
+              <div id ="swPerk4" class = "checkbox">
+              </div>
+              <p>Add One +0 Stun Card</p>
+            </div>
+            <div>
+              <div id ="swPerk5" class = "checkbox">
+              </div>
+              <p>Add One +1 Wound Card</p>
+            </div>
+            <div>
+              <div id ="swPerk6" class = "checkbox">
+              </div>
+              <p>Add One +1 Immobilize Card</p>
+            </div>
+            <div>
+              <div id ="swPerk7" class = "checkbox">
+              </div>
+              <p>Add One +1 Curse Card</p>
+            </div>
+            <div>
+              <div id ="swPerk8-1" class = "checkbox">
+              </div>
+              <div id ="swPerk8-2" class = "checkbox">
+              </div>
+              <p>Add One +2 Infuse Fire Card</p>
+            </div>
+            <div>
+              <div id ="swPerk9-1" class = "checkbox">
+              </div>
+              <div id ="swPerk9-2" class = "checkbox">
+              </div>
+              <p>Add One +2 Infuse Frost Card</p>
+            </div>
+            <div>
+              <div id ="swPerk10" class = "checkbox">
+              </div>
+              <p>Add One Rolling Infuse Earth Card and One Rolling Infuse Wind Card</p>
+            </div>
+            <div>
+              <div id ="swPerk11" class = "checkbox">
+              </div>
+              <p>Add One Rolling Infuse Light Card and One Rolling Infuse Dark Card</p>
+            </div>
             <button id ="swConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
           <div id ="scoundrel-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="scPerk1-1" class = "checkbox">
+              </div>
+              <div id ="scPerk1-2" class = "checkbox">
+              </div>
+              <p>Remove Two -1 Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk2" class = "checkbox">
+              </div>
+              <p>Remove Four +0 Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk3" class = "checkbox">
+              </div>
+              <p>Replace One -2 Card With One +0 Card</p>
+            </div>
+            <div>
+              <div id ="scPerk4" class = "checkbox">
+              </div>
+              <p>Replace One -1 Card with One +1 Card</p>
+            </div>
+            <div>
+              <div id ="scPerk5-1" class = "checkbox">
+              </div>
+              <div id ="scPerk5-2" class = "checkbox">
+              </div>
+              <p>Replace One +0 Card With One +2 Card</p>
+            </div>
+            <div>
+              <div id ="scPerk6-1" class = "checkbox">
+              </div>
+              <div id ="scPerk6-2" class = "checkbox">
+              </div>
+              <p>Add Two Rolling +1 Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk7" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Pierce 3 Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk8-1" class = "checkbox">
+              </div>
+              <div id ="scPerk8-2" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Poison Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk9" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Muddle Cards</p>
+            </div>
+            <div>
+              <div id ="scPerk10" class = "checkbox">
+              </div>
+              <p>Add One Rolling Invisible Card</p>
+            </div>
+            <div>
+              <div id ="scPerk11" class = "checkbox">
+              </div>
+              <p>Ignore Negative Scenario Effects</p>
+            </div>
             <button id ="scConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
           <div id ="tinkerer-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="tiPerk1-1" class = "checkbox">
+              </div>
+              <div id ="tiPerk1-2" class = "checkbox">
+              </div>
+              <p>Remove Two -1 Cards</p>
+            </div>
+            <div>
+              <div id ="tiPerk2" class = "checkbox">
+              </div>
+              <p>Replace One -2 Card With One +0 Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk3" class = "checkbox">
+              </div>
+              <p>Add Two +1 Cards</p>
+            </div>
+            <div>
+              <div id ="tiPerk4" class = "checkbox">
+              </div>
+              <p>Add One +3 Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk5" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Infuse Fire Cards</p>
+            </div>
+            <div>
+              <div id ="tiPerk6" class = "checkbox">
+              </div>
+              <p>Add Three Rolling Muddle Cards</p>
+            </div>
+            <div>
+              <div id ="tiPerk7-1" class = "checkbox">
+              </div>
+              <div id ="tiPerk7-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Wound Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk8-1" class = "checkbox">
+              </div>
+              <div id ="tiPerk8-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Immobilize Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk9-1" class = "checkbox">
+              </div>
+              <div id ="tiPerk9-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Heal 2 Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk10" class = "checkbox">
+              </div>
+              <p>Add One +0 Add Target Card</p>
+            </div>
+            <div>
+              <div id ="tiPerk11" class = "checkbox">
+              </div>
+              <p>Ignore Negative Scenario Effects</p>
+            </div>
             <button id ="tiConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
           <div id ="beast-tyrant-perks" class ="perks hiding">
-            <p>Perk Support For This Class Coming Soon. Just Press The Button</p>
+            <div>
+              <div id ="btPerk1" class = "checkbox">
+              </div>
+              <p>Remove Two -1 Cards</p>
+            </div>
+            <div>
+              <div id ="btPerk2-1" class = "checkbox">
+              </div>
+              <div id ="btPerk2-2" class = "checkbox">
+              </div>
+              <div id ="btPerk2-3" class = "checkbox">
+              </div>
+              <p>Replace One -1 Card With One +1 Card</p>
+            </div>
+            <div>
+              <div id ="btPerk3-1" class = "checkbox">
+              </div>
+              <div id ="btPerk3-2" class = "checkbox">
+              </div>
+              <p>Replace One +0 Card With One +2 Card</p>
+            </div>
+            <div>
+              <div id ="btPerk4-1" class = "checkbox">
+              </div>
+              <div id ="btPerk4-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Wound Card</p>
+            </div>
+            <div>
+              <div id ="btPerk5-1" class = "checkbox">
+              </div>
+              <div id ="btPerk5-2" class = "checkbox">
+              </div>
+              <p>Add One +1 Immobilize Card</p>
+            </div>
+            <div>
+              <div id ="btPerk6-1" class = "checkbox">
+              </div>
+              <div id ="btPerk6-2" class = "checkbox">
+              </div>
+              <div id ="btPerk6-3" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Heal 1 Cards</p>
+            </div>
+            <div>
+              <div id ="btPerk7" class = "checkbox">
+              </div>
+              <p>Add Two Rolling Infuse Earth Cards</p>
+            </div>
+            <div>
+              <div id ="btPerk8" class = "checkbox">
+              </div>
+              <p>Ignore Negative Scenario Effects</p>
+            </div>
             <button id ="btConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
@@ -201,6 +561,7 @@
             </div>
             <button id ="mtConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
+          <button id = "go-back1" class = "button hiding" type ="button">Go Back To Character Select</button>
         </div>
 
     <div id = "initial-table" class = "cardSet hiding">
@@ -450,7 +811,7 @@
         </table>
       </div>
       <div id = "confirm-buttons" class = "hiding"align = "center">
-        <button id = "go-back" class = "button hiding" type ="button">Go Back</button>
+        <button id = "go-back2" class = "button hiding" type ="button">Go Back To Perks</button>
         <button id = "confirm-hand" class = "button not-without-more-selected"type="button" title="Must Have a Full Hand">Confirm Hand</button>
         <button id = "play-cards-button" class = "button hiding" type="button" title="Must Select 2 Cards, Not Have Any Cards In Play, And Not Be Resting">Play Cards</button>
         <button id = "lose-hand-card" class = "button hiding not-without-more-selected" type = "button" title="Must Have One Card Selected">Lose Card To Avoid Damage</button>
