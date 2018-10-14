@@ -2551,7 +2551,16 @@ discardButton.onclick = () => {
       discard8.src = chosenCard2.src;
       discard8.classList.remove("hiding");
       discard8.classList.remove("flipped")
-    } else if(discard11.classList.contains("flipped")){
+    } else if(discard9.classList.contains("flipped")){
+      discard11.src = chosenCard1.src;
+      discard11.classList.remove("hiding");
+      discard11.classList.remove("flipped")
+    } else if(discard10.classList.contains("flipped")){
+      discard12.src = chosenCard1.src;
+      discard12.classList.remove("hiding");
+      discard12.classList.remove("flipped")
+    }
+    else if(discard11.classList.contains("flipped")){
       discard11.src = chosenCard1.src;
       discard11.classList.remove("hiding");
       discard11.classList.remove("flipped")
