@@ -4,7 +4,7 @@
     <title>Gloomhaven Card Manager</title>
     <link href = "./style.css" type = "text/css" rel = "stylesheet">
   </head>
-  <body>
+  <body onload="checkCookie()">
     <div id = "select-class-section" align = "center">
       <h2 class = "header" align = "center" style = "color:white;">Select Your Character</h2>
       <table>
@@ -41,62 +41,62 @@
           <h2 id ="perks-header" class = "header">Select Your Perks</h2>
           <div id ="cragheart-perks" class ="perks hiding">
             <div>
-              <div id ="chPerk1" class = "checkbox">
+              <div id ="chPerk1" class = "checkbox chPerk">
               </div>
               <p>Remove Four +0 Cards</p>
             </div>
             <div>
-              <div id ="chPerk2-1" class = "checkbox">
+              <div id ="chPerk2-1" class = "checkbox chPerk">
               </div>
-              <div id ="chPerk2-2" class = "checkbox">
+              <div id ="chPerk2-2" class = "checkbox chPerk">
               </div>
-              <div id ="chPerk2-3" class = "checkbox">
+              <div id ="chPerk2-3" class = "checkbox chPerk">
               </div>
               <p>Replace One -1 Card With One +1 Card</p>
             </div>
             <div>
-              <div id ="chPerk3" class = "checkbox">
+              <div id ="chPerk3" class = "checkbox chPerk">
               </div>
               <p>Add One -2 Card and Two +2 Cards</p>
             </div>
             <div>
-              <div id ="chPerk4-1" class = "checkbox">
+              <div id ="chPerk4-1" class = "checkbox chPerk">
               </div>
-              <div id ="chPerk4-2" class = "checkbox">
+              <div id ="chPerk4-2" class = "checkbox chPerk">
               </div>
               <p>Add One +1 Immobilize Card</p>
             </div>
             <div>
-              <div id ="chPerk5-1" class = "checkbox">
+              <div id ="chPerk5-1" class = "checkbox chPerk">
               </div>
-              <div id ="chPerk5-2" class = "checkbox">
+              <div id ="chPerk5-2" class = "checkbox chPerk">
               </div>
               <p>Add One +2 Muddle Card</p>
             </div>
             <div>
-              <div id ="chPerk6" class = "checkbox">
+              <div id ="chPerk6" class = "checkbox chPerk">
               </div>
               <p>Add Two Rolling Push 2 Cards</p>
             </div>
             <div>
-              <div id ="chPerk7-1" class = "checkbox">
+              <div id ="chPerk7-1" class = "checkbox chPerk">
               </div>
-              <div id ="chPerk7-2" class = "checkbox">
+              <div id ="chPerk7-2" class = "checkbox chPerk">
               </div>
               <p>Add Two Rolling Infuse Earth Cards</p>
             </div>
             <div>
-              <div id ="chPerk8" class = "checkbox">
+              <div id ="chPerk8" class = "checkbox chPerk">
               </div>
               <p>Add Two Rolling Infuse Wind Cards</p>
             </div>
             <div>
-              <div id ="chPerk9" class = "checkbox">
+              <div id ="chPerk9" class = "checkbox chPerk">
               </div>
               <p>Ignore Negative Item Effects</p>
             </div>
             <div>
-              <div id ="chPerk10" class = "checkbox">
+              <div id ="chPerk10" class = "checkbox chPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -105,65 +105,65 @@
 
           <div id ="brute-perks" class ="perks hiding">
             <div>
-              <div id ="brPerk1" class = "checkbox">
+              <div id ="brPerk1" class = "checkbox brPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="brPerk2" class = "checkbox">
+              <div id ="brPerk2" class = "checkbox brPerk">
               </div>
               <p>Replace One -1 Card With One +1 Card</p>
             </div>
             <div>
-              <div id ="brPerk3-1" class = "checkbox">
+              <div id ="brPerk3-1" class = "checkbox brPerk">
               </div>
-              <div id ="brPerk3-2" class = "checkbox">
+              <div id ="brPerk3-2" class = "checkbox brPerk">
               </div>
               <p>Add Two +1 Cards</p>
             </div>
             <div>
-              <div id ="brPerk4" class = "checkbox">
+              <div id ="brPerk4" class = "checkbox brPerk">
               </div>
               <p>Add One +3 Card</p>
             </div>
             <div>
-              <div id ="brPerk5-1" class = "checkbox">
+              <div id ="brPerk5-1" class = "checkbox brPerk">
               </div>
-              <div id ="brPerk5-2" class = "checkbox">
+              <div id ="brPerk5-2" class = "checkbox brPerk">
               </div>
               <p>Add Three Rolling Push 1 Cards</p>
             </div>
             <div>
-              <div id ="brPerk6" class = "checkbox">
+              <div id ="brPerk6" class = "checkbox brPerk">
               </div>
               <p>Add Two Rolling Pierce 3 Cards</p>
             </div>
             <div>
-              <div id ="brPerk7-1" class = "checkbox">
+              <div id ="brPerk7-1" class = "checkbox brPerk">
               </div>
-              <div id ="brPerk7-2" class = "checkbox">
+              <div id ="brPerk7-2" class = "checkbox brPerk">
               </div>
               <p>Add One Rolling Stun Card</p>
             </div>
             <div>
-              <div id ="brPerk8" class = "checkbox">
+              <div id ="brPerk8" class = "checkbox brPerk">
               </div>
               <p>Add One Rolling Disarm Card and One Rolling Muddle Card</p>
             </div>
             <div>
-              <div id ="brPerk9-1" class = "checkbox">
+              <div id ="brPerk9-1" class = "checkbox brPerk">
               </div>
-              <div id ="brPerk9-2" class = "checkbox">
+              <div id ="brPerk9-2" class = "checkbox brPerk">
               </div>
               <p>Add One Rolling Add Target Card</p>
             </div>
             <div>
-              <div id ="brPerk10" class = "checkbox">
+              <div id ="brPerk10" class = "checkbox brPerk">
               </div>
               <p>Add One +1 Shield 1, Self Card</p>
             </div>
             <div>
-              <div id ="brPerk11" class = "checkbox">
+              <div id ="brPerk11" class = "checkbox brPerk">
               </div>
               <p>Ignore Negative Item Effects and Add One +1 Card</p>
             </div>
@@ -172,65 +172,65 @@
 
           <div id ="spellweaver-perks" class ="perks hiding">
             <div>
-              <div id ="swPerk1" class = "checkbox">
+              <div id ="swPerk1" class = "checkbox swPerk">
               </div>
               <p>Remove Four +0 Cards</p>
             </div>
             <div>
-              <div id ="swPerk2-1" class = "checkbox">
+              <div id ="swPerk2-1" class = "checkbox swPerk">
               </div>
-              <div id ="swPerk2-2" class = "checkbox">
+              <div id ="swPerk2-2" class = "checkbox swPerk">
               </div>
               <p>Replace One -1 Card With One +1 Card</p>
             </div>
             <div>
-              <div id ="swPerk3-1" class = "checkbox">
+              <div id ="swPerk3-1" class = "checkbox swPerk">
               </div>
-              <div id ="swPerk3-2" class = "checkbox">
+              <div id ="swPerk3-2" class = "checkbox swPerk">
               </div>
               <p>Add Two +1 Cards</p>
             </div>
             <div>
-              <div id ="swPerk4" class = "checkbox">
+              <div id ="swPerk4" class = "checkbox swPerk">
               </div>
               <p>Add One +0 Stun Card</p>
             </div>
             <div>
-              <div id ="swPerk5" class = "checkbox">
+              <div id ="swPerk5" class = "checkbox swPerk">
               </div>
               <p>Add One +1 Wound Card</p>
             </div>
             <div>
-              <div id ="swPerk6" class = "checkbox">
+              <div id ="swPerk6" class = "checkbox swPerk">
               </div>
               <p>Add One +1 Immobilize Card</p>
             </div>
             <div>
-              <div id ="swPerk7" class = "checkbox">
+              <div id ="swPerk7" class = "checkbox swPerk">
               </div>
               <p>Add One +1 Curse Card</p>
             </div>
             <div>
-              <div id ="swPerk8-1" class = "checkbox">
+              <div id ="swPerk8-1" class = "checkbox swPerk">
               </div>
-              <div id ="swPerk8-2" class = "checkbox">
+              <div id ="swPerk8-2" class = "checkbox swPerk">
               </div>
               <p>Add One +2 Infuse Fire Card</p>
             </div>
             <div>
-              <div id ="swPerk9-1" class = "checkbox">
+              <div id ="swPerk9-1" class = "checkbox swPerk">
               </div>
-              <div id ="swPerk9-2" class = "checkbox">
+              <div id ="swPerk9-2" class = "checkbox swPerk">
               </div>
               <p>Add One +2 Infuse Frost Card</p>
             </div>
             <div>
-              <div id ="swPerk10" class = "checkbox">
+              <div id ="swPerk10" class = "checkbox swPerk">
               </div>
               <p>Add One Rolling Infuse Earth Card and One Rolling Infuse Wind Card</p>
             </div>
             <div>
-              <div id ="swPerk11" class = "checkbox">
+              <div id ="swPerk11" class = "checkbox swPerk">
               </div>
               <p>Add One Rolling Infuse Light Card and One Rolling Infuse Dark Card</p>
             </div>
@@ -239,65 +239,65 @@
 
           <div id ="scoundrel-perks" class ="perks hiding">
             <div>
-              <div id ="scPerk1-1" class = "checkbox">
+              <div id ="scPerk1-1" class = "checkbox scPerk">
               </div>
-              <div id ="scPerk1-2" class = "checkbox">
+              <div id ="scPerk1-2" class = "checkbox scPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="scPerk2" class = "checkbox">
+              <div id ="scPerk2" class = "checkbox scPerk">
               </div>
               <p>Remove Four +0 Cards</p>
             </div>
             <div>
-              <div id ="scPerk3" class = "checkbox">
+              <div id ="scPerk3" class = "checkbox scPerk">
               </div>
               <p>Replace One -2 Card With One +0 Card</p>
             </div>
             <div>
-              <div id ="scPerk4" class = "checkbox">
+              <div id ="scPerk4" class = "checkbox scPerk">
               </div>
               <p>Replace One -1 Card with One +1 Card</p>
             </div>
             <div>
-              <div id ="scPerk5-1" class = "checkbox">
+              <div id ="scPerk5-1" class = "checkbox scPerk">
               </div>
-              <div id ="scPerk5-2" class = "checkbox">
+              <div id ="scPerk5-2" class = "checkbox scPerk">
               </div>
               <p>Replace One +0 Card With One +2 Card</p>
             </div>
             <div>
-              <div id ="scPerk6-1" class = "checkbox">
+              <div id ="scPerk6-1" class = "checkbox scPerk">
               </div>
-              <div id ="scPerk6-2" class = "checkbox">
+              <div id ="scPerk6-2" class = "checkbox scPerk">
               </div>
               <p>Add Two Rolling +1 Cards</p>
             </div>
             <div>
-              <div id ="scPerk7" class = "checkbox">
+              <div id ="scPerk7" class = "checkbox scPerk">
               </div>
               <p>Add Two Rolling Pierce 3 Cards</p>
             </div>
             <div>
-              <div id ="scPerk8-1" class = "checkbox">
+              <div id ="scPerk8-1" class = "checkbox scPerk">
               </div>
-              <div id ="scPerk8-2" class = "checkbox">
+              <div id ="scPerk8-2" class = "checkbox scPerk">
               </div>
               <p>Add Two Rolling Poison Cards</p>
             </div>
             <div>
-              <div id ="scPerk9" class = "checkbox">
+              <div id ="scPerk9" class = "checkbox scPerk">
               </div>
               <p>Add Two Rolling Muddle Cards</p>
             </div>
             <div>
-              <div id ="scPerk10" class = "checkbox">
+              <div id ="scPerk10" class = "checkbox scPerk">
               </div>
               <p>Add One Rolling Invisible Card</p>
             </div>
             <div>
-              <div id ="scPerk11" class = "checkbox">
+              <div id ="scPerk11" class = "checkbox scPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -306,65 +306,65 @@
 
           <div id ="tinkerer-perks" class ="perks hiding">
             <div>
-              <div id ="tiPerk1-1" class = "checkbox">
+              <div id ="tiPerk1-1" class = "checkbox tiPerk">
               </div>
-              <div id ="tiPerk1-2" class = "checkbox">
+              <div id ="tiPerk1-2" class = "checkbox tiPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="tiPerk2" class = "checkbox">
+              <div id ="tiPerk2" class = "checkbox tiPerk">
               </div>
               <p>Replace One -2 Card With One +0 Card</p>
             </div>
             <div>
-              <div id ="tiPerk3" class = "checkbox">
+              <div id ="tiPerk3" class = "checkbox tiPerk">
               </div>
               <p>Add Two +1 Cards</p>
             </div>
             <div>
-              <div id ="tiPerk4" class = "checkbox">
+              <div id ="tiPerk4" class = "checkbox tiPerk">
               </div>
               <p>Add One +3 Card</p>
             </div>
             <div>
-              <div id ="tiPerk5" class = "checkbox">
+              <div id ="tiPerk5" class = "checkbox tiPerk">
               </div>
               <p>Add Two Rolling Infuse Fire Cards</p>
             </div>
             <div>
-              <div id ="tiPerk6" class = "checkbox">
+              <div id ="tiPerk6" class = "checkbox tiPerk">
               </div>
               <p>Add Three Rolling Muddle Cards</p>
             </div>
             <div>
-              <div id ="tiPerk7-1" class = "checkbox">
+              <div id ="tiPerk7-1" class = "checkbox tiPerk">
               </div>
-              <div id ="tiPerk7-2" class = "checkbox">
+              <div id ="tiPerk7-2" class = "checkbox tiPerk">
               </div>
               <p>Add One +1 Wound Card</p>
             </div>
             <div>
-              <div id ="tiPerk8-1" class = "checkbox">
+              <div id ="tiPerk8-1" class = "checkbox tiPerk">
               </div>
-              <div id ="tiPerk8-2" class = "checkbox">
+              <div id ="tiPerk8-2" class = "checkbox tiPerk">
               </div>
               <p>Add One +1 Immobilize Card</p>
             </div>
             <div>
-              <div id ="tiPerk9-1" class = "checkbox">
+              <div id ="tiPerk9-1" class = "checkbox tiPerk">
               </div>
-              <div id ="tiPerk9-2" class = "checkbox">
+              <div id ="tiPerk9-2" class = "checkbox tiPerk">
               </div>
               <p>Add One +1 Heal 2 Card</p>
             </div>
             <div>
-              <div id ="tiPerk10" class = "checkbox">
+              <div id ="tiPerk10" class = "checkbox tiPerk">
               </div>
               <p>Add One +0 Add Target Card</p>
             </div>
             <div>
-              <div id ="tiPerk11" class = "checkbox">
+              <div id ="tiPerk11" class = "checkbox tiPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -373,56 +373,56 @@
 
           <div id ="beast-tyrant-perks" class ="perks hiding">
             <div>
-              <div id ="btPerk1" class = "checkbox">
+              <div id ="btPerk1" class = "checkbox btPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="btPerk2-1" class = "checkbox">
+              <div id ="btPerk2-1" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk2-2" class = "checkbox">
+              <div id ="btPerk2-2" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk2-3" class = "checkbox">
+              <div id ="btPerk2-3" class = "checkbox btPerk">
               </div>
               <p>Replace One -1 Card With One +1 Card</p>
             </div>
             <div>
-              <div id ="btPerk3-1" class = "checkbox">
+              <div id ="btPerk3-1" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk3-2" class = "checkbox">
+              <div id ="btPerk3-2" class = "checkbox btPerk">
               </div>
               <p>Replace One +0 Card With One +2 Card</p>
             </div>
             <div>
-              <div id ="btPerk4-1" class = "checkbox">
+              <div id ="btPerk4-1" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk4-2" class = "checkbox">
+              <div id ="btPerk4-2" class = "checkbox btPerk">
               </div>
               <p>Add One +1 Wound Card</p>
             </div>
             <div>
-              <div id ="btPerk5-1" class = "checkbox">
+              <div id ="btPerk5-1" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk5-2" class = "checkbox">
+              <div id ="btPerk5-2" class = "checkbox btPerk">
               </div>
               <p>Add One +1 Immobilize Card</p>
             </div>
             <div>
-              <div id ="btPerk6-1" class = "checkbox">
+              <div id ="btPerk6-1" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk6-2" class = "checkbox">
+              <div id ="btPerk6-2" class = "checkbox btPerk">
               </div>
-              <div id ="btPerk6-3" class = "checkbox">
+              <div id ="btPerk6-3" class = "checkbox btPerk">
               </div>
               <p>Add Two Rolling Heal 1 Cards</p>
             </div>
             <div>
-              <div id ="btPerk7" class = "checkbox">
+              <div id ="btPerk7" class = "checkbox btPerk">
               </div>
               <p>Add Two Rolling Infuse Earth Cards</p>
             </div>
             <div>
-              <div id ="btPerk8" class = "checkbox">
+              <div id ="btPerk8" class = "checkbox btPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -431,62 +431,62 @@
 
           <div id = "doomstalker-perks" class ="perks hiding">
             <div>
-              <div id ="dsRemove2minus1-1" class = "checkbox">
+              <div id ="dsRemove2minus1-1" class = "checkbox dsPerk">
               </div>
-              <div id ="dsRemove2minus1-2" class = "checkbox">
+              <div id ="dsRemove2minus1-2" class = "checkbox dsPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="dsReplacePlus0withPlus1-1" class = "checkbox">
+              <div id ="dsReplacePlus0withPlus1-1" class = "checkbox dsPerk">
               </div>
-              <div id ="dsReplacePlus0withPlus1-2" class = "checkbox">
+              <div id ="dsReplacePlus0withPlus1-2" class = "checkbox dsPerk">
               </div>
-              <div id ="dsReplacePlus0withPlus1-3" class = "checkbox">
+              <div id ="dsReplacePlus0withPlus1-3" class = "checkbox dsPerk">
               </div>
               <p>Replace Two +0 Cards with Two +1 Cards</p>
             </div>
             <div>
-              <div id ="dsAddRollingPlus1-1" class = "checkbox">
+              <div id ="dsAddRollingPlus1-1" class = "checkbox dsPerk">
               </div>
-              <div id ="dsAddRollingPlus1-2" class = "checkbox">
+              <div id ="dsAddRollingPlus1-2" class = "checkbox dsPerk">
               </div>
               <p>Add Two Rolling +1 Cards</p>
             </div>
             <div>
-              <div id ="dsAddPlus2Muddle" class = "checkbox">
+              <div id ="dsAddPlus2Muddle" class = "checkbox dsPerk">
               </div>
               <p>Add One +2 Muddle Card</p>
             </div>
             <div>
-              <div id = "dsAddPlus1Poison" class = "checkbox">
+              <div id = "dsAddPlus1Poison" class = "checkbox dsPerk">
               </div>
               <p>Add One +1 Poison Card</p>
             </div>
             <div>
-              <div id ="dsAddPlus1Wound" class = "checkbox">
+              <div id ="dsAddPlus1Wound" class = "checkbox dsPerk">
               </div>
               <p>Add One +1 Wound Card</p>
             </div>
             <div>
-              <div id ="dsAddPlus1Immobilize" class = "checkbox">
+              <div id ="dsAddPlus1Immobilize" class = "checkbox dsPerk">
               </div>
               <p>Add One +1 Immobilize Card</p>
             </div>
             <div>
-              <div id ="dsAddPlus0Stun" class = "checkbox">
+              <div id ="dsAddPlus0Stun" class = "checkbox dsPerk">
               </div>
               <p>Add One +0 Stun Card</p>
             </div>
             <div>
-              <div id ="dsAddRollingAddTarget-1" class = "checkbox">
+              <div id ="dsAddRollingAddTarget-1" class = "checkbox dsPerk">
               </div>
-              <div id ="dsAddRollingAddTarget-2" class = "checkbox">
+              <div id ="dsAddRollingAddTarget-2" class = "checkbox dsPerk">
               </div>
               <p>Add One Rolling Add Target Card</p>
             </div>
             <div>
-              <div id ="dsIgnoreNegEffects" class = "checkbox">
+              <div id ="dsIgnoreNegEffects" class = "checkbox dsPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -495,68 +495,68 @@
 
           <div id = "mindthief-perks" class ="perks hiding">
             <div>
-              <div id ="mtRemove2minus1-1" class = "checkbox">
+              <div id ="mtRemove2minus1-1" class = "checkbox mtPerk">
               </div>
-              <div id ="mtRemove2minus1-2" class = "checkbox">
+              <div id ="mtRemove2minus1-2" class = "checkbox mtPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="mtRemove4Plus0" class = "checkbox">
+              <div id ="mtRemove4Plus0" class = "checkbox mtPerk">
               </div>
               <p>Remove Four +0 Cards</p>
             </div>
             <div>
-              <div id ="mtReplaceTwoPlus1WithTwoPlus2" class = "checkbox">
+              <div id ="mtReplaceTwoPlus1WithTwoPlus2" class = "checkbox mtPerk">
               </div>
               <p>Replace Two +1 Cards with Two +2 Cards</p>
             </div>
             <div>
-              <div id ="mtReplaceMinus2WithPlus0" class = "checkbox">
+              <div id ="mtReplaceMinus2WithPlus0" class = "checkbox mtPerk">
               </div>
               <p>Replace One -2 Card with One +0 Card</p>
             </div>
             <div>
-              <div id = "mtPlus2Frost1" class = "checkbox">
+              <div id = "mtPlus2Frost1" class = "checkbox mtPerk">
               </div>
-              <div id = "mtPlus2Frost2" class = "checkbox">
+              <div id = "mtPlus2Frost2" class = "checkbox mtPerk">
               </div>
               <p>Add One +2 Infuse Frost Cards</p>
             </div>
             <div>
-              <div id ="mtAddTwoRollingPlus11" class = "checkbox">
+              <div id ="mtAddTwoRollingPlus11" class = "checkbox mtPerk">
               </div>
-              <div id ="mtAddTwoRollingPlus12" class = "checkbox">
+              <div id ="mtAddTwoRollingPlus12" class = "checkbox mtPerk">
               </div>
               <p>Add Two Rolling +1 Cards</p>
             </div>
             <div>
-              <div id ="mtAddRollingPull1" class = "checkbox">
+              <div id ="mtAddRollingPull1" class = "checkbox mtPerk">
               </div>
               <p>Add Three Rolling Pull 1 Cards</p>
             </div>
             <div>
-              <div id ="mtAddRollingMuddle" class = "checkbox">
+              <div id ="mtAddRollingMuddle" class = "checkbox mtPerk">
               </div>
               <p>Add Three Rolling Muddle Cards</p>
             </div>
             <div>
-              <div id ="mtAddRollingImmobilize" class = "checkbox">
+              <div id ="mtAddRollingImmobilize" class = "checkbox mtPerk">
               </div>
               <p>Add Two Rolling Immobilize Cards</p>
             </div>
             <div>
-              <div id ="mtAddRollingStun" class = "checkbox">
+              <div id ="mtAddRollingStun" class = "checkbox mtPerk">
               </div>
               <p>Add One Rolling Stun Card</p>
             </div>
             <div>
-              <div id ="mtAddRollingDisarmAndMuddle" class = "checkbox">
+              <div id ="mtAddRollingDisarmAndMuddle" class = "checkbox mtPerk">
               </div>
               <p>Add One Rolling Disarm Card and One Rolling Muddle Card</p>
             </div>
             <div>
-              <div id ="mtIgnoreNegEffects" class = "checkbox">
+              <div id ="mtIgnoreNegEffects" class = "checkbox mtPerk">
               </div>
               <p>Ignore Negative Scenario Effects</p>
             </div>
@@ -565,62 +565,62 @@
 
           <div id ="nightshroud-perks" class ="perks hiding">
             <div>
-              <div id ="nsPerk1-1" class = "checkbox">
+              <div id ="nsPerk1-1" class = "checkbox nsPerk">
               </div>
-              <div id ="nsPerk1-2" class = "checkbox">
+              <div id ="nsPerk1-2" class = "checkbox nsPerk">
               </div>
               <p>Remove Two -1 Cards</p>
             </div>
             <div>
-              <div id ="nsPerk2" class = "checkbox">
+              <div id ="nsPerk2" class = "checkbox nsPerk">
               </div>
               <p>Remove Four +0 Cards</p>
             </div>
             <div>
-              <div id ="nsPerk3-1" class = "checkbox">
+              <div id ="nsPerk3-1" class = "checkbox nsPerk">
               </div>
-              <div id ="nsPerk3-2" class = "checkbox">
+              <div id ="nsPerk3-2" class = "checkbox nsPerk">
               </div>
               <p>Add One -1 Infuse Dark Card</p>
             </div>
             <div>
-              <div id ="nsPerk4-1" class = "checkbox">
+              <div id ="nsPerk4-1" class = "checkbox nsPerk">
               </div>
-              <div id ="nsPerk4-2" class = "checkbox">
+              <div id ="nsPerk4-2" class = "checkbox nsPerk">
               </div>
               <p>Replace One -1 Infuse Dark Card With One +1 Infuse Dark Card</p>
             </div>
             <div>
-              <div id ="nsPerk5-1" class = "checkbox">
+              <div id ="nsPerk5-1" class = "checkbox nsPerk">
               </div>
-              <div id ="nsPerk5-2" class = "checkbox">
+              <div id ="nsPerk5-2" class = "checkbox nsPerk">
               </div>
               <p>Add One +1 Invisible Card</p>
             </div>
             <div>
-              <div id ="nsPerk6-1" class = "checkbox">
+              <div id ="nsPerk6-1" class = "checkbox nsPerk">
               </div>
-              <div id ="nsPerk6-2" class = "checkbox">
+              <div id ="nsPerk6-2" class = "checkbox nsPerk">
               </div>
               <p>Add Three Rolling Muddle Cards</p>
             </div>
             <div>
-              <div id ="nsPerk7" class = "checkbox">
+              <div id ="nsPerk7" class = "checkbox nsPerk">
               </div>
               <p>Add Two Rolling Heal 1 Cards</p>
             </div>
             <div>
-              <div id ="nsPerk8" class = "checkbox">
+              <div id ="nsPerk8" class = "checkbox nsPerk">
               </div>
               <p>Add Two Rolling Curse Cards</p>
             </div>
             <div>
-              <div id ="nsPerk9" class = "checkbox">
+              <div id ="nsPerk9" class = "checkbox nsPerk">
               </div>
               <p>Add One Rolling Add Target Card</p>
             </div>
             <div>
-              <div id ="nsPerk10" class = "checkbox">
+              <div id ="nsPerk10" class = "checkbox nsPerk">
               </div>
               <p>Ignore Negative Scenario Effects and Add Two +1 Cards</p>
             </div>
@@ -758,6 +758,10 @@
                 <td> <img id = "discard9" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
                 <td> <img id = "discard10" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
               </tr>
+              <td> <img id = "discard11" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+              <td> <img id = "discard12" class = "discarded flipped hiding" src = "./Card Back.png"/></td>
+              <tr>
+              </tr>
             </table>
             <button id = "short-rest-button" class = "button"type="button" title = "Must Have At Least 2 Discarded Cards And No Cards in Play">Short Rest</button>
             <button id = "long-rest-button" class = "button"type="button"title = "Must Have At Least 2 Discarded Cards And No Cards in Play">Long Rest</button>
@@ -781,6 +785,10 @@
                 <td> <img id = "lost8" class = "lost flipped hiding" src = "./Card Back.png"/></td>
                 <td> <img id = "lost9" class = "lost flipped hiding" src = "./Card Back.png"/></td>
                 <td> <img id = "lost10" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+              </tr>
+              <tr>
+                <td> <img id = "lost11" class = "lost flipped hiding" src = "./Card Back.png"/></td>
+                <td> <img id = "lost12" class = "lost flipped hiding" src = "./Card Back.png"/></td>
               </tr>
             </table>
             <button id = "recover-lost" class = "button"type="button" title = "Must Have a Lost Card Selected">Recover Lost Card</button></td>
