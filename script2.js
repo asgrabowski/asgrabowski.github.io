@@ -1,7 +1,10 @@
 //Section for enabling use of cookies
 
-function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";";
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
@@ -741,7 +744,7 @@ function confirmCharacter(){
   if(characterSelected){
   if(cragheart.classList.contains("character-selected")){
     let characterChoice = "Cragheart";
-    setCookie("character", "cragheart");
+    setCookie("character", "cragheart", 365);
     document.getElementById("cragheart-perks").classList.remove("hiding");
     flippedCard = "./0002.jpg";
     handSize = 11;
@@ -884,7 +887,7 @@ function confirmCharacter(){
     }
   } else if(brute.classList.contains("character-selected")){
     let characterChoice = "Brute";
-    setCookie("character", "brute");
+    setCookie("character", "brute", 365);
     document.getElementById("brute-perks").classList.remove("hiding");
     flippedCard = "./Card Back.png";
     handSize = 10
@@ -1028,7 +1031,7 @@ function confirmCharacter(){
     }
   } else if(mindthief.classList.contains("character-selected")){
     let characterChoice = "Mindthief";
-    setCookie("character", "mindthief");
+    setCookie("character", "mindthief", 365);
     document.getElementById("mindthief-perks").classList.remove("hiding");
     flippedCard = "./mtBack.jpg";
     handSize = 10
@@ -1172,7 +1175,7 @@ function confirmCharacter(){
     }
   } else if(spellweaver.classList.contains("character-selected")){
     let characterChoice = "Spellweaver";
-    setCookie("character", "spellweaver");
+    setCookie("character", "spellweaver", 365);
     document.getElementById("spellweaver-perks").classList.remove("hiding");
     flippedCard = "./swBack.jpg";
     handSize = 8
@@ -1318,7 +1321,7 @@ function confirmCharacter(){
     }
   } else if(scoundrel.classList.contains("character-selected")){
     let characterChoice = "Scoundrel";
-    setCookie("character", "scoundrel");
+    setCookie("character", "scoundrel", 365);
     document.getElementById("scoundrel-perks").classList.remove("hiding");
     flippedCard = "./scBack.jpg";
     handSize = 9
@@ -1463,7 +1466,7 @@ function confirmCharacter(){
     }
   } else if(tinkerer.classList.contains("character-selected")){
     let characterChoice = "Tinkerer";
-    setCookie("character", "tinkerer");
+    setCookie("character", "tinkerer", 365);
     document.getElementById("tinkerer-perks").classList.remove("hiding");
     flippedCard = "./tiBack.jpg";
     handSize = 12
@@ -1601,7 +1604,7 @@ function confirmCharacter(){
     }
   } else if(doomStalker.classList.contains("character-selected")){
     let characterChoice = "Doomstalker";
-    setCookie("character", "doomstalker");
+    setCookie("character", "doomstalker", 365);
     document.getElementById("doomstalker-perks").classList.remove("hiding");
     flippedCard = "./dsBack.jpg";
     handSize = 12
@@ -1739,7 +1742,7 @@ function confirmCharacter(){
     }
   } else if(beastTyrant.classList.contains("character-selected")){
     let characterChoice = "Beast Tyrant";
-    setCookie("character", "beasttyrant");
+    setCookie("character", "beasttyrant", 365);
     document.getElementById("beast-tyrant-perks").classList.remove("hiding");
     flippedCard = "./bmBack.jpg";
     handSize = 10
@@ -1906,7 +1909,7 @@ function confirmCharacter(){
     }
   } else if(nightshroud.classList.contains("character-selected")){
     let characterChoice = "nightshroud";
-    setCookie("character", "nightshroud");
+    setCookie("character", "nightshroud", 365);
     document.getElementById("nightshroud-perks").classList.remove("hiding");
     flippedCard = "./NS/nsBack.png";
     handSize = 9
@@ -2054,7 +2057,7 @@ function confirmCharacter(){
   document.getElementById("select-class-section").classList.add("hiding");
   document.getElementById("level-selection").classList.add("hiding");
   document.getElementById("perk-section").classList.remove("hiding");
-  setCookie("level", `${levelCount}`);
+  setCookie("level", `${levelCount}`, 365);
 }
 }
 
@@ -3113,9 +3116,13 @@ loseCardFromRestButton.onclick = () => {
       poisoned = false;
       poisonedToken.classList.add("hiding");
       healButton.classList.remove("poisoned");
+      wounded = false;
+      woundedToken.classList.add('hiding');
     } else if (health<maxHealth){
       health = health+2;
       healthCounter.innerHTML = health + "/" + maxHealth;
+      wounded = false;
+      woundedToken.classList.add('hiding');
       if(health>maxHealth){
         health = maxHealth;
         healthCounter.innerHTML = health + "/" + maxHealth;
@@ -3551,6 +3558,8 @@ healButton.onclick = () => {
     health++;
     healthCounter.innerHTML =  health + "/" + maxHealth;
     damageButton.classList.remove("at-min");
+    wounded = false;
+    woundedToken.classList.add('hiding');
     if(health === maxHealth){
       healButton.classList.add("at-max");
     }
@@ -3575,6 +3584,8 @@ healBearButton.onclick = () => {
     bearHealth++;
     bearHealthCounter.innerHTML =  "Bear Health<br/>"+bearHealth + "/" + bearMaxHealth;
     damageBearButton.classList.remove("at-min");
+    bearWounded = false;
+    bearWoundedToken.classList.add('hiding');
     if(bearHealth === bearMaxHealth){
       healBearButton.classList.add("at-max");
     }
@@ -4772,9 +4783,9 @@ dsConfirmPerksButton.onclick = () =>{
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "dschosen");
+    setCookie("perk1", "dschosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(dsPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4784,9 +4795,9 @@ dsConfirmPerksButton.onclick = () =>{
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "dschosen");
+    setCookie("perk2", "dschosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if (dsPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4799,9 +4810,9 @@ dsConfirmPerksButton.onclick = () =>{
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "dschosen");
+    setCookie("perk3", "dschosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if (dsPerk4.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4814,9 +4825,9 @@ dsConfirmPerksButton.onclick = () =>{
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk4", "dschosen");
+    setCookie("perk4", "dschosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (dsPerk5.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4829,79 +4840,79 @@ dsConfirmPerksButton.onclick = () =>{
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk5", "dschosen");
+    setCookie("perk5", "dschosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (dsPerk6.classList.contains('checked')){
     let newCard = "./dsPerks/dsRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk6", "dschosen");
+    setCookie("perk6", "dschosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (dsPerk7.classList.contains('checked')){
     let newCard = "./dsPerks/dsRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk7", "dschosen");
+    setCookie("perk7", "dschosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (dsPerk8.classList.contains('checked')){
     let newCard = "./dsPerks/dsPlus2Muddle.png";
     modDeckArray.push(newCard);
-    setCookie("perk8", "dschosen");
+    setCookie("perk8", "dschosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (dsPerk9.classList.contains('checked')){
     let newCard = "./dsPerks/dsPlus1Poison.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "dschosen");
+    setCookie("perk9", "dschosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (dsPerk10.classList.contains('checked')){
     let newCard = "./dsPerks/dsPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk10", "dschosen");
+    setCookie("perk10", "dschosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (dsPerk11.classList.contains('checked')){
     let newCard = "./dsPerks/dsPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk11", "dschosen");
+    setCookie("perk11", "dschosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (dsPerk12.classList.contains('checked')){
     let newCard = "./dsPerks/dsPlus0Stun.png";
     modDeckArray.push(newCard);
-    setCookie("perk12", "dschosen");
+    setCookie("perk12", "dschosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (dsPerk13.classList.contains('checked')){
     let newCard = "./dsPerks/dsRollingAddTarget.png";
     modDeckArray.push(newCard);
-    setCookie("perk13", "dschosen");
+    setCookie("perk13", "dschosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (dsPerk14.classList.contains('checked')){
     let newCard = "./dsPerks/dsRollingAddTarget.png";
     modDeckArray.push(newCard);
-    setCookie("perk14", "dschosen");
+    setCookie("perk14", "dschosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (dsPerk15.classList.contains('checked')){
-    setCookie("perk15", "dschosen");
+    setCookie("perk15", "dschosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -4934,9 +4945,9 @@ mtConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "mtchosen");
+    setCookie("perk1", "mtchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(mtPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4946,9 +4957,9 @@ mtConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "mtchosen");
+    setCookie("perk2", "mtchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
  if (mtPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4958,9 +4969,9 @@ mtConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "mtchosen");
+    setCookie("perk3", "mtchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if (mtPerk4.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4973,9 +4984,9 @@ mtConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk4", "mtchosen");
+    setCookie("perk4", "mtchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (mtPerk5.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -4987,86 +4998,86 @@ mtConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk5", "mtchosen");
+    setCookie("perk5", "mtchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (mtPerk6.classList.contains('checked')){
     let newCard = "./mtPerks/mtFrostPlus2.png";
     modDeckArray.push(newCard);
-    setCookie("perk6", "mtchosen");
+    setCookie("perk6", "mtchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (mtPerk7.classList.contains('checked')){
     let newCard = "./mtPerks/mtFrostPlus2.png";
     modDeckArray.push(newCard);
-    setCookie("perk7", "mtchosen");
+    setCookie("perk7", "mtchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (mtPerk8.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk8", "mtchosen");
+    setCookie("perk8", "mtchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (mtPerk9.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk9", "mtchosen");
+    setCookie("perk9", "mtchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (mtPerk10.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingPull1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk10", "mtchosen");
+    setCookie("perk10", "mtchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (mtPerk11.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingMuddle.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk11", "mtchosen");
+    setCookie("perk11", "mtchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (mtPerk12.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingImmobilize.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk12", "mtchosen");
+    setCookie("perk12", "mtchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (mtPerk13.classList.contains('checked')){
     let newCard = "./mtPerks/mtRollingStun.png";
     modDeckArray.push(newCard);
-    setCookie("perk13", "mtchosen");
+    setCookie("perk13", "mtchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (mtPerk14.classList.contains('checked')){
     let newCard1 = "./mtPerks/mtRollingDisarm.png";
     let newCard2 = "./mtPerks/mtRollingMuddle.png";
     modDeckArray.push(newCard1);
     modDeckArray.push(newCard2);
-    setCookie("perk14", "mtchosen");
+    setCookie("perk14", "mtchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (mtPerk15.classList.contains('checked')){
-    setCookie("perk15", "mtchosen");
+    setCookie("perk15", "mtchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5128,9 +5139,9 @@ chConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "chchosen");
+    setCookie("perk1", "chchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(chPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5142,9 +5153,9 @@ chConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "chchosen");
+    setCookie("perk2", "chchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(chPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5156,9 +5167,9 @@ chConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "chchosen");
+    setCookie("perk3", "chchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(chPerk4.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5170,9 +5181,9 @@ chConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk4", "chchosen");
+    setCookie("perk4", "chchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (chPerk5.classList.contains('checked')){
       let newCard1 = "./chPerks/chMinus2.png";
@@ -5181,79 +5192,79 @@ chConfirmPerksButton.onclick = () => {
       modDeckArray.push(newCard2);
       modDeckArray.push(newCard2);
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-      setCookie("perk5", "chchosen");
+      setCookie("perk5", "chchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (chPerk6.classList.contains('checked')){
     let newCard = "./chPerks/chPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk6", "chchosen");
+    setCookie("perk6", "chchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (chPerk7.classList.contains('checked')){
     let newCard = "./chPerks/chPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk7", "chchosen");
+    setCookie("perk7", "chchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (chPerk8.classList.contains('checked')){
     let newCard = "./chPerks/chPlus2Muddle.png";
     modDeckArray.push(newCard);
-    setCookie("perk8", "chchosen");
+    setCookie("perk8", "chchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (chPerk9.classList.contains('checked')){
     let newCard = "./chPerks/chPlus2Muddle.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "chchosen");
+    setCookie("perk9", "chchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (chPerk10.classList.contains('checked')){
     let newCard = "./chPerks/chRollingPush2.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk10", "chchosen");
+    setCookie("perk10", "chchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (chPerk11.classList.contains('checked')){
     let newCard = "./chPerks/chRollingEarth.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk11", "chchosen");
+    setCookie("perk11", "chchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (chPerk12.classList.contains('checked')){
     let newCard = "./chPerks/chRollingEarth.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk12", "chchosen");
+    setCookie("perk12", "chchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (chPerk13.classList.contains('checked')){
     let newCard = "./chPerks/chRollingWind.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk13", "chchosen");
+    setCookie("perk13", "chchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (chPerk14.classList.contains('checked')){
-    setCookie("perk14", "chchosen");
+    setCookie("perk14", "chchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (chPerk15.classList.contains('checked')){
-    setCookie("perk15", "chchosen");
+    setCookie("perk15", "chchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5285,9 +5296,9 @@ brConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "brchosen");
+    setCookie("perk1", "brchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(brPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5299,112 +5310,112 @@ brConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "brchosen");
+    setCookie("perk2", "brchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(brPerk3.classList.contains('checked')){
     let newCard = "./brPerks/brPlus1.png"
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    setCookie("perk3", "brchosen");
+    setCookie("perk3", "brchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(brPerk4.classList.contains('checked')){
     let newCard = "./brPerks/brPlus1.png"
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    setCookie("perk4", "brchosen");
+    setCookie("perk4", "brchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (brPerk5.classList.contains('checked')){
       let newCard = "./brPerks/brPlus3.png";
       modDeckArray.push(newCard);
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-      setCookie("perk5", "brchosen");
+      setCookie("perk5", "brchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (brPerk6.classList.contains('checked')){
     let newCard = "./brPerks/brRollingPush1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk6", "brchosen");
+    setCookie("perk6", "brchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (brPerk7.classList.contains('checked')){
     let newCard = "./brPerks/brRollingPush1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk7", "brchosen");
+    setCookie("perk7", "brchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (brPerk8.classList.contains('checked')){
     let newCard = "./brPerks/brRollingPierce3.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk8", "brchosen");
+    setCookie("perk8", "brchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (brPerk9.classList.contains('checked')){
     let newCard = "./brPerks/brRollingStun.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "brchosen");
+    setCookie("perk9", "brchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (brPerk10.classList.contains('checked')){
     let newCard = "./brPerks/brRollingStun.png";
     modDeckArray.push(newCard);
-    setCookie("perk10", "brchosen");
+    setCookie("perk10", "brchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (brPerk11.classList.contains('checked')){
     let newCard1 = "./brPerks/brRollingDisarm.png";
     let newCard2 = "./brPerks/brRollingMuddle.png";
     modDeckArray.push(newCard1);
     modDeckArray.push(newCard2);
-    setCookie("perk11", "brchosen");
+    setCookie("perk11", "brchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (brPerk12.classList.contains('checked')){
     let newCard = "./brPerks/brRollingAddTarget.png";
     modDeckArray.push(newCard);
-    setCookie("perk12", "brchosen");
+    setCookie("perk12", "brchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (brPerk13.classList.contains('checked')){
     let newCard = "./brPerks/brRollingAddTarget.png";
     modDeckArray.push(newCard);
-    setCookie("perk13", "brchosen");
+    setCookie("perk13", "brchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (brPerk14.classList.contains('checked')){
     let newCard = "./brPerks/brPlus1Shield.png";
     modDeckArray.push(newCard);
-    setCookie("perk14", "brchosen");
+    setCookie("perk14", "brchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (brPerk15.classList.contains('checked')){
     let newCard = "./brPerks/brPlus1.png";
     modDeckArray.push(newCard);
-    setCookie("perk15", "brchosen");
+    setCookie("perk15", "brchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5437,9 +5448,9 @@ swConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "swchosen");
+    setCookie("perk1", "swchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(swPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5451,9 +5462,9 @@ swConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "swchosen");
+    setCookie("perk2", "swchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(swPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5465,101 +5476,101 @@ swConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "swchosen");
+    setCookie("perk3", "swchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(swPerk4.classList.contains('checked')){
     let newCard = "./swPerks/swPlus1.png"
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    setCookie("perk4", "swchosen");
+    setCookie("perk4", "swchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (swPerk5.classList.contains('checked')){
     let newCard = "./swPerks/swPlus1.png"
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    setCookie("perk5", "swchosen");
+    setCookie("perk5", "swchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (swPerk6.classList.contains('checked')){
     let newCard = "./swPerks/swPlus0Stun.png";
     modDeckArray.push(newCard);
-    setCookie("perk6", "swchosen");
+    setCookie("perk6", "swchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (swPerk7.classList.contains('checked')){
     let newCard = "./swPerks/swPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk7", "swchosen");
+    setCookie("perk7", "swchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (swPerk8.classList.contains('checked')){
     let newCard = "./swPerks/swPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk8", "swchosen");
+    setCookie("perk8", "swchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (swPerk9.classList.contains('checked')){
     let newCard = "./swPerks/swPlus1Curse.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "swchosen");
+    setCookie("perk9", "swchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (swPerk10.classList.contains('checked')){
     let newCard = "./swPerks/swPlus2Fire.png";
     modDeckArray.push(newCard);
-    setCookie("perk10", "swchosen");
+    setCookie("perk10", "swchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (swPerk11.classList.contains('checked')){
     let newCard = "./swPerks/swPlus2Fire.png";
     modDeckArray.push(newCard);
-    setCookie("perk11", "swchosen");
+    setCookie("perk11", "swchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (swPerk12.classList.contains('checked')){
     let newCard = "./swPerks/swPlus2Frost.png";
     modDeckArray.push(newCard);
-    setCookie("perk12", "swchosen");
+    setCookie("perk12", "swchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (swPerk13.classList.contains('checked')){
     let newCard = "./swPerks/swPlus2Frost.png";
     modDeckArray.push(newCard);
-    setCookie("perk13", "swchosen");
+    setCookie("perk13", "swchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (swPerk14.classList.contains('checked')){
     let newCard1 = "./swPerks/swRollingEarth.png";
     let newCard2 = "./swPerks/swRollingWind.png"
     modDeckArray.push(newCard1);
     modDeckArray.push(newCard2);
-    setCookie("perk14", "swchosen");
+    setCookie("perk14", "swchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (swPerk15.classList.contains('checked')){
     let newCard1 = "./swPerks/swRollingLight.png";
     let newCard2 = "./swPerks/swRollingDark.png"
     modDeckArray.push(newCard1);
     modDeckArray.push(newCard2);
-    setCookie("perk15", "swchosen");
+    setCookie("perk15", "swchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5592,9 +5603,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "scchosen");
+    setCookie("perk1", "scchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(scPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5604,9 +5615,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "scchosen");
+    setCookie("perk2", "scchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(scPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5616,9 +5627,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "scchosen");
+    setCookie("perk3", "scchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(scPerk4.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5630,9 +5641,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk4", "scchosen");
+    setCookie("perk4", "scchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (scPerk5.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5644,9 +5655,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk5", "scchosen");
+    setCookie("perk5", "scchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (scPerk6.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5658,9 +5669,9 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk6", "scchosen");
+    setCookie("perk6", "scchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (scPerk7.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5672,69 +5683,69 @@ scConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk7", "scchosen");
+    setCookie("perk7", "scchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (scPerk8.classList.contains('checked')){
     let newCard = "./scPerks/scRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk8", "scchosen");
+    setCookie("perk8", "scchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (scPerk9.classList.contains('checked')){
     let newCard = "./scPerks/scRollingPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk9", "scchosen");
+    setCookie("perk9", "scchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (scPerk10.classList.contains('checked')){
     let newCard = "./scPerks/scRollingPierce3.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk10", "scchosen");
+    setCookie("perk10", "scchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (scPerk11.classList.contains('checked')){
     let newCard = "./scPerks/scRollingPoison.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk11", "scchosen");
+    setCookie("perk11", "scchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (scPerk12.classList.contains('checked')){
     let newCard = "./scPerks/scRollingPoison.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk12", "scchosen");
+    setCookie("perk12", "scchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (scPerk13.classList.contains('checked')){
     let newCard = "./scPerks/scRollingMuddle.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk13", "scchosen");
+    setCookie("perk13", "scchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (scPerk14.classList.contains('checked')){
     let newCard = "./scPerks/scRollingInvisible.png";
     modDeckArray.push(newCard);
-    setCookie("perk14", "scchosen");
+    setCookie("perk14", "scchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (scPerk15.classList.contains('checked')){
-    setCookie("perk15", "scchosen");
+    setCookie("perk15", "scchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5766,9 +5777,9 @@ tiConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "tichosen");
+    setCookie("perk1", "tichosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(tiPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5778,9 +5789,9 @@ tiConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "tichosen");
+    setCookie("perk2", "tichosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(tiPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5792,95 +5803,95 @@ tiConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "tichosen");
+    setCookie("perk3", "tichosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(tiPerk4.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk4", "tichosen");
+    setCookie("perk4", "tichosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (tiPerk5.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus3.png";
     modDeckArray.push(newCard);
-    setCookie("perk5", "tichosen");
+    setCookie("perk5", "tichosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (tiPerk6.classList.contains('checked')){
     let newCard = "./tiPerks/tiRollingFire.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk6", "tichosen");
+    setCookie("perk6", "tichosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (tiPerk7.classList.contains('checked')){
     let newCard = "./tiPerks/tiRollingMuddle.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk7", "tichosen");
+    setCookie("perk7", "tichosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (tiPerk8.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk8", "tichosen");
+    setCookie("perk8", "tichosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (tiPerk9.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "tichosen");
+    setCookie("perk9", "tichosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (tiPerk10.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk10", "tichosen");
+    setCookie("perk10", "tichosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (tiPerk11.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk11", "tichosen");
+    setCookie("perk11", "tichosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (tiPerk12.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Heal2.png";
     modDeckArray.push(newCard);
-    setCookie("perk12", "tichosen");
+    setCookie("perk12", "tichosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (tiPerk13.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus1Heal2.png";
     modDeckArray.push(newCard);
-    setCookie("perk13", "tichosen");
+    setCookie("perk13", "tichosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (tiPerk14.classList.contains('checked')){
     let newCard = "./tiPerks/tiPlus0AddTarget.png";
     modDeckArray.push(newCard);
-    setCookie("perk14", "tichosen");
+    setCookie("perk14", "tichosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (tiPerk15.classList.contains('checked')){
-    setCookie("perk15", "tichosen");
+    setCookie("perk15", "tichosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -5912,9 +5923,9 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk1", "btchosen");
+    setCookie("perk1", "btchosen", 365);
   } else {
-    setCookie("perk1", "notChosen");
+    setCookie("perk1", "notChosen", 365);
   }
   if(btPerk2.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5926,9 +5937,9 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk2", "btchosen");
+    setCookie("perk2", "btchosen", 365);
   } else {
-    setCookie("perk2", "notChosen");
+    setCookie("perk2", "notChosen", 365);
   }
   if(btPerk3.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5940,9 +5951,9 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk3", "btchosen");
+    setCookie("perk3", "btchosen", 365);
   } else {
-    setCookie("perk3", "notChosen");
+    setCookie("perk3", "notChosen", 365);
   }
   if(btPerk4.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5954,9 +5965,9 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk4", "btchosen");
+    setCookie("perk4", "btchosen", 365);
   } else {
-    setCookie("perk4", "notChosen");
+    setCookie("perk4", "notChosen", 365);
   }
   if (btPerk5.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5968,9 +5979,9 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk5", "btchosen");
+    setCookie("perk5", "btchosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
   if (btPerk6.classList.contains('checked')){
     for (var i = 0; i<modDeckArray.length; i++){
@@ -5982,74 +5993,74 @@ btConfirmPerksButton.onclick = () => {
         cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
       }
     }
-    setCookie("perk6", "btchosen");
+    setCookie("perk6", "btchosen", 365);
   } else {
-    setCookie("perk6", "notChosen");
+    setCookie("perk6", "notChosen", 365);
   }
   if (btPerk7.classList.contains('checked')){
     let newCard = "./btPerks/btPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk7", "btchosen");
+    setCookie("perk7", "btchosen", 365);
   } else {
-    setCookie("perk7", "notChosen");
+    setCookie("perk7", "notChosen", 365);
   }
   if (btPerk8.classList.contains('checked')){
     let newCard = "./btPerks/btPlus1Wound.png";
     modDeckArray.push(newCard);
-    setCookie("perk8", "btchosen");
+    setCookie("perk8", "btchosen", 365);
   } else {
-    setCookie("perk8", "notChosen");
+    setCookie("perk8", "notChosen", 365);
   }
   if (btPerk9.classList.contains('checked')){
     let newCard = "./btPerks/btPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk9", "btchosen");
+    setCookie("perk9", "btchosen", 365);
   } else {
-    setCookie("perk9", "notChosen");
+    setCookie("perk9", "notChosen", 365);
   }
   if (btPerk10.classList.contains('checked')){
     let newCard = "./btPerks/btPlus1Immobilize.png";
     modDeckArray.push(newCard);
-    setCookie("perk10", "btchosen");
+    setCookie("perk10", "btchosen", 365);
   } else {
-    setCookie("perk10", "notChosen");
+    setCookie("perk10", "notChosen", 365);
   }
   if (btPerk11.classList.contains('checked')){
     let newCard = "./btPerks/btRollingHeal1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk11", "btchosen");
+    setCookie("perk11", "btchosen", 365);
   } else {
-    setCookie("perk11", "notChosen");
+    setCookie("perk11", "notChosen", 365);
   }
   if (btPerk12.classList.contains('checked')){
     let newCard = "./btPerks/btRollingHeal1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk12", "btchosen");
+    setCookie("perk12", "btchosen", 365);
   } else {
-    setCookie("perk12", "notChosen");
+    setCookie("perk12", "notChosen", 365);
   }
   if (btPerk13.classList.contains('checked')){
     let newCard = "./btPerks/btRollingHeal1.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk13", "btchosen");
+    setCookie("perk13", "btchosen", 365);
   } else {
-    setCookie("perk13", "notChosen");
+    setCookie("perk13", "notChosen", 365);
   }
   if (btPerk14.classList.contains('checked')){
     let newCard = "./btPerks/btRollingEarth.png";
     modDeckArray.push(newCard);
     modDeckArray.push(newCard);
-    setCookie("perk14", "btchosen");
+    setCookie("perk14", "btchosen", 365);
   } else {
-    setCookie("perk14", "notChosen");
+    setCookie("perk14", "notChosen", 365);
   }
   if (btPerk15.classList.contains('checked')){
-    setCookie("perk15", "btchosen");
+    setCookie("perk15", "btchosen", 365);
   } else {
-    setCookie("perk15", "notChosen");
+    setCookie("perk15", "notChosen", 365);
   }
   defaultDeckArray = modDeckArray.slice();
   confirmPerks();
@@ -6083,9 +6094,9 @@ if(nsPerk1.classList.contains('checked')){
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
     }
   }
-  setCookie("perk1", "nschosen");
+  setCookie("perk1", "nschosen", 365);
 } else {
-  setCookie("perk1", "notChosen");
+  setCookie("perk1", "notChosen", 365);
 }
 if(nsPerk2.classList.contains('checked')){
   for (var i = 0; i<modDeckArray.length; i++){
@@ -6095,9 +6106,9 @@ if(nsPerk2.classList.contains('checked')){
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
     }
   }
-  setCookie("perk2", "nschosen");
+  setCookie("perk2", "nschosen", 365);
 } else {
-  setCookie("perk2", "notChosen");
+  setCookie("perk2", "notChosen", 365);
 }
 if(nsPerk3.classList.contains('checked')){
   for (var i = 0; i<modDeckArray.length; i++){
@@ -6107,27 +6118,27 @@ if(nsPerk3.classList.contains('checked')){
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
     }
   }
-  setCookie("perk3", "nschosen");
+  setCookie("perk3", "nschosen", 365);
 } else {
-  setCookie("perk3", "notChosen");
+  setCookie("perk3", "notChosen", 365);
 }
 if(nsPerk4.classList.contains('checked')){
   let newCard = "./nsPerks/nsMinus1Dark.png";
   modDeckArray.push(newCard);
   hasMinus1++;
   cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-  setCookie("perk4", "nschosen");
+  setCookie("perk4", "nschosen", 365);
 } else {
-  setCookie("perk4", "notChosen");
+  setCookie("perk4", "notChosen", 365);
 }
 if (nsPerk5.classList.contains('checked')){
   let newCard = "./nsPerks/nsMinus1Dark.png";
   modDeckArray.push(newCard);
   hasMinus1++;
   cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-  setCookie("perk5", "nschosen");
+  setCookie("perk5", "nschosen", 365);
   } else {
-    setCookie("perk5", "notChosen");
+    setCookie("perk5", "notChosen", 365);
   }
 if (nsPerk6.classList.contains('checked') && (hasMinus1> 0)){
       hasMinus1--;
@@ -6135,9 +6146,9 @@ if (nsPerk6.classList.contains('checked') && (hasMinus1> 0)){
       let newCard = "./nsPerks/nsPlus1Dark.png";
       modDeckArray.unshift(newCard);
       cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-      setCookie("perk6", "nschosen");
+      setCookie("perk6", "nschosen", 365);
     } else {
-      setCookie("perk6", "notChosen");
+      setCookie("perk6", "notChosen", 365);
     }
 if (nsPerk7.classList.contains('checked') && (hasMinus1> 0)){
     hasMinus1--;
@@ -6145,72 +6156,72 @@ if (nsPerk7.classList.contains('checked') && (hasMinus1> 0)){
     let newCard = "./nsPerks/nsPlus1Dark.png";
     modDeckArray.unshift(newCard);
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    setCookie("perk7", "nschosen");
+    setCookie("perk7", "nschosen", 365);
 } else {
-  setCookie("perk7", "notChosen");
+  setCookie("perk7", "notChosen", 365);
 }
 if (nsPerk8.classList.contains('checked')){
   let newCard = "./nsPerks/nsPlus1Invisible.png";
   modDeckArray.push(newCard);
-  setCookie("perk8", "nschosen");
+  setCookie("perk8", "nschosen", 365);
 } else {
-  setCookie("perk8", "notChosen");
+  setCookie("perk8", "notChosen", 365);
 }
 if (nsPerk9.classList.contains('checked')){
   let newCard = "./nsPerks/nsPlus1Invisible.png";
   modDeckArray.push(newCard);
-  setCookie("perk9", "nschosen");
+  setCookie("perk9", "nschosen", 365);
 } else {
-  setCookie("perk9", "notChosen");
+  setCookie("perk9", "notChosen", 365);
 }
 if (nsPerk10.classList.contains('checked')){
   let newCard = "./nsPerks/nsRollingMuddle.png";
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
-  setCookie("perk10", "nschosen");
+  setCookie("perk10", "nschosen", 365);
 } else {
-  setCookie("perk10", "notChosen");
+  setCookie("perk10", "notChosen", 365);
 }
 if (nsPerk11.classList.contains('checked')){
   let newCard = "./nsPerks/nsRollingMuddle.png";
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
-  setCookie("perk11", "nschosen");
+  setCookie("perk11", "nschosen", 365);
 } else {
-  setCookie("perk11", "notChosen");
+  setCookie("perk11", "notChosen", 365);
 }
 if (nsPerk12.classList.contains('checked')){
   let newCard = "./nsPerks/nsRollingHeal1.png";
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
-  setCookie("perk12", "nschosen");
+  setCookie("perk12", "nschosen", 365);
 } else {
-  setCookie("perk12", "notChosen");
+  setCookie("perk12", "notChosen", 365);
 }
 if (nsPerk13.classList.contains('checked')){
   let newCard = "./nsPerks/nsRollingCurse.png";
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
-  setCookie("perk13", "nschosen");
+  setCookie("perk13", "nschosen", 365);
 } else {
-  setCookie("perk13", "notChosen");
+  setCookie("perk13", "notChosen", 365);
 }
 if (nsPerk14.classList.contains('checked')){
   let newCard = "./nsPerks/nsRollingAddTarget.png";
   modDeckArray.push(newCard);
-  setCookie("perk14", "nschosen");
+  setCookie("perk14", "nschosen", 365);
 } else {
-  setCookie("perk14", "notChosen");
+  setCookie("perk14", "notChosen", 365);
 }
 if (nsPerk15.classList.contains('checked')){
   let newCard = "./nsPerks/nsPlus1.png";
   modDeckArray.push(newCard);
   modDeckArray.push(newCard);
-  setCookie("perk15", "nschosen");
+  setCookie("perk15", "nschosen", 365);
 } else {
-  setCookie("perk15", "notChosen");
+  setCookie("perk15", "notChosen", 365);
 }
 defaultDeckArray = modDeckArray.slice();
 confirmPerks();
