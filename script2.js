@@ -2552,20 +2552,20 @@ discardButton.onclick = () => {
       discard8.classList.remove("hiding");
       discard8.classList.remove("flipped")
     } else if(discard9.classList.contains("flipped")){
-      discard11.src = chosenCard1.src;
-      discard11.classList.remove("hiding");
-      discard11.classList.remove("flipped")
+      discard9.src = chosenCard2.src;
+      discard9.classList.remove("hiding");
+      discard9.classList.remove("flipped")
     } else if(discard10.classList.contains("flipped")){
-      discard12.src = chosenCard1.src;
-      discard12.classList.remove("hiding");
-      discard12.classList.remove("flipped")
+      discard10.src = chosenCard2.src;
+      discard10.classList.remove("hiding");
+      discard10.classList.remove("flipped")
     }
     else if(discard11.classList.contains("flipped")){
-      discard11.src = chosenCard1.src;
+      discard11.src = chosenCard2.src;
       discard11.classList.remove("hiding");
       discard11.classList.remove("flipped")
     } else if(discard12.classList.contains("flipped")){
-      discard12.src = chosenCard1.src;
+      discard12.src = chosenCard2.src;
       discard12.classList.remove("hiding");
       discard12.classList.remove("flipped")
     }
@@ -2696,11 +2696,11 @@ loseButton.onclick = () => {
       lost10.classList.remove("hiding");
       lost10.classList.remove("flipped")
     } else if(lost11.classList.contains("flipped")){
-      lost11.src = chosenCard1.src;
+      lost11.src = chosenCard2.src;
       lost11.classList.remove("hiding");
       lost11.classList.remove("flipped")
     } else if(lost12.classList.contains("flipped")){
-      lost12.src = chosenCard1.src;
+      lost12.src = chosenCard2.src;
       lost12.classList.remove("hiding");
       lost12.classList.remove("flipped")
     }
@@ -3010,6 +3010,20 @@ shortRestButton.onclick = () => {
         i=discardedCards.length;
       }
     break;
+    case 10:
+      for (var i = 10; i<discardedCards.length; i++){
+        var discardedCard = discardedCards[i];
+        shortRestLoop(discardedCard);
+        i=discardedCards.length;
+      }
+    break;
+    case 11:
+      for (var i = 11; i<discardedCards.length; i++){
+        var discardedCard = discardedCards[i];
+        shortRestLoop(discardedCard);
+        i=discardedCards.length;
+      }
+    break;
   }
 }
 }
@@ -3233,6 +3247,20 @@ rerollShortRestButton.onclick = () => {
          break;
       case 9:
         for (var i = 9; i<discardedCards.length; i++){
+          var discardedCard = discardedCards[i];
+          shortRestLoop(discardedCard);
+          i=discardedCards.length;
+        }
+      break;
+      case 10:
+        for (var i = 10; i<discardedCards.length; i++){
+          var discardedCard = discardedCards[i];
+          shortRestLoop(discardedCard);
+          i=discardedCards.length;
+        }
+      break;
+      case 11:
+        for (var i = 11; i<discardedCards.length; i++){
           var discardedCard = discardedCards[i];
           shortRestLoop(discardedCard);
           i=discardedCards.length;
