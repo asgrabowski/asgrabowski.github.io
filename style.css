@@ -265,11 +265,7 @@ html{
   color:black;
 }
 
-.discarded:hover,
-.active-card:hover,
-.hand:hover,
-.card-in-play:hover,
-.lost:hover{
+.discard-selected, .lost-selected{
 width:200px;
 height:300px;
 transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
