@@ -2421,7 +2421,7 @@ chosenCard1.onclick = () => {
     discardButton.classList.add("not-without-more-selected");
     loseButton.classList.add("not-without-more-selected");
     activateButton.classList.add("not-without-more-selected");
-  } else if (chosenCounter == 1 && !isSelected(chosenCard1)){
+  } else if (chosenCounter == 1 && !isSelected(chosenCard1) && !isFlipped(chosenCard1)){
     chosenCard2.classList.remove("add-border");
     chosenCard1.classList.add("add-border");
   }
@@ -2440,7 +2440,7 @@ chosenCard2.onclick = () => {
     discardButton.classList.add("not-without-more-selected");
     loseButton.classList.add("not-without-more-selected");
     activateButton.classList.add("not-without-more-selected");
-  } else if (chosenCounter == 1 && !isSelected(chosenCard2)){
+  } else if (chosenCounter == 1 && !isSelected(chosenCard2) && !isFlipped(chosenCard2)){
     chosenCard1.classList.remove("add-border");
     chosenCard2.classList.add("add-border");
   }
