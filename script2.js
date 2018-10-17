@@ -4737,7 +4737,6 @@ function blessDeck (){
     modifierDeck.classList.remove("hiding");
     numOfBlesses++
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    shuffleModifierDeck();
   }
 }
 
@@ -4751,7 +4750,6 @@ function curseDeck (){
     modifierDeck.classList.remove("hiding");
     numOfCurses++
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
-    shuffleModifierDeck();
   }
 }
 
