@@ -4683,11 +4683,15 @@ let numOfBlesses = 0;
 let addMinusOne = document.getElementById('add-minus-1');
 let cardsInDeckText = document.getElementById("cardsInDeck");
 let resetDeckButton = document.getElementById("reset-deck");
+let usedMods = document.getElementById("used-modifier-cards");
 
 modifierDeck.onclick = () => {
   if(modDeckArray.length>0){
     let randomModifierIndex = Math.floor(Math.random()*modDeckArray.length);
     playedModifierArray.push(modDeckArray[randomModifierIndex]);
+    var DOM_img = document.createElement("img");
+    DOM_img.src = playedModifierArray[playedModifierArray.length - 1];
+    usedMods.appendChild(DOM_img);
     playedModifiers.classList.remove('hiding');
     playedModifiers.src = playedModifierArray[playedModifierArray.length - 1];
     playedModifiers.classList.add(`${modDeckArray[randomModifierIndex]}`);
@@ -4724,6 +4728,7 @@ function shuffleModifierDeck (){
     playedModifiers.classList.add('hiding');
     modifierDeck.classList.remove("hiding");
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    usedMods.innerHTML = "";
   }
 }
 
@@ -6260,4 +6265,23 @@ if (nsPerk15.classList.contains('checked')){
 }
 defaultDeckArray = modDeckArray.slice();
 confirmPerks();
+}
+
+//Modal for showing what is in the played modifier deck
+
+var zoomModal = document.getElementById("zoomModal");
+var close = document.getElementsByClassName("close")[0];
+playedModifiers.onclick = function() {
+  zoomModal.style.display = "block";
+    }
+
+close.onclick = function() {
+    zoomModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == zoomModal) {
+        zoomModal.style.display = "none";
+    }
 }
