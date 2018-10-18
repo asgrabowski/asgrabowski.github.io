@@ -2257,6 +2257,8 @@ const flipLost = card => {
 let confirmHandButton = document.getElementById('confirm-hand');
 let initialTable = document.getElementById('initial-table');
 let handChosen = false;
+let blessesInDeck = document.getElementById('blessesInDeck');
+let cursesInDeck = document.getElementById('cursesInDeck');
 
 confirmHandButton.onclick = () => {
   if(cardCount === handSize){
@@ -2291,6 +2293,7 @@ confirmHandButton.onclick = () => {
   xpDown.classList.add("at-min");
   decreaseTrackerSize.classList.add("at-min");
   loseHandCard.classList.remove("hiding");
+  shuffleDeck();
   }
 }
 
@@ -4687,15 +4690,14 @@ let usedMods = document.getElementById("used-modifier-cards");
 
 modifierDeck.onclick = () => {
   if(modDeckArray.length>0){
-    let randomModifierIndex = Math.floor(Math.random()*modDeckArray.length);
-    playedModifierArray.push(modDeckArray[randomModifierIndex]);
+    playedModifierArray.push(modDeckArray[0]);
     var DOM_img = document.createElement("img");
     DOM_img.src = playedModifierArray[playedModifierArray.length - 1];
     usedMods.appendChild(DOM_img);
     playedModifiers.classList.remove('hiding');
     playedModifiers.src = playedModifierArray[playedModifierArray.length - 1];
-    playedModifiers.classList.add(`${modDeckArray[randomModifierIndex]}`);
-    modDeckArray.splice(randomModifierIndex, 1);
+    playedModifiers.classList.add(`${modDeckArray[0]}`);
+    modDeckArray.splice(0, 1);
     if (modDeckArray.length === 0){
       modifierDeck.classList.add("hiding");
     }
@@ -4704,9 +4706,11 @@ modifierDeck.onclick = () => {
     }
     if (playedModifiers.classList.contains("./curse.png")){
       numOfCurses--;
+      cursesInDeck.innerHTML = "Extra Curses in Deck: "+numOfCurses;
     }
     if (playedModifiers.classList.contains("./bless.png")){
       numOfBlesses--;
+      blessesInDeck.innerHTML = "Extra Blesses in Deck: "+numOfBlesses;
     }
     if (playedModifiers.classList.contains("./bless.png") || playedModifiers.classList.contains("./curse.png")){
       playedModifierArray.splice((playedModifierArray.length-1), 1);
@@ -4729,6 +4733,17 @@ function shuffleModifierDeck (){
     modifierDeck.classList.remove("hiding");
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
     usedMods.innerHTML = "";
+    shuffleDeck();
+  }
+}
+
+function shuffleDeck (){
+  var deckCopy = modDeckArray.slice();
+  modDeckArray = [];
+  while (deckCopy.length>0){
+    var randomNumber = Math.floor(Math.random()*deckCopy.length);
+    modDeckArray.push(deckCopy[randomNumber]);
+    deckCopy.splice(randomNumber,1);
   }
 }
 
@@ -4742,6 +4757,8 @@ function blessDeck (){
     modifierDeck.classList.remove("hiding");
     numOfBlesses++
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    shuffleDeck();
+    blessesInDeck.innerHTML = "Extra Blesses in Deck: "+numOfBlesses;
   }
 }
 
@@ -4755,6 +4772,8 @@ function curseDeck (){
     modifierDeck.classList.remove("hiding");
     numOfCurses++
     cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    shuffleDeck();
+    cursesInDeck.innerHTML = "Extra Curses in Deck: "+numOfCurses;
   }
 }
 
@@ -4777,6 +4796,8 @@ function resetDeck () {
   numOfCurses = 0;
   numOfBlesses = 0;
   cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  blessesInDeck.innerHTML = "Extra Blesses in Deck: "+numOfBlesses;
+  cursesInDeck.innerHTML = "Extra Curses in Deck: "+numOfCurses;
 }
 
 resetDeckButton.onclick = () => {
