@@ -4798,6 +4798,7 @@ function resetDeck () {
   cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
   blessesInDeck.innerHTML = "Extra Blesses in Deck: "+numOfBlesses;
   cursesInDeck.innerHTML = "Extra Curses in Deck: "+numOfCurses;
+  shuffleDeck();
 }
 
 resetDeckButton.onclick = () => {
