@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Gloomhaven Card Manager</title>
     <link href = "./style.css" type = "text/css" rel = "stylesheet">
   </head>
@@ -22,6 +23,9 @@
           <td><img id = "beastTyrant" class = "character" src = "./bmprofile.png"/><br/><p class = "character-title" align = "center">"Two Minis"</td>
           <td><img id = "doomStalker" class = "character" src = "./dsprofile.png"/><br/><p class = "character-title" align = "center">"Spiky Face"</td>
           <td><img id = "nightshroud" class = "character" src = "./nsProfile.png"/><br/><p class = "character-title" align = "center">"Eclipse"</td>
+        </tr>
+        <tr>
+          <td><img id = "berserker" class = "character" src = "./BE/beProfile.png"/><br/><p class = "character-title" align = "center">"Lighting"</td>
         </tr>
       </table>
       <div id = "level-selection" align = "center">
@@ -627,6 +631,71 @@
             <button id ="nsConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
+
+          <div id ="berserker-perks" class ="perks hiding">
+          <div>
+            <div id ="bePerk1" class = "checkbox bePerk">
+            </div>
+            <p>Remove Two -1 Cards</p>
+          </div>
+          <div>
+            <div id ="bePerk2" class = "checkbox bePerk">
+            </div>
+            <p>Remove Four +0 Cards</p>
+          </div>
+          <div>
+            <div id ="bePerk3-1" class = "checkbox bePerk">
+            </div>
+            <div id ="bePerk3-2" class = "checkbox bePerk">
+            </div>
+            <p>Replace One -1 Card with One +1 Card</p>
+          </div>
+          <div>
+            <div id ="bePerk4-1" class = "checkbox bePerk">
+            </div>
+            <div id ="bePerk4-2" class = "checkbox bePerk">
+            </div>
+            <p>Replace One +0 Card With One +2 Rolling Card</p>
+          </div>
+          <div>
+            <div id ="bePerk5-1" class = "checkbox bePerk">
+            </div>
+            <div id ="bePerk5-2" class = "checkbox bePerk">
+            </div>
+            <p>Add Two Rolling Wound Cards</p>
+          </div>
+          <div>
+            <div id ="bePerk6-1" class = "checkbox bePerk">
+            </div>
+            <div id ="bePerk6-2" class = "checkbox bePerk">
+            </div>
+            <p>Add One Rolling Stun Card</p>
+          </div>
+          <div>
+            <div id ="bePerk7" class = "checkbox bePerk">
+            </div>
+            <p>Add One Rolling +1 Disarm Card</p>
+          </div>
+          <div>
+            <div id ="bePerk8" class = "checkbox bePerk">
+            </div>
+            <p>Add Two Rolling Heal 1 Cards</p>
+          </div>
+          <div>
+            <div id ="bePerk9-1" class = "checkbox bePerk">
+            </div>
+            <div id ="bePerk9-2" class = "checkbox bePerk">
+            </div>
+            <p>Add One Plus 2 Fire Card</p>
+          </div>
+          <div>
+            <div id ="bePerk10" class = "checkbox bePerk">
+            </div>
+            <p>Ignore Negative Item Effects</p>
+          </div>
+          <button id ="beConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
+        </div>
+
           <button id = "go-back1" class = "button hiding" type ="button">Go Back To Character Select</button>
         </div>
 
@@ -701,8 +770,8 @@
           <div><img id = "chosen-card-1" class = "card-in-play flipped" src = "./Card Back.png"/>
           <img id = "chosen-card-2" class = "card-in-play flipped" src = "./Card Back.png"/><br/>
           <button id = "discard-button" class = "button tooltip" type="button" title = "Must Have a Card In Play Selected">Discard Card</button>
-          <button id = "lose-button" class = "button tooltip"type="button"title = "Must Have a Card In Play Selected">Lose Card</button>
-          <button id = "activate-button" class = "button tooltip"type"button" title = "Must Have a Card In Play Selected">Move Card to Active</button>
+          <button id = "lose-button" class = "button tooltip" type="button" title = "Must Have a Card In Play Selected">Lose Card</button>
+          <button id = "activate-button" class = "button tooltip" type="button" title = "Must Have a Card In Play Selected">Move Card to Active</button>
         </div>
           <div id ="attack-modifier-deck" align = "center">
             <h2 id ="mustShuffle" class = "invisible" style = "color: red">Must Shuffle At End of Turn</h2>
