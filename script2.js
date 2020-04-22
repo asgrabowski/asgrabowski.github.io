@@ -2310,7 +2310,7 @@ function confirmCharacter(){
       for (var i = 0; i<cardsToChooseFrom.length; i++){
           (function (){
               var cardToChooseFrom = cardsToChooseFrom[i];
-              if((i>-1 && i<13) || i>14){
+              if((i>-1 && i<14) || i>14){
                   cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './SK/sk"+i+".png' />";
               } else {
                   cardToChooseFrom.innerHTML = '';
