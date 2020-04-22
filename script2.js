@@ -6765,7 +6765,7 @@ beConfirmPerksButton.onclick = () => {
     } else {
         setCookie("perk5", "notChosen", 365);
     }
-    if (bePerk6.classList.contains('checked') && (hasMinus1> 0)){
+    if (bePerk6.classList.contains('checked')){
         for (var i = 0; i<modDeckArray.length; i++){
             if(modDeckArray[i] === mod6){
                 modDeckArray.splice(i, 1);
@@ -6935,7 +6935,7 @@ skConfirmPerksButton.onclick = () => {
     } else {
         setCookie("perk5", "notChosen", 365);
     }
-    if (skPerk6.classList.contains('checked') && (hasMinus1> 0)){
+    if (skPerk6.classList.contains('checked')){
         let newCard = "./skPerks/skRollingPlus1.png";
         modDeckArray.push(newCard);
         modDeckArray.push(newCard);
