@@ -541,6 +541,56 @@ function checkCookie() {
           nsPerk15.classList.add("checked");
         }
         break;
+      case "diviner":
+        diviner.classList.add("character-selected");
+        characterSelected = true;
+        confirmCharacterButton.classList.remove("not-without-more-selected");
+        if (perk1 === "dvchosen"){
+          dvPerk1.classList.add("checked");
+        }
+        if (perk2 === "dvchosen"){
+          dvPerk2.classList.add("checked");
+        }
+        if (perk3 === "dvchosen"){
+          dvPerk3.classList.add("checked");
+        }
+        if (perk4 === "dvchosen"){
+          dvPerk4.classList.add("checked");
+        }
+        if (perk5 === "dvchosen"){
+          dvPerk5.classList.add("checked");
+        }
+        if (perk6 === "dvchosen"){
+          dvPerk6.classList.add("checked");
+        }
+        if (perk7 === "dvchosen"){
+          dvPerk7.classList.add("checked");
+        }
+        if (perk8 === "dvchosen"){
+          dvPerk8.classList.add("checked");
+        }
+        if (perk9 === "dvchosen"){
+          dvPerk9.classList.add("checked");
+        }
+        if (perk10 === "dvchosen"){
+          dvPerk10.classList.add("checked");
+        }
+        if (perk11 === "dvchosen"){
+          dvPerk11.classList.add("checked");
+        }
+        if (perk12 === "dvchosen"){
+          dvPerk12.classList.add("checked");
+        }
+        if (perk13 === "dvchosen"){
+          dvPerk13.classList.add("checked");
+        }
+        if (perk14 === "dvchosen"){
+          dvPerk14.classList.add("checked");
+        }
+        if (perk15 === "dvchosen"){
+          dvPerk15.classList.add("checked");
+        }
+        break;
       default:
         characterSelected = false;
         break;
@@ -620,6 +670,7 @@ let toggleStunned = document.getElementById('toggle-stunned');
 let toggleMuddled = document.getElementById('toggle-muddled');
 let toggleInvisible = document.getElementById('toggle-invisible');
 let toggleStrengthened = document.getElementById('toggle-strengthened');
+let toggleRegenerate = document.getElementById('toggle-regenerate');
 let toggleBearPoison = document.getElementById('toggle-bear-poison');
 let toggleBearWounded = document.getElementById('toggle-bear-wounded');
 let toggleBearImmobilized = document.getElementById('toggle-bear-immobilized');
@@ -628,6 +679,7 @@ let toggleBearStunned = document.getElementById('toggle-bear-stunned');
 let toggleBearMuddled = document.getElementById('toggle-bear-muddled');
 let toggleBearInvisible = document.getElementById('toggle-bear-invisible');
 let toggleBearStrengthened = document.getElementById('toggle-bear-strengthened');
+let toggleBearRegenerate = document.getElementById('toggle-bear-regenerate');
 let xpUp = document.getElementById('xp-up');
 let xpDown = document.getElementById('xp-down');
 let healButton = document.getElementById('heal');
@@ -680,6 +732,7 @@ let tinkerer = document.getElementById('tinkerer');
 let beastTyrant = document.getElementById('beastTyrant');
 let doomStalker = document.getElementById('doomStalker');
 let nightshroud = document.getElementById("nightshroud");
+let diviner = document.getElementById("diviner");
 
 //status effects
 let poisoned = false;
@@ -696,6 +749,8 @@ let muddled = false;
 let muddledToken = document.getElementById('muddled');
 let strengthened = false;
 let strengthenedToken = document.getElementById('strengthened');
+let regenerate = false;
+let regenerateToken = document.getElementById('regenerate');
 let invisible = false;
 let invisibleToken = document.getElementById('invisible');
 let bearPoisoned = false;
@@ -712,6 +767,8 @@ let bearMuddled = false;
 let bearMuddledToken = document.getElementById('bear-muddled');
 let bearStrengthened = false;
 let bearStrengthenedToken = document.getElementById('bear-strengthened');
+let bearRegenerate = false;
+let bearRegenerateToken = document.getElementById('bear-regenerate');
 let bearInvisible = false;
 let bearInvisibleToken = document.getElementById('bear-invisible');
 
@@ -2049,6 +2106,151 @@ function confirmCharacter(){
       break;
       case 9:
       maxHealth = 20;
+      health = maxHealth;
+      break;
+    }
+  } else if(diviner.classList.contains("character-selected")){
+    let characterChoice = "diviner";
+    setCookie("character", "diviner", 365);
+    document.getElementById("diviner-perks").classList.remove("hiding");
+    flippedCard = "./DV/dvBack.png";
+    handSize = 9
+    cardHand10.classList.add("hiding");
+    cardHand11.classList.add("hiding");
+    cardHand12.classList.add("hiding");
+    var hand = document.querySelectorAll(".hand");
+    var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+    for (var i = 0; i<cardsToChooseFrom.length; i++){
+      (function (){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        if((i>-1 && i<11) || i>14){
+          cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './DV/dv"+i+".jpg' />";
+        } else {
+          cardToChooseFrom.innerHTML = '';
+        }
+      }).call(this,i);
+    }
+    for (var j = 0; j<hand.length; j++){
+      (function () {
+        var handCardBack = hand[j];
+        handCardBack.src = flippedCard;
+      }).call(this,j);
+    }
+    switch (levelCount) {
+      case 1:
+      maxHealth = 6;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 15; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 3; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 2:
+      maxHealth = 7;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 17; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 4; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 3:
+      maxHealth = 8;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 19; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 5; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 4:
+      maxHealth = 9;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 21; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 6; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 5:
+      maxHealth = 10;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 23; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 7; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 6:
+      maxHealth = 11;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 25; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 8; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 7:
+      maxHealth = 12;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 27; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 9; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 8:
+      maxHealth = 13;
+      health = maxHealth;
+      var cardsToChooseFrom = document.querySelectorAll(".chooseCardsTable");
+      for(var i = 29; i<cardsToChooseFrom.length; i++){
+        var cardToChooseFrom = cardsToChooseFrom[i];
+        cardToChooseFrom.innerHTML = "";
+      }
+      var levelTitles = document.querySelectorAll(".level");
+      for(var j = 10; j<levelTitles.length; j++){
+        var levelTitle = levelTitles[j];
+        levelTitle.classList.add("hiding");
+      }
+      break;
+      case 9:
+      maxHealth = 14;
       health = maxHealth;
       break;
     }
@@ -3555,6 +3757,25 @@ toggleBearStrengthened.onclick = () =>{
   }
 }
 
+toggleRegenerate.onclick = () =>{
+  if(!regenerate){
+    regenerate = true;
+    regenerateToken.classList.remove('hiding');
+  }else{
+    regenerate = false;
+    regenerateToken.classList.add('hiding');
+  }
+}
+
+toggleBearRegenerate.onclick = () =>{
+  if(!bearRegenerate){
+    bearRegenerate = true;
+    bearRegenerateToken.classList.remove('hiding');
+  }else{
+    bearRegenerate = false;
+    bearRegenerateToken.classList.add('hiding');
+  }
+}
 let healthCounter = document.getElementById('health-counter');
 let xpCounter = document.getElementById('xp-counter');
 let bearHealthCounter = document.getElementById('bear-health-counter');
@@ -4681,12 +4902,14 @@ let mustShuffle = document.getElementById("mustShuffle");
 let blessButton = document.getElementById('bless');
 let curseButton = document.getElementById('curse');
 let shuffleModsButton = document.getElementById('shuffleMods');
+let manipulateModsButton = document.getElementById('manipulateMods');
 let numOfCurses = 0;
 let numOfBlesses = 0;
 let addMinusOne = document.getElementById('add-minus-1');
 let cardsInDeckText = document.getElementById("cardsInDeck");
 let resetDeckButton = document.getElementById("reset-deck");
 let usedMods = document.getElementById("used-modifier-cards");
+let unusedMods = document.getElementById("unused-modifier-cards");
 
 modifierDeck.onclick = () => {
   if(modDeckArray.length>0){
@@ -5173,6 +5396,7 @@ let swConfirmPerksButton = document.getElementById('swConfirmPerksButton');
 let scConfirmPerksButton = document.getElementById('scConfirmPerksButton');
 let tiConfirmPerksButton = document.getElementById('tiConfirmPerksButton');
 let nsConfirmPerksButton = document.getElementById('nsConfirmPerksButton');
+let dvConfirmPerksButton = document.getElementById('dvConfirmPerksButton');
 
 
 //Cragheart
@@ -6289,6 +6513,222 @@ defaultDeckArray = modDeckArray.slice();
 confirmPerks();
 }
 
+  // diviner
+
+  let dvPerk1 = document.getElementById("dvPerk1-1");
+  let dvPerk2 = document.getElementById("dvPerk1-2");
+  let dvPerk3 = document.getElementById("dvPerk2");
+  let dvPerk4 = document.getElementById("dvPerk3-1");
+  let dvPerk5 = document.getElementById("dvPerk3-2");
+  let dvPerk6 = document.getElementById("dvPerk4");
+  let dvPerk7 = document.getElementById("dvPerk5");
+  let dvPerk8 = document.getElementById("dvPerk6");
+  let dvPerk9 = document.getElementById("dvPerk7");
+  let dvPerk10 = document.getElementById("dvPerk8");
+  let dvPerk11 = document.getElementById("dvPerk9");
+  let dvPerk12 = document.getElementById("dvPerk10");
+  let dvPerk13 = document.getElementById("dvPerk11");
+  let dvPerk14 = document.getElementById("dvPerk12");
+  let dvPerk15 = document.getElementById("dvPerk13");
+  hasMinus1 = 0;
+
+dvConfirmPerksButton.onclick = () => {
+if(dvPerk1.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod12){
+      modDeckArray.splice(i, 2);
+      i = modDeckArray.length;
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    }
+  }
+  setCookie("perk1", "dvchosen", 365);
+} else {
+  setCookie("perk1", "notChosen", 365);
+}
+if(dvPerk2.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod14){
+      modDeckArray.splice(i, 2);
+      i = modDeckArray.length;
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    }
+  }
+  setCookie("perk2", "dvchosen", 365);
+} else {
+  setCookie("perk2", "notChosen", 365);
+}
+if(dvPerk3.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod17){
+      modDeckArray.splice(i, 1);
+      i = modDeckArray.length;
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+    }
+  }
+  setCookie("perk3", "dvchosen", 365);
+} else {
+  setCookie("perk3", "notChosen", 365);
+}
+if(dvPerk4.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod7){
+      modDeckArray.splice(i, 2);
+      let newCard = "./dvPerks/dvPlus3Shield1Self.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+  cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  setCookie("perk4", "dvchosen", 365);
+} else {
+  setCookie("perk4", "notChosen", 365);
+}
+if (dvPerk5.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod9){
+      modDeckArray.splice(i, 2);
+      let newCard = "./dvPerks/dvPlus3Shield1Self.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+  cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  setCookie("perk5", "dvchosen", 365);
+  } else {
+    setCookie("perk5", "notChosen", 365);
+  }
+if (dvPerk6.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod1){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus1Shield1Ally.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+      cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(6, modDeckArray)
+      setCookie("perk6", "dvchosen", 365);
+    } else {
+      setCookie("perk6", "notChosen", 365);
+    }
+if (dvPerk7.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod2){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus2Dark.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(7, modDeckArray)
+    setCookie("perk7", "dvchosen", 365);
+} else {
+  setCookie("perk7", "notChosen", 365);
+}
+if (dvPerk8.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod3){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus2Sun.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(8, modDeckArray)
+  setCookie("perk8", "dvchosen", 365);
+} else {
+  setCookie("perk8", "notChosen", 365);
+}
+if (dvPerk9.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod4){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus2Muddle.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(9, modDeckArray)
+  setCookie("perk9", "dvchosen", 365);
+} else {
+  setCookie("perk9", "notChosen", 365);
+}
+if (dvPerk10.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod5){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus2Curse.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(10, modDeckArray)
+  setCookie("perk10", "dvchosen", 365);
+} else {
+  setCookie("perk10", "notChosen", 365);
+}
+if (dvPerk11.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod6){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus2RegenerateSelf.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+      console.log(11, modDeckArray)
+  setCookie("perk11", "dvchosen", 365);
+} else {
+  setCookie("perk11", "notChosen", 365);
+}
+if (dvPerk12.classList.contains('checked')){
+  for (var i = 0; i<modDeckArray.length; i++){
+    if(modDeckArray[i] === mod16){
+      modDeckArray.splice(i, 1);
+      let newCard = "./dvPerks/dvPlus1Heal2Ally.png";
+      modDeckArray.push(newCard);
+      i = modDeckArray.length;
+    }
+  }
+    cardsInDeckText.innerHTML = "Cards in Deck: "+ modDeckArray.length;
+  setCookie("perk12", "dvchosen", 365);
+} else {
+  setCookie("perk12", "notChosen", 365);
+}
+if (dvPerk13.classList.contains('checked')){
+  let newCard = "./dvPerks/dvHeal1SelfRolling.png";
+  modDeckArray.push(newCard);
+  modDeckArray.push(newCard);
+  setCookie("perk13", "dvchosen", 365);
+} else {
+  setCookie("perk13", "notChosen", 365);
+}
+if (dvPerk14.classList.contains('checked')){
+  let newCard = "./dvPerks/dvCurseRolling.png";
+  modDeckArray.push(newCard);
+  modDeckArray.push(newCard);
+  setCookie("perk14", "dvchosen", 365);
+} else {
+  setCookie("perk14", "notChosen", 365);
+}
+if (dvPerk15.classList.contains('checked')){
+  let newCard = "./dvPerks/dvPlus1.png";
+  modDeckArray.push(newCard);
+  modDeckArray.push(newCard);
+  setCookie("perk15", "dvchosen", 365);
+} else {
+  setCookie("perk15", "notChosen", 365);
+}
+defaultDeckArray = modDeckArray.slice();
+confirmPerks();
+}
+
 //Modal for showing what is in the played modifier deck
 
 var zoomModal = document.getElementById("zoomModal");
@@ -6305,5 +6745,59 @@ close.onclick = function() {
 window.onclick = function(event) {
     if (event.target == zoomModal) {
         zoomModal.style.display = "none";
+    }
+}
+
+//Modal for manipulating the unplayed modifier deck (diviner)
+
+var manipulateModal = document.getElementById("manipulateModal");
+var closeManip = document.getElementsByClassName("closeManip")[0];
+
+manipulateModsButton.onclick = function() {
+  let selectValue = 0;
+  let selectEl = document.getElementById("reveal");
+  selectEl.value = "0";
+  let sortableListEl = document.getElementsByClassName("sortable")[0];
+  let inner = '';
+  for (var i=0; i<modDeckArray.length; i++) {
+    inner += `<li data-card="${modDeckArray[i]}"><img src="./amBack.png"></li>`;
+  }
+  sortableListEl.innerHTML = inner;
+  selectEl.addEventListener('change', (event) => {
+    inner = '';
+    selectValue = +event.target.value;
+    for (var i=0; i<modDeckArray.length; i++) {
+      if (i < selectValue) {
+        inner += `<li data-card="${modDeckArray[i]}"><img src="${modDeckArray[i]}"></li>`;
+      }
+      else {
+        inner += `<li data-card="${modDeckArray[i]}"><img src="./amBack.png"></li>`;
+      }
+    }
+    sortableListEl.innerHTML = inner;
+    sortable('.sortable')[0].addEventListener('sortupdate', function(e) {
+      modDeckArray = sortable('.sortable', 'serialize')[0].items;
+    });
+  });
+
+  sortable('.sortable', {
+    itemSerializer: (serializedItem, sortableContainer) => {
+      return serializedItem.node.dataset.card;
+    }
+  })
+  sortable('.sortable')[0].addEventListener('sortupdate', function(e) {
+    modDeckArray = sortable('.sortable', 'serialize')[0].items;
+  });
+  manipulateModal.style.display = "block";
+}
+
+closeManip.onclick = function() {
+  manipulateModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == manipulateModal) {
+        manipulateModal.style.display = "none";
     }
 }
