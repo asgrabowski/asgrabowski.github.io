@@ -2123,7 +2123,7 @@ function confirmCharacter(){
     for (var i = 0; i<cardsToChooseFrom.length; i++){
       (function (){
         var cardToChooseFrom = cardsToChooseFrom[i];
-        if((i>-1 && i<11) || i>14){
+        if((i>-1 && i<12) || i>14){
           cardToChooseFrom.innerHTML = "<img id ='"+`${cardToChooseFrom.id}`+"' class = 'chooseCards "+`${cardToChooseFrom.id}`+"' src = './DV/dv"+i+".jpg' />";
         } else {
           cardToChooseFrom.innerHTML = '';

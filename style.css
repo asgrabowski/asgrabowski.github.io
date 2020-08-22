@@ -341,9 +341,9 @@ transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
 }
 
 .sortable {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+  columns: 5;
+  -webkit-columns: 5;
+  -moz-columns: 5;
 }
 
 .closeManip {
