@@ -5,7 +5,7 @@
     <link href = "./style.css" type = "text/css" rel = "stylesheet">
   </head>
   <body onload="checkCookie()">
-    <div id = "select-class-section" align = "center">
+    <div id = "select-class-section" align = "center"> 
       <h2 class = "header" align = "center" style = "color:white;">Select Your Character</h2>
       <table>
         <tr>
@@ -22,6 +22,11 @@
           <td><img id = "beastTyrant" class = "character" src = "./bmprofile.png"/><br/><p class = "character-title" align = "center">"Two Minis"</td>
           <td><img id = "doomStalker" class = "character" src = "./dsprofile.png"/><br/><p class = "character-title" align = "center">"Spiky Face"</td>
           <td><img id = "nightshroud" class = "character" src = "./nsProfile.png"/><br/><p class = "character-title" align = "center">"Eclipse"</td>
+        </tr>
+        <tr>
+          <td><img id = "diviner" class = "character" src = "./dvProfile.png"/><br/><p class = "character-title" align = "center">"Diviner"</td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
       <div id = "level-selection" align = "center">
@@ -627,6 +632,79 @@
             <button id ="nsConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
           </div>
 
+          <div id ="diviner-perks" class ="perks hiding">
+            <div>
+              <div id ="dvPerk1-1" class = "checkbox dvPerk">
+              </div>
+              <div id ="dvPerk1-2" class = "checkbox dvPerk">
+              </div>
+              <p>Remove Two -1 Cards</p>
+            </div>
+            <div>
+              <div id ="dvPerk2" class = "checkbox dvPerk">
+              </div>
+              <p>Remove One -2 Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk3-1" class = "checkbox dvPerk">
+              </div>
+              <div id ="dvPerk3-2" class = "checkbox dvPerk">
+              </div>
+              <p>Replace Two +1 Cards with One +3 Shield 1 Self Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk4" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +1 Shield 1 Any Ally Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk5" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +2 Dark Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk6" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +2 Sun Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk7" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +2 Muddle Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk8" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +2 Curse Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk9" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One +0 Card with One +2 Regenerate Self Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk10" class = "checkbox dvPerk">
+              </div>
+              <p>Replace One -1 Card with One +1 Heal 2 Any Ally Card</p>
+            </div>
+            <div>
+              <div id ="dvPerk11" class = "checkbox dvPerk">
+              </div>
+              <p>Add Two Rolling Heal 1 Self Cards</p>
+            </div>
+            <div>
+              <div id ="dvPerk12" class = "checkbox dvPerk">
+              </div>
+              <p>Add Two Rolling Curse Cards</p>
+            </div>
+            <div>
+              <div id ="dvPerk13" class = "checkbox dvPerk">
+              </div>
+              <p>Ignore Negative Scenario Effects and Add Two +1 Cards</p>
+            </div>
+            <button id ="dvConfirmPerksButton" class ="button" type ="button">Confirm Perks</button>
+          </div>
+
           <button id = "go-back1" class = "button hiding" type ="button">Go Back To Character Select</button>
         </div>
 
@@ -711,7 +789,8 @@
             <h6 id ="cursesInDeck" style = "color: white">Extra Curses in Deck: 0</h6>
             <img id ="amDeck" class = "attack-modifier" src = "./amBack.png"/>
             <img id = "playedModifiers" class = "attack-modifier hiding" style = "display: hidden;" src = ""/><br/>
-            <button id ="shuffleMods" class = "button" type = "button">Shuffle Modifiers</button><br/>
+            <button id ="shuffleMods" class = "button" type = "button">Shuffle Modifiers</button>
+            <button id ="manipulateMods" class = "button" type = "button">Manipulate Modifiers</button><br/>
             <button id ="bless" class = "button" type = "button">Bless</button>
             <button id ="curse" class = "button" type = "button">Curse</button>
             <button id ="add-minus-1" class = "button" type = "button">Add -1 Card</button>
@@ -805,7 +884,8 @@
             <img id = "stunned" class = "status hiding" src = "./stunned.png"/>
             <img id = "muddled" class = "status hiding" src = "./muddled.png"/>
             <img id = "invisible" class = "status hiding" src = "./invisible.png"/>
-            <img id = "strengthened" class = "status hiding" src = "./Strengthen.png"/><br/>
+            <img id = "strengthened" class = "status hiding" src = "./Strengthen.png"/>
+            <img id = "regenerate" class = "status hiding" src = "./regenerate.png"/><br/>
             <button id ="toggle-poison" type = "button">Toggle Poisoned</button>
             <button id ="toggle-wounded" type = "button">Toggle Wounded</button>
             <button id ="toggle-immobilized" type = "button">Toggle Immobilized</button>
@@ -813,7 +893,8 @@
             <button id ="toggle-stunned" type = "button">Toggle Stunned</button>
             <button id ="toggle-muddled" type = "button">Toggle Muddled</button>
             <button id ="toggle-invisible" type = "button">Toggle Invisible</button>
-            <button id ="toggle-strengthened" type = "button">Toggle Strengthened</button></td>
+            <button id ="toggle-strengthened" type = "button">Toggle Strengthened</button>
+            <button id ="toggle-regenerate" type = "button">Toggle Regenerate</button></td>
           </tr>
           <tr id ="bear-status-effects" class ="hiding">
             <td id ="bear-effects" align ="center" colspan="4">Bear Status Effects<br/>
@@ -826,6 +907,7 @@
             <img id = "bear-muddled" class = "status hiding" src = "./muddled.png"/>
             <img id = "bear-invisible" class = "status hiding" src = "./invisible.png"/>
             <img id = "bear-strengthened" class = "status hiding" src = "./Strengthen.png"/><br/>
+            <img id = "bear-regenerate" class = "status hiding" src = "./regenerate.png"/><br/>
             <button id ="toggle-bear-poison" type = "button">Toggle Bear Poisoned</button>
             <button id ="toggle-bear-wounded" type = "button">Toggle Bear Wounded</button>
             <button id ="toggle-bear-immobilized" type = "button">Toggle Bear Immobilized</button>
@@ -834,6 +916,7 @@
             <button id ="toggle-bear-muddled" type = "button">Toggle Bear Muddled</button>
             <button id ="toggle-bear-invisible" type = "button">Toggle Bear Invisible</button>
             <button id ="toggle-bear-strengthened" type = "button">Toggle Bear Strengthened</button>
+            <button id ="toggle-bear-regenerate" type = "button">Toggle Bear Regenerate</button>
           </tr>
         </table>
         <table id ="hp-xp-loot" align = "center">
@@ -893,6 +976,31 @@
         <button id = "lose-hand-card" class = "button hiding not-without-more-selected" type = "button" title="Must Have One Card Selected">Lose Card To Avoid Damage</button>
       </div>
 
+      <div id = "manipulateModal">
+        <div id ="manipulateContent">
+          <h2 style ="color:black; text-align: center;">Manipulate Your Modifiers</h2>
+          <span class="closeManip">&times;</span>
+          <div id ="unused-modifier-cards">
+            <span>Reveal the top&nbsp;</span>
+						<select name="reveal" id="reveal">
+              <option value="0" selected="selected">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+						</select> 
+            <span>&nbsp;cards</span>
+            <ol class="sortable">
+            </ol>
+          </div>
+        </div>
+      </div>
+
       <div id = "zoomModal">
         <div id ="zoomContent">
           <h2 style ="color:black; text-align: center;">Played Modifiers</h2>
@@ -903,5 +1011,6 @@
       </div>
 
   </body>
+  <script type = "text/javascript" src = "./html5sortable.min.js"></script>
   <script type = "text/javascript" src = "./script2.js"></script>
 </html>
